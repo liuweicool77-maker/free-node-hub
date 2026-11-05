@@ -228,11 +228,12 @@ def test_provider_survives_dead_upstream_using_cache():
     before = _read(cache_file)
 
     # 模拟"付费线路死掉"：给 provider 指定一个连不上的代理出口，同时 url 指向不可达地址
+    # path 用相对路径，和客户端里的真实写法一致（绝对路径在新版内核上行为不同）
     port = _free_port()
     cfg = {
         "mixed-port": _free_port(),
         "mode": "rule",
-        "log-level": "warning",
+        "log-level": "info",
         "external-controller": f"127.0.0.1:{port}",
         "secret": SECRET,
         "proxies": [{"name": "dead-line", "type": "socks5", "server": "127.0.0.1",
@@ -245,7 +246,7 @@ def test_provider_survives_dead_upstream_using_cache():
             "cacheprov": {
                 "type": "http",
                 "url": "http://127.0.0.1:1/free.yaml",
-                "path": cache_file,
+                "path": "./providers/free.yaml",
                 "interval": 3600,
                 "proxy": "GROUPDL",
             }
