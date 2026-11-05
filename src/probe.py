@@ -105,6 +105,24 @@ class Prober:
         skip = {"DIRECT", "REJECT", "REJECT-DROP", "PASS", "COMPATIBLE", "GLOBAL", PROBE_GROUP}
         return [n for n in data.get("proxies", {}) if n not in skip]
 
+    def wait_ready(self, expected: int, timeout: float = 60.0) -> list[str]:
+        """等 provider 把节点真正注册进内核。
+
+        内核的 /version 会在节点全部装载之前就可用，直接读 /proxies 可能只拿到
+        一两条，导致后面"探测了 1 个节点"。这里轮询到节点数达标或超时。
+        """
+        deadline = time.time() + timeout
+        best: list[str] = []
+        while time.time() < deadline:
+            names = self.proxy_names()
+            if len(names) >= expected:
+                return names
+            if len(names) > len(best):
+                best = names
+            time.sleep(1.0)
+        LOG.warning("探测内核只注册了 %d/%d 个节点（超时 %.0fs）", len(best), expected, timeout)
+        return best
+
     def _delay(self, name: str, timeout_ms: int) -> int | None:
         q = urllib.parse.urlencode({"timeout": timeout_ms, "url": PROBE_URL})
         path = f"/proxies/{urllib.parse.quote(name, safe='')}/delay?{q}"

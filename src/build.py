@@ -390,7 +390,11 @@ def main() -> int:
         try:
             with Prober(args.mihomo) as p:
                 p.start(candidates)
-                names = p.proxy_names()
+                names = p.wait_ready(expected=len(candidates))
+                if len(names) < max(10, int(len(candidates) * 0.1)):
+                    raise RuntimeError(
+                        f"探测内核只注册了 {len(names)}/{len(candidates)} 个节点，视为探测设施异常"
+                    )
                 delays = p.run(names, timeout_ms=args.probe_timeout, workers=args.probe_workers)
         except Exception as e:  # 探测设施故障不应阻断发布，但要如实记录
             LOG.warning("探测失败（降级为不探测）：%s", e)
@@ -409,12 +413,18 @@ def main() -> int:
     # ---------------- 8. 发布门禁
     prev_total = read_previous_total(args.out)
     threshold = max(min_publish, int(prev_total * min_ratio))
-    decision = "publish"
-    if args.force:
-        LOG.warning("--force 已启用，跳过数量门禁")
+    # 绝对下限永远生效：--force 只能跳过"相对上一版的降幅"判断，不能把空订阅推上去
+    if len(alive) < min_publish:
+        decision = "blocked_below_minimum"
+        LOG.error("节点数 %d 低于绝对下限 %d，无论是否 --force 都不发布", len(alive), min_publish)
+    elif args.force:
+        decision = "publish"
+        LOG.warning("--force 已启用，跳过数量下降门禁（绝对下限仍生效）")
     elif len(alive) < threshold:
         decision = "blocked_count_drop"
         LOG.error("节点数 %d 低于门槛 %d（上一版 %d），保留旧版本", len(alive), threshold, prev_total)
+    else:
+        decision = "publish"
 
     stats["counts"] = {
         "raw": raw_total, "sanitized": sanitized_total, "duplicates_removed": dup,
