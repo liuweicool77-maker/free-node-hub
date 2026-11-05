@@ -254,19 +254,18 @@ def test_provider_survives_dead_upstream_using_cache():
         "log-level": "info",
         "external-controller": f"127.0.0.1:{api_port}",
         "secret": SECRET,
-        "proxies": [{"name": "dead-line", "type": "socks5", "server": "127.0.0.1",
-                     "port": 1, "username": "u", "password": "p", "tls": True}],
         "proxy-groups": [
-            {"name": "GROUPDL", "type": "select", "proxies": ["DIRECT", "dead-line"]},
             {"name": "USE", "type": "select", "use": ["cacheprov"]},
         ],
+        # 这里刻意不设 provider.proxy：本用例验证的是"拉取失败必须回退缓存"，
+        # 与出口怎么选无关；不同内核版本对 proxy 指向组名的支持不一致，
+        # 混在一起会让用例变成版本探测而不是行为断言。
         "proxy-providers": {
             "cacheprov": {
                 "type": "http",
                 "url": f"http://127.0.0.1:{srv_port}/free.yaml",
                 "path": "./providers/free.yaml",
                 "interval": 3600,
-                "proxy": "GROUPDL",
             }
         },
         "rules": ["MATCH,USE"],
