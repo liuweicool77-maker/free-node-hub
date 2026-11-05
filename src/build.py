@@ -132,6 +132,20 @@ def build_summary(stats: dict) -> str:
         f"- 抓取 {c['raw']} → 清洗通过 {c['sanitized']} → 去重移除 {c['duplicates_removed']} "
         f"→ 配额后 {c['after_cap']} → 探测存活 {c['probed_alive']}",
         f"- 判定结果：`{stats['gate']['decision']}`",
+    ]
+
+    probe = stats.get("probe") or {}
+    if probe.get("error"):
+        lines.append(f"- ⚠️ 真实探测失败并降级（本轮为未经验证的节点）：`{probe['error']}`")
+    elif probe.get("alive") is not None:
+        lines.append(
+            f"- 真实探测：测试 {probe.get('tested')}，存活 {probe.get('alive')}，"
+            f"中位延迟 {probe.get('median_delay_ms')} ms"
+        )
+    else:
+        lines.append("- 真实探测：已跳过")
+
+    lines += [
         "",
         "### 各来源",
         "",
@@ -171,6 +185,14 @@ def main() -> int:
     ap.add_argument("--cache-max-age-h", type=float, default=48.0, help="缓存最大可用时长（小时）")
     ap.add_argument("--force", action="store_true", help="忽略数量下降门禁强制发布（仅排障）")
     args = ap.parse_args()
+
+    # 相对路径会在切换工作目录后失效（探测会用 cwd=临时目录启动内核），统一转绝对路径
+    if args.mihomo:
+        args.mihomo = os.path.abspath(args.mihomo)
+        if not os.path.exists(args.mihomo):
+            LOG.error("内核路径不存在：%s", args.mihomo)
+            return EXIT_FATAL
+    # MMDB 不做 abspath：Windows 下 maxminddb 对含中文的绝对路径会打开失败，相对路径正常
 
     sources, limits = load_sources(args.sources)
     total_max = int(limits.get("total_max", 600))
@@ -372,6 +394,7 @@ def main() -> int:
                 delays = p.run(names, timeout_ms=args.probe_timeout, workers=args.probe_workers)
         except Exception as e:  # 探测设施故障不应阻断发布，但要如实记录
             LOG.warning("探测失败（降级为不探测）：%s", e)
+            print(f"::warning title=真实探测已降级::本轮发布的是未经代理验证的节点：{e}")
             stats["probe"] = {"enabled": True, "error": str(e), "tested": 0, "alive": None}
         else:
             alive = [n for n in candidates if n["name"] in delays]

@@ -39,7 +39,13 @@ class GeoResolver:
     def __init__(self, mmdb_path: str, cache_path: str | None = None):
         import maxminddb
 
-        self._db = maxminddb.open_database(mmdb_path)
+        self._fh = None
+        try:
+            self._db = maxminddb.open_database(mmdb_path)
+        except (FileNotFoundError, OSError):
+            # Windows 上 C 扩展对含非 ASCII 字符的绝对路径会失败，改用文件对象绕过
+            self._fh = open(mmdb_path, "rb")
+            self._db = maxminddb.open_database(self._fh)
         self._cache_path = cache_path
         self._cache: dict[str, dict] = {}
         if cache_path and os.path.exists(cache_path):
@@ -54,6 +60,11 @@ class GeoResolver:
             self._db.close()
         except Exception:
             pass
+        if self._fh is not None:
+            try:
+                self._fh.close()
+            except Exception:
+                pass
 
     def save_cache(self) -> None:
         if not self._cache_path:

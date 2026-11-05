@@ -46,7 +46,8 @@ def _api(port: int, path: str, timeout: float = 10.0):
 
 class Prober:
     def __init__(self, mihomo: str, workdir: str | None = None):
-        self.mihomo = mihomo
+        # 必须绝对路径：下面会用 cwd=临时目录启动子进程，相对路径会解析到错误位置
+        self.mihomo = os.path.abspath(mihomo)
         self._tmp = workdir or tempfile.mkdtemp(prefix="fnh-probe-")
         self._own_tmp = workdir is None
         self.proc: subprocess.Popen | None = None
