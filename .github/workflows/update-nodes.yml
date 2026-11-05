@@ -1,0 +1,121 @@
+name: Update free node subscription
+
+# 每 6 小时一次，取 17 分避开整点高峰（GitHub 定时任务在整点前后排队最严重）
+on:
+  schedule:
+    - cron: "17 */6 * * *"
+  workflow_dispatch:
+    inputs:
+      skip_probe:
+        description: "跳过真实代理探测（仅结构校验，速度更快）"
+        type: boolean
+        default: false
+      force_publish:
+        description: "忽略数量下降门禁强制发布（危险，仅排障用）"
+        type: boolean
+        default: false
+
+# 最小权限：只需要写仓库内容
+permissions:
+  contents: write
+
+# 同一时刻只跑一个，避免两次构建互相覆盖
+concurrency:
+  group: free-node-hub-update
+  cancel-in-progress: false
+
+jobs:
+  update:
+    name: Collect / validate / publish
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+          persist-credentials: true
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: 离线单元测试
+        run: python tests/test_pipeline.py
+
+      - name: 准备内核与 GeoIP 库
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: bash tools/prepare_deps.sh bin
+
+      - name: 构建订阅
+        id: build
+        shell: bash
+        run: |
+          set +e
+          ARGS="--mmdb Country.mmdb --mihomo ./bin/mihomo --summary $GITHUB_STEP_SUMMARY --probe-workers 16 --probe-limit 600"
+          if [ "${{ inputs.skip_probe }}" = "true" ]; then ARGS="$ARGS --no-probe"; fi
+          if [ "${{ inputs.force_publish }}" = "true" ]; then ARGS="$ARGS --force"; fi
+          python src/build.py $ARGS
+          code=$?
+          set -e
+          echo "code=$code" >> "$GITHUB_OUTPUT"
+          case "$code" in
+            0) echo "构建与发布成功" ;;
+            2) echo "::warning title=发布门禁拦截::节点数低于门槛，已保留旧版本，未提交任何变更" ;;
+            3) echo "::warning title=配置校验失败::生成的配置未通过内核校验，已保留旧版本" ;;
+            *) echo "::error title=构建失败::见上方日志" ; exit 1 ;;
+          esac
+
+      - name: 提交并推送
+        if: steps.build.outputs.code == '0'
+        shell: bash
+        run: |
+          set -e
+          if git diff --quiet -- dist/free-proxies.yaml; then
+            echo "节点集合无有效变化，跳过提交"
+            git checkout -- dist || true
+            exit 0
+          fi
+          old=$(git show HEAD:dist/free-proxies.yaml 2>/dev/null | grep -c '^- name:' || true)
+          new=$(grep -c '^- name:' dist/free-proxies.yaml || true)
+          git config user.name "free-node-hub-bot"
+          git config user.email "free-node-hub-bot@users.noreply.github.com"
+          git add dist/free-proxies.yaml dist/stats.json
+          git commit -m "chore(nodes): ${old:-0} -> ${new:-0} nodes [skip ci]"
+          for i in 1 2 3; do
+            git pull --rebase --autostash origin "${GITHUB_REF_NAME}" && git push && break
+            echo "推送失败，第 $i 次重试"; sleep 5
+          done
+
+      - name: 记录运行摘要
+        if: always()
+        shell: bash
+        run: |
+          {
+            echo ""
+            echo "### 运行信息"
+            echo "- 触发方式：${{ github.event_name }}"
+            echo "- 提交：\`${{ github.sha }}\`"
+            echo "- 定时任务状态自检："
+            echo '  ```'
+            gh api "repos/${{ github.repository }}/actions/workflows" \
+              --jq '.workflows[] | "\(.name) | state=\(.state)"' 2>/dev/null || echo "  (查询失败，可忽略)"
+            echo '  ```'
+          } >> "$GITHUB_STEP_SUMMARY"
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: 上传统计
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: stats-${{ github.run_number }}
+          path: dist/stats.json
+          if-no-files-found: warn
+          retention-days: 30

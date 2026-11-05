@@ -1,0 +1,8 @@
+# 工具与缓存，不入库
+.cache/
+bin/
+Country.mmdb
+__pycache__/
+*.pyc
+.venv/
+dist/*.tmp

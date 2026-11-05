@@ -1,0 +1,104 @@
+{
+  "generated_at": "2026-11-05T10:21:18Z",
+  "tool": "FreeNodeHub/1.0",
+  "sources": [
+    {
+      "id": "zh",
+      "name": "zhuhaiuk/free-nodes",
+      "url": "https://raw.githubusercontent.com/zhuhaiuk/free-nodes/main/clash_config.yaml",
+      "license": "none-declared",
+      "ok": true,
+      "http_status": 200,
+      "bytes": 5024,
+      "raw_nodes": 30,
+      "kept_nodes": 6,
+      "error": null,
+      "from_cache": false,
+      "rejected": {
+        "tls_ip_without_sni": 14,
+        "plaintext_proxy": 9,
+        "unsupported_type": 1
+      }
+    },
+    {
+      "id": "au",
+      "name": "Au1rxx/free-vpn-subscriptions",
+      "url": "https://raw.githubusercontent.com/Au1rxx/free-vpn-subscriptions/main/output/clash.yaml",
+      "license": "MIT",
+      "ok": true,
+      "http_status": 200,
+      "bytes": 615234,
+      "raw_nodes": 1751,
+      "kept_nodes": 320,
+      "error": null,
+      "from_cache": false,
+      "rejected": {
+        "bad_sni": 60,
+        "tls_ip_without_sni": 37,
+        "grpc_without_service_name": 32,
+        "bad_network": 12
+      }
+    },
+    {
+      "id": "nr",
+      "name": "nodesradar/nodesradar-en",
+      "url": "https://radarhub.top/clash.yaml",
+      "license": "none-declared",
+      "ok": true,
+      "http_status": 200,
+      "bytes": 135080,
+      "raw_nodes": 500,
+      "kept_nodes": 320,
+      "error": null,
+      "from_cache": false,
+      "rejected": {
+        "tls_ip_without_sni": 16,
+        "bad_sni": 2
+      }
+    }
+  ],
+  "counts": {
+    "raw": 2281,
+    "sanitized": 646,
+    "duplicates_removed": 73,
+    "after_cap": 573,
+    "probed_alive": 5,
+    "published": 0
+  },
+  "rejected_reasons": {
+    "tls_ip_without_sni": 67,
+    "plaintext_proxy": 9,
+    "unsupported_type": 1,
+    "bad_sni": 62,
+    "bad_network": 12,
+    "grpc_without_service_name": 32
+  },
+  "by_region": {
+    "CN": 2,
+    "US": 1,
+    "IT": 2
+  },
+  "by_protocol": {
+    "vmess": 1,
+    "vless": 1,
+    "http": 1,
+    "ss": 2
+  },
+  "probe": {
+    "enabled": true,
+    "tested": 120,
+    "alive": 5,
+    "median_delay_ms": 1056,
+    "min_delay_ms": 102,
+    "max_delay_ms": 2156
+  },
+  "gate": {
+    "previous_total": 326,
+    "threshold": 163,
+    "decision": "blocked_count_drop"
+  },
+  "validation": {
+    "ok": true,
+    "message": "time=\"2026-11-05T18:21:51.139820900+08:00\" level=info msg=\"Start initial configuration in progress\"\ntime=\"2026-11-05T18:21:51.183635700+08:00\" level=info msg=\"Geodata Loader mode: memconservative\"\ntime=\"2026-11-05T18:21:51.183635700+08:00\" level=info msg=\"Geosite Matcher implementation: succinct\"\ntime=\"2026-11-05T18:21:51.191380400+08:00\" level=info msg=\"Initial configuration complete, total time: 33ms\"\nconfiguration file C:\\Users\\LIUWEI~1\\AppData\\Local\\Temp\\fnh-val-gw3oicfl\\validate.yaml test is successful"
+  }
+}
