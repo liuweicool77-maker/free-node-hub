@@ -158,4 +158,23 @@ function injectFreeNodes(config) {
   // 去掉历史残留的同名项，再统一追加到末尾（付费线路保持在列表最前）
   members = members.filter(function (n) { return wantedNames.indexOf(n) === -1; });
   mainGroup.proxies = members.concat(wantedNames);
+
+  // --- 4) 让内核通过付费线路去拉订阅 ---
+  // 原因：内核拉 provider 是它自己直连，不走系统代理；raw.githubusercontent 在国内
+  // 直连基本不通，直连拉取会永远拿到 0 个节点。
+  // 这里挑一个"只含付费节点"的组作为出口，避免出现
+  // 免费组 → provider → 免费组 的循环依赖。
+  var fetchVia = null;
+  for (var m = 0; m < all.length; m++) {
+    var g = all[m];
+    if (!g || g.type === "select") continue;
+    if (g.name === "自动选择" && Array.isArray(g.proxies) && g.proxies.length) { fetchVia = g; break; }
+  }
+  if (!fetchVia) {
+    // 退而求其次：主选择组本身（它的成员是付费节点 + 免费组，只要当前选的是付费节点就安全）
+    fetchVia = mainGroup;
+  }
+  if (fetchVia) {
+    config["proxy-providers"][FNH.providerName].proxy = fetchVia.name;
+  }
 }
