@@ -387,19 +387,25 @@ def main() -> int:
     if not args.no_probe and args.mihomo:
         from probe import Prober
         candidates = named[: args.probe_limit]
+        prober = None
         try:
-            with Prober(args.mihomo) as p:
-                p.start(candidates)
-                names = p.wait_ready(expected=len(candidates))
-                if len(names) < max(10, int(len(candidates) * 0.1)):
-                    raise RuntimeError(
-                        f"探测内核只注册了 {len(names)}/{len(candidates)} 个节点，视为探测设施异常"
-                    )
-                delays = p.run(names, timeout_ms=args.probe_timeout, workers=args.probe_workers)
+            prober = Prober(args.mihomo)
+            prober.start(candidates)
+            names = prober.wait_ready(expected=len(candidates))
+            if len(names) < max(10, int(len(candidates) * 0.1)):
+                raise RuntimeError(
+                    f"探测内核只注册了 {len(names)}/{len(candidates)} 个节点，视为探测设施异常"
+                )
+            delays = prober.run(names, timeout_ms=args.probe_timeout, workers=args.probe_workers)
         except Exception as e:  # 探测设施故障不应阻断发布，但要如实记录
             LOG.warning("探测失败（降级为不探测）：%s", e)
             print(f"::warning title=真实探测已降级::本轮发布的是未经代理验证的节点：{e}")
-            stats["probe"] = {"enabled": True, "error": str(e), "tested": 0, "alive": None}
+            tail = prober.log_tail(30) if prober else "(无)"
+            print("----- 探测内核日志尾部 -----")
+            print(tail)
+            print("---------------------------")
+            stats["probe"] = {"enabled": True, "error": str(e), "tested": 0, "alive": None,
+                              "core_log_tail": tail[-3000:]}
         else:
             alive = [n for n in candidates if n["name"] in delays]
             ds = sorted(delays.values())
@@ -409,6 +415,9 @@ def main() -> int:
                 "min_delay_ms": ds[0] if ds else None,
                 "max_delay_ms": ds[-1] if ds else None,
             }
+        finally:
+            if prober:
+                prober.stop()
 
     # ---------------- 8. 发布门禁
     prev_total = read_previous_total(args.out)

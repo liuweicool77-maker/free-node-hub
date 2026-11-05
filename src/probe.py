@@ -81,6 +81,7 @@ class Prober:
             json.dump(cfg, f, ensure_ascii=False, indent=1)
 
         log_path = os.path.join(self._tmp, "core.log")
+        self.log_path = log_path
         log_file = open(log_path, "w", encoding="utf-8", errors="replace")
         self.proc = subprocess.Popen(
             [self.mihomo, "-d", self._tmp, "-f", cfg_path],
@@ -120,8 +121,21 @@ class Prober:
             if len(names) > len(best):
                 best = names
             time.sleep(1.0)
-        LOG.warning("探测内核只注册了 %d/%d 个节点（超时 %.0fs）", len(best), expected, timeout)
+        LOG.warning(
+            "探测内核只注册了 %d/%d 个节点（超时 %.0fs），已注册样本: %s",
+            len(best), expected, timeout, ", ".join(best[:5]) or "(空)",
+        )
         return best
+
+    def log_tail(self, lines: int = 40) -> str:
+        """把探测内核的日志尾部取出来，用于失败诊断。"""
+        try:
+            with open(self.log_path, encoding="utf-8", errors="replace") as f:
+                tail = f.readlines()[-lines:]
+            from common import scrub
+            return scrub("".join(tail)).strip()
+        except Exception:
+            return "(无内核日志)"
 
     def _delay(self, name: str, timeout_ms: int) -> int | None:
         q = urllib.parse.urlencode({"timeout": timeout_ms, "url": PROBE_URL})
