@@ -216,36 +216,54 @@ def test_prober_raises_when_kernel_cannot_start():
 
 @case
 def test_provider_survives_dead_upstream_using_cache():
-    """付费线路全挂（provider 拉不动）时，内核必须继续用本地缓存的旧节点。"""
+    """两阶段实验：先让内核自己拉一次写缓存，再断源重启，验证是否回退缓存。
+
+    阶段 A：本地起一个 HTTP 服务提供订阅 → 内核成功拉取并写缓存
+    阶段 B：关掉服务（模拟付费线路全挂 / 订阅更新失败）→ 重启内核
+            → 必须仍能拿到阶段 A 缓存里的节点，且缓存文件不被改写
+    """
     if not need_mihomo():
         return
+    import functools
+    import http.server
+    import socketserver
+    import threading
+    import time
+
     from probe import _api, _free_port, SECRET
+
     work = tempfile.mkdtemp(prefix="fnh-fm-")
     os.makedirs(os.path.join(work, "providers"), exist_ok=True)
-    cache_file = os.path.join(work, "providers", "free.yaml")
-    with open(cache_file, "w", encoding="utf-8") as f:
+    src = os.path.join(work, "free.yaml")
+    with open(src, "w", encoding="utf-8") as f:
         f.write(VALID_FIXTURE)
-    before = _read(cache_file)
 
-    # 模拟"付费线路死掉"：给 provider 指定一个连不上的代理出口，同时 url 指向不可达地址
-    # path 用相对路径，和客户端里的真实写法一致（绝对路径在新版内核上行为不同）
-    port = _free_port()
+    class Quiet(http.server.SimpleHTTPRequestHandler):
+        def log_message(self, *a):  # 静音
+            pass
+
+    srv_port = _free_port()
+    handler = functools.partial(Quiet, directory=work)
+    httpd = socketserver.TCPServer(("127.0.0.1", srv_port), handler)
+    threading.Thread(target=httpd.serve_forever, daemon=True).start()
+
+    api_port = _free_port()
     cfg = {
         "mixed-port": _free_port(),
         "mode": "rule",
         "log-level": "info",
-        "external-controller": f"127.0.0.1:{port}",
+        "external-controller": f"127.0.0.1:{api_port}",
         "secret": SECRET,
         "proxies": [{"name": "dead-line", "type": "socks5", "server": "127.0.0.1",
                      "port": 1, "username": "u", "password": "p", "tls": True}],
         "proxy-groups": [
-            {"name": "GROUPDL", "type": "select", "proxies": ["dead-line", "DIRECT"]},
+            {"name": "GROUPDL", "type": "select", "proxies": ["DIRECT", "dead-line"]},
             {"name": "USE", "type": "select", "use": ["cacheprov"]},
         ],
         "proxy-providers": {
             "cacheprov": {
                 "type": "http",
-                "url": "http://127.0.0.1:1/free.yaml",
+                "url": f"http://127.0.0.1:{srv_port}/free.yaml",
                 "path": "./providers/free.yaml",
                 "interval": 3600,
                 "proxy": "GROUPDL",
@@ -256,34 +274,58 @@ def test_provider_survives_dead_upstream_using_cache():
     cfg_path = os.path.join(work, "cfg.yaml")
     with open(cfg_path, "w", encoding="utf-8") as f:
         json.dump(cfg, f, ensure_ascii=False)
+    cache_file = os.path.join(work, "providers", "free.yaml")
 
-    log = open(os.path.join(work, "core.log"), "w", encoding="utf-8")
-    proc = subprocess.Popen([CTX["mihomo"], "-d", work, "-f", cfg_path],
-                            stdout=log, stderr=subprocess.STDOUT, cwd=work)
-    try:
-        import time
-        deadline = time.time() + 25
-        names = []
-        seen_all = set()
+    def boot(seconds: float):
+        log = open(os.path.join(work, "core.log"), "a", encoding="utf-8")
+        proc = subprocess.Popen([CTX["mihomo"], "-d", work, "-f", cfg_path],
+                                stdout=log, stderr=subprocess.STDOUT, cwd=work)
+        got = []
+        deadline = time.time() + seconds
         while time.time() < deadline:
             try:
-                data = _api(port, "/proxies")
-                seen_all = set(data.get("proxies", {}))
-                names = sorted(seen_all & {"a", "b", "c"})  # 只看 fixture 里的三个节点
-                if len(names) == 3:
+                have = set(_api(api_port, "/proxies").get("proxies", {}))
+                got = sorted(have & {"a", "b", "c"})
+                if len(got) == 3:
                     break
             except Exception:
                 pass
             time.sleep(0.5)
-        if len(names) != 3:
+        return proc, got, log
+
+    # ---- 阶段 A：源可用，内核自己写缓存
+    proc, got_a, log = boot(30)
+    try:
+        assert len(got_a) == 3, f"阶段 A 未能从订阅加载节点：{got_a}"
+    finally:
+        proc.terminate()
+        try:
+            proc.wait(timeout=10)
+        except Exception:
+            proc.kill()
+        log.close()
+
+    deadline = time.time() + 10
+    while time.time() < deadline and not os.path.exists(cache_file):
+        time.sleep(0.5)
+    assert os.path.exists(cache_file), "内核没有把拉取结果写成本地缓存"
+    cached = _read(cache_file)
+    assert b"name: a" in cached, f"缓存内容异常：{cached[:200]}"
+
+    # ---- 阶段 B：源断开（模拟付费线路全挂 + 订阅更新失败），重启内核
+    httpd.shutdown()
+    httpd.server_close()
+
+    proc, got_b, log = boot(30)
+    try:
+        if len(got_b) != 3:
             try:
-                log_txt = open(os.path.join(work, "core.log"), encoding="utf-8",
-                               errors="replace").read()[-1500:]
+                tail = open(os.path.join(work, "core.log"), encoding="utf-8",
+                            errors="replace").read()[-1200:]
             except Exception:
-                log_txt = "(无日志)"
+                tail = "(无日志)"
             raise AssertionError(
-                f"拉取失败后缓存节点未加载，只看到 {names}；/proxies 里共 {len(seen_all)} 项\n"
-                f"---- core.log ----\n{log_txt}"
+                f"源断开后内核没有回退到缓存，只看到 {got_b}\n---- core.log ----\n{tail}"
             )
     finally:
         proc.terminate()
@@ -292,7 +334,8 @@ def test_provider_survives_dead_upstream_using_cache():
         except Exception:
             proc.kill()
         log.close()
-    assert _read(cache_file) == before, "provider 拉取失败却改写了缓存文件"
+
+    assert _read(cache_file) == cached, "回退缓存后缓存文件被改写"
 
 
 @case
