@@ -112,8 +112,13 @@ function injectFreeNodes(config) {
   }
 
   // --- 2) 组：先剔除同名旧组再重建，避免订阅更新后重复注入 ---
+  // 注意：订阅更新出口 也算"我们的组"，必须一起剔除，
+  // 否则它会作为"原有组"被保留在原位，导致每次重建后组顺序漂移（不幂等）。
+  var infraName = "订阅更新出口";
+  var ourNames = wantedNames.concat([infraName]);
+
   var kept = groupList.filter(function (g) {
-    return !g || wantedNames.indexOf(g.name) === -1;
+    return !g || ourNames.indexOf(g.name) === -1;
   });
 
   var built = FNH.groups.map(function (spec) {
@@ -166,7 +171,7 @@ function injectFreeNodes(config) {
 
   var members = Array.isArray(mainGroup.proxies) ? mainGroup.proxies.slice() : [];
   // 去掉历史残留的同名项，再统一追加到末尾（付费线路保持在列表最前）
-  members = members.filter(function (n) { return wantedNames.indexOf(n) === -1; });
+  members = members.filter(function (n) { return ourNames.indexOf(n) === -1; });
   mainGroup.proxies = members.concat(wantedNames);
 
   // --- 4) 订阅下载出口 ---
@@ -174,7 +179,6 @@ function injectFreeNodes(config) {
   // 但绑定死付费线路又会在机场挂掉时彻底断掉更新。所以用 fallback：
   // 优先付费（自动选择），付费不通就落到 DIRECT。
   // 这里刻意不引用任何免费节点，避免"免费组 → provider → 免费组"的循环依赖。
-  var infraName = "订阅更新出口";
   var infraMembers = [];
   for (var m = 0; m < all.length; m++) {
     if (all[m] && all[m].name === "自动选择" && all[m].type === "url-test") {
@@ -184,25 +188,16 @@ function injectFreeNodes(config) {
   }
   infraMembers.push("DIRECT");
 
-  var infra = null;
-  for (var n = 0; n < all.length; n++) {
-    if (all[n] && all[n].name === infraName) { infra = all[n]; break; }
-  }
-  if (!infra) {
-    infra = {
-      name: infraName,
-      type: "fallback",
-      proxies: infraMembers,
-      url: FNH.healthCheckUrl,
-      interval: 600,
-      timeout: 5000,
-      lazy: false
-    };
-    config["proxy-groups"].push(infra);
-  } else {
-    infra.type = "fallback";
-    infra.proxies = infraMembers;
-  }
+  // 固定追加到末尾，保证多次执行后组顺序完全一致
+  config["proxy-groups"].push({
+    name: infraName,
+    type: "fallback",
+    proxies: infraMembers,
+    url: FNH.healthCheckUrl,
+    interval: 600,
+    timeout: 5000,
+    lazy: false
+  });
 
   config["proxy-providers"][FNH.providerName].proxy = infraName;
 }

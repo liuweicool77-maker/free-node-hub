@@ -263,17 +263,27 @@ def test_provider_survives_dead_upstream_using_cache():
         import time
         deadline = time.time() + 25
         names = []
+        seen_all = set()
         while time.time() < deadline:
             try:
                 data = _api(port, "/proxies")
-                have = set(data.get("proxies", {}))
-                names = sorted(have & {"a", "b", "c"})  # 只看 fixture 里的三个节点
+                seen_all = set(data.get("proxies", {}))
+                names = sorted(seen_all & {"a", "b", "c"})  # 只看 fixture 里的三个节点
                 if len(names) == 3:
                     break
             except Exception:
                 pass
             time.sleep(0.5)
-        assert len(names) == 3, f"拉取失败后缓存节点未加载，只看到 {names}"
+        if len(names) != 3:
+            try:
+                log_txt = open(os.path.join(work, "core.log"), encoding="utf-8",
+                               errors="replace").read()[-1500:]
+            except Exception:
+                log_txt = "(无日志)"
+            raise AssertionError(
+                f"拉取失败后缓存节点未加载，只看到 {names}；/proxies 里共 {len(seen_all)} 项\n"
+                f"---- core.log ----\n{log_txt}"
+            )
     finally:
         proc.terminate()
         try:
