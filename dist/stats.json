@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-05T11:49:34Z",
+  "generated_at": "2026-11-05T11:55:57Z",
   "tool": "FreeNodeHub/1.0",
   "sources": [
     {
@@ -83,7 +83,7 @@
     "GB": 85,
     "IT": 10,
     "KR": 16,
-    "DE": 59,
+    "DE": 58,
     "UNKNOWN": 36,
     "ZA": 2,
     "IN": 4,
@@ -93,7 +93,7 @@
     "AU": 2,
     "MX": 2,
     "AE": 4,
-    "FR": 30,
+    "FR": 31,
     "CY": 2,
     "IL": 1,
     "TH": 2,
@@ -125,15 +125,16 @@
     "enabled": true,
     "error": "探测内核只注册了 1/573 个节点，视为探测设施异常",
     "tested": 0,
-    "alive": null
+    "alive": null,
+    "core_log_tail": "time=\"2026-11-05T11:56:00.119554254Z\" level=info msg=\"Start initial configuration in progress\"\ntime=\"2026-11-05T11:56:00.119705766Z\" level=info msg=\"Geodata Loader mode: memconservative\"\ntime=\"2026-11-05T11:56:00.119787214Z\" level=info msg=\"Geosite Matcher implementation: succinct\"\ntime=\"2026-11-05T11:56:00.119949326Z\" level=info msg=\"Initial configuration complete, total time: 0ms\""
   },
   "gate": {
-    "previous_total": 0,
-    "threshold": 20,
+    "previous_total": 573,
+    "threshold": 286,
     "decision": "publish"
   },
   "validation": {
     "ok": true,
-    "message": "time=\"2026-11-05T11:49:37.214963054Z\" level=info msg=\"Start initial configuration in progress\"\ntime=\"2026-11-05T11:49:37.244526562Z\" level=info msg=\"Geodata Loader mode: memconservative\"\ntime=\"2026-11-05T11:49:37.244558763Z\" level=info msg=\"Geosite Matcher implementation: succinct\"\ntime=\"2026-11-05T11:49:37.244692714Z\" level=info msg=\"Initial configuration complete, total time: 29ms\"\nconfiguration file /tmp/fnh-val-lzs6mxuf/validate.yaml test is successful"
+    "message": "time=\"2026-11-05T11:56:00.071936564Z\" level=info msg=\"Start initial configuration in progress\"\ntime=\"2026-11-05T11:56:00.101771277Z\" level=info msg=\"Geodata Loader mode: memconservative\"\ntime=\"2026-11-05T11:56:00.101796204Z\" level=info msg=\"Geosite Matcher implementation: succinct\"\ntime=\"2026-11-05T11:56:00.101916788Z\" level=info msg=\"Initial configuration complete, total time: 29ms\"\nconfiguration file /tmp/fnh-val-r459e8cu/validate.yaml test is successful"
   }
 }

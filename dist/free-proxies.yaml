@@ -8,17 +8,17 @@ proxies:
   server: 120.48.133.162
   port: 10086
   alterId: 0
-  ws-opts:
-    path: /
   cipher: auto
   uuid: 4fc543d5-23ce-4556-ae2b-01685edd4397
   network: ws
+  ws-opts:
+    path: /
 - name: FREE-US-zh-76c8f2
   type: http
   server: 0cd5cc27-t9zts0-tazlv3-11p9g.se.oshuawei.com
   port: 443
-  password: 384d1b42-655f-11ed-a8bf-f23c91cfbbc9
   tls: true
+  password: 384d1b42-655f-11ed-a8bf-f23c91cfbbc9
   username: 384d1b42-655f-11ed-a8bf-f23c91cfbbc9
 - name: FREE-CN-zh-a9474c
   type: vless
@@ -29,20 +29,20 @@ proxies:
   type: http
   server: purecambogiasl.live
   port: 443
-  password: 'null'
   tls: true
+  password: 'null'
   username: 'null'
 - name: FREE-SG-zh-3d3904
   type: vless
   server: '2407:cdc0:d010:27bd::'
   port: 30454
+  tls: true
   reality-opts:
     public-key: I4WlCiks92rMzYTBZ3T_iDHU-kQX1bUW7jVIsjiklUE
     short-id: 4e4d7529
-  client-fingerprint: chrome
-  tls: true
-  uuid: 14cfea1a-e7b2-4f27-b46e-34c9efabf198
   flow: xtls-rprx-vision
+  uuid: 14cfea1a-e7b2-4f27-b46e-34c9efabf198
+  client-fingerprint: chrome
   servername: www.samsung.com
 - name: FREE-US-zh-404022
   type: trojan
@@ -124,140 +124,140 @@ proxies:
   type: ss
   server: 149.22.87.240
   port: 443
-  password: shadowsocks
   cipher: aes-128-gcm
+  password: shadowsocks
 - name: FREE-SG-au-906c41
   type: ss
   server: 128.1.186.73
   port: 8080
-  password: 14fFPrbezE3HDZzsMOr6
   cipher: rc4-md5
+  password: 14fFPrbezE3HDZzsMOr6
 - name: FREE-US-au-b0f8ea
   type: ss
   server: 79.110.54.250
   port: 8080
-  password: 14fFPrbezE3HDZzsMOr6
   cipher: rc4-md5
+  password: 14fFPrbezE3HDZzsMOr6
 - name: FREE-US-au-cb4694
   type: ss
   server: 107.155.57.11
   port: 8080
-  password: 14fFPrbezE3HDZzsMOr6
   cipher: rc4-md5
+  password: 14fFPrbezE3HDZzsMOr6
 - name: FREE-US-au-03c673
   type: ss
   server: 107.151.182.197
   port: 8080
-  password: 14fFPrbezE3HDZzsMOr6
   cipher: rc4-md5
+  password: 14fFPrbezE3HDZzsMOr6
 - name: FREE-US-au-838069
   type: ss
   server: 107.155.57.51
   port: 8080
-  password: 14fFPrbezE3HDZzsMOr6
   cipher: rc4-md5
+  password: 14fFPrbezE3HDZzsMOr6
 - name: FREE-US-au-ac2fab
   type: ss
   server: 23.251.121.242
   port: 8080
-  password: 14fFPrbezE3HDZzsMOr6
   cipher: rc4-md5
+  password: 14fFPrbezE3HDZzsMOr6
 - name: FREE-US-au-2c2981
   type: ss
   server: 156.146.38.170
   port: 443
-  password: shadowsocks
   cipher: aes-128-gcm
+  password: shadowsocks
 - name: FREE-US-au-4878e9
   type: ss
   server: 37.19.198.244
   port: 443
-  password: shadowsocks
   cipher: aes-128-gcm
+  password: shadowsocks
 - name: FREE-US-au-22065f
   type: ss
   server: 173.244.56.9
   port: 443
-  password: shadowsocks
   cipher: aes-128-gcm
+  password: shadowsocks
 - name: FREE-US-au-ea917d
   type: ss
   server: 156.146.38.168
   port: 443
-  password: shadowsocks
   cipher: aes-128-gcm
+  password: shadowsocks
 - name: FREE-CA-au-30e074
   type: ss
   server: 51.222.136.236
   port: 8882
-  password: kDWvXYZoTBcGkC4
   cipher: aes-256-gcm
+  password: kDWvXYZoTBcGkC4
 - name: FREE-CA-au-f04e0b
   type: ss
   server: 138.197.141.58
   port: 8080
-  password: 14fFPrbezE3HDZzsMOr6
   cipher: rc4-md5
+  password: 14fFPrbezE3HDZzsMOr6
 - name: FREE-US-au-735cc3
   type: ss
   server: 185.230.230.18
   port: 19999
-  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
   cipher: aes-256-gcm
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
 - name: FREE-GB-au-67af87
   type: ss
   server: 82.38.31.17
   port: 8080
-  password: oZIoA69Q8yhcQV8ka3Pa3A
   cipher: chacha20-ietf-poly1305
+  password: oZIoA69Q8yhcQV8ka3Pa3A
 - name: FREE-IT-au-2592be
   type: ss
   server: 202.50.253.72
   port: 19999
-  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
   cipher: aes-256-gcm
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
 - name: FREE-GB-au-01f182
   type: ss
   server: 82.38.31.66
   port: 8080
-  password: oZIoA69Q8yhcQV8ka3Pa3A
   cipher: chacha20-ietf-poly1305
+  password: oZIoA69Q8yhcQV8ka3Pa3A
 - name: FREE-GB-au-f0f742
   type: ss
   server: 82.38.31.175
   port: 443
-  password: oZIoA69Q8yhcQV8ka3Pa3A
   cipher: chacha20-ietf-poly1305
+  password: oZIoA69Q8yhcQV8ka3Pa3A
 - name: FREE-GB-au-aa60a5
   type: ss
   server: 82.38.31.201
   port: 8080
-  password: k1dBOmOB4oqi7Ump37a1bQ
   cipher: chacha20-ietf-poly1305
+  password: k1dBOmOB4oqi7Ump37a1bQ
 - name: FREE-GB-au-7b9a67
   type: ss
   server: 82.38.31.61
   port: 8080
-  password: oZIoA69Q8yhcQV8ka3Pa3A
   cipher: chacha20-ietf-poly1305
+  password: oZIoA69Q8yhcQV8ka3Pa3A
 - name: FREE-GB-au-5fcf8f
   type: ss
   server: 82.38.31.171
   port: 8080
-  password: oZIoA69Q8yhcQV8ka3Pa3A
   cipher: chacha20-ietf-poly1305
+  password: oZIoA69Q8yhcQV8ka3Pa3A
 - name: FREE-GB-au-2c9126
   type: ss
   server: 82.38.31.34
   port: 8080
-  password: oZIoA69Q8yhcQV8ka3Pa3A
   cipher: chacha20-ietf-poly1305
+  password: oZIoA69Q8yhcQV8ka3Pa3A
 - name: FREE-GB-au-fcaa3c
   type: ss
   server: 146.70.61.37
   port: 8080
-  password: 14fFPrbezE3HDZzsMOr6
   cipher: rc4-md5
+  password: 14fFPrbezE3HDZzsMOr6
 - name: FREE-SG-au-4f99bf
   type: trojan
   server: 149.28.130.108
@@ -274,12 +274,12 @@ proxies:
   type: vless
   server: 45.76.98.127
   port: 443
+  tls: true
   reality-opts:
     public-key: LZR1ZQzdHDSdooxAImvxEjFIs-gebEP3zf0J6V3qVSI
     short-id: 49fa0dad
-  client-fingerprint: chrome
-  tls: true
   uuid: 18ce1302-4e37-4eac-bd4f-e3e0a983e589
+  client-fingerprint: chrome
   network: ws
   ws-opts:
     path: /
@@ -288,13 +288,13 @@ proxies:
   type: vless
   server: ga1data.xyy123.bid
   port: 443
+  tls: true
   reality-opts:
     public-key: Z7B8VKvjAiBH93XEkHFWCVBfK8Mu5HTLtAwfr5LuYlk
     short-id: 00b0389a
-  client-fingerprint: chrome
-  tls: true
-  uuid: 81f686e2-0700-4e7d-b3aa-2f7fc544bcc3
   flow: xtls-rprx-vision
+  uuid: 81f686e2-0700-4e7d-b3aa-2f7fc544bcc3
+  client-fingerprint: chrome
   servername: www.amzn.com
 - name: FREE-SG-au-46941e
   type: vmess
@@ -351,44 +351,44 @@ proxies:
   type: ss
   server: 149.22.87.241
   port: 443
-  password: shadowsocks
   cipher: aes-128-gcm
+  password: shadowsocks
 - name: FREE-JP-au-bec380
   type: ss
   server: 149.22.87.204
   port: 443
-  password: shadowsocks
   cipher: aes-128-gcm
+  password: shadowsocks
 - name: FREE-CA-au-1f83d7
   type: ss
   server: 149.22.95.183
   port: 443
-  password: shadowsocks
   cipher: aes-128-gcm
+  password: shadowsocks
 - name: FREE-US-au-c5f0d6
   type: ss
   server: 37.19.198.160
   port: 443
-  password: shadowsocks
   cipher: aes-128-gcm
+  password: shadowsocks
 - name: FREE-IT-au-686ed0
   type: ss
   server: 202.50.253.27
   port: 19999
-  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
   cipher: aes-256-gcm
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
 - name: FREE-DE-au-680506
   type: ss
   server: 185.176.204.18
   port: 19999
-  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
   cipher: aes-256-gcm
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
 - name: FREE-GB-au-5dfa00
   type: ss
   server: 178.83.185.156
   port: 8080
-  password: oZIoA69Q8yhcQV8ka3Pa3A
   cipher: chacha20-ietf-poly1305
+  password: oZIoA69Q8yhcQV8ka3Pa3A
 - name: FREE-UNKNOWN-au-bd4c9c
   type: vless
   server: 104.19.164.155
@@ -403,13 +403,13 @@ proxies:
   type: vless
   server: 165.154.63.139
   port: 443
+  tls: true
   reality-opts:
     public-key: AE81BrwMc8-kwGEIA1LhzaL03er0Qwt2V-fFy76F5jQ
     short-id: ca4aedd4
-  client-fingerprint: random
-  tls: true
-  uuid: 91ad30e9-ab06-4b4c-9fb9-1c2aa97d8b3a
   flow: xtls-rprx-vision
+  uuid: 91ad30e9-ab06-4b4c-9fb9-1c2aa97d8b3a
+  client-fingerprint: random
   servername: www.amazon.com
 - name: FREE-UNKNOWN-au-ed8c94
   type: vless
@@ -423,61 +423,61 @@ proxies:
   type: vless
   server: 172.237.88.103
   port: 443
+  tls: true
   reality-opts:
     public-key: EeLAX-BAjzSdRes-zpUFzVOYsBedmP8lUOHhXXJFXyI
     short-id: 5a42dbd7e26a0415
-  client-fingerprint: random
-  tls: true
-  uuid: efd11a89-7506-44ce-95b6-6654859f155b
   flow: xtls-rprx-vision
+  uuid: efd11a89-7506-44ce-95b6-6654859f155b
+  client-fingerprint: random
   servername: zoom.us
 - name: FREE-JP-au-3ac41d
   type: vless
   server: 18.183.215.124
   port: 28573
+  tls: true
   reality-opts:
     public-key: 1DJr9toke7FRuSXjibBVuNvRnLnJnN5kXwUBG6Romzg
     short-id: 03653bc03be10c97
-  client-fingerprint: chrome
-  tls: true
-  uuid: 871bfce7-8440-4394-8d82-56b51f20fdad
   flow: xtls-rprx-vision
+  uuid: 871bfce7-8440-4394-8d82-56b51f20fdad
+  client-fingerprint: chrome
   servername: www.sony.com
 - name: FREE-KR-au-39ff9b
   type: vless
   server: 3.39.4.109
   port: 13672
+  tls: true
   reality-opts:
     public-key: k2hPp0tTW0Da-HK94wYpSCLbuK44LfGqC2MSJIM1Ti0
     short-id: 48050fab
-  client-fingerprint: random
-  tls: true
-  uuid: 814bd064-544d-4255-a070-5705c03f6da9
   flow: xtls-rprx-vision
+  uuid: 814bd064-544d-4255-a070-5705c03f6da9
+  client-fingerprint: random
   servername: www.apple.com
 - name: FREE-SG-au-4db4b5
   type: vless
   server: 54.169.200.246
   port: 41688
+  tls: true
   reality-opts:
     public-key: srwIElIGTPs0kshpN1vvPsn4wixV_pLd56y_v9m0sTk
     short-id: 7f342137c20387
-  client-fingerprint: ios
-  tls: true
-  uuid: 49c0aac1-5e05-4f04-b624-248fc59e03c4
   flow: xtls-rprx-vision
+  uuid: 49c0aac1-5e05-4f04-b624-248fc59e03c4
+  client-fingerprint: ios
   servername: www.intel.com
 - name: FREE-JP-au-7bda6c
   type: vless
   server: 3.114.220.22
   port: 18007
+  tls: true
   reality-opts:
     public-key: k2hPp0tTW0Da-HK94wYpSCLbuK44LfGqC2MSJIM1Ti0
     short-id: 48050fab
-  client-fingerprint: ios
-  tls: true
-  uuid: 814bd064-544d-4255-a070-5705c03f6da9
   flow: xtls-rprx-vision
+  uuid: 814bd064-544d-4255-a070-5705c03f6da9
+  client-fingerprint: ios
   servername: www.apple.com
 - name: FREE-US-au-15a441
   type: vmess
@@ -516,50 +516,50 @@ proxies:
   type: ss
   server: 84.247.155.196
   port: 443
-  password: 3eOFeNssde7PYYMv
   cipher: aes-256-gcm
+  password: 3eOFeNssde7PYYMv
 - name: FREE-SG-au-06c433
   type: ss
   server: 68.183.227.236
   port: 8080
-  password: 14fFPrbezE3HDZzsMOr6
   cipher: rc4-md5
+  password: 14fFPrbezE3HDZzsMOr6
 - name: FREE-US-au-00a2f3
   type: ss
   server: 156.146.38.167
   port: 443
-  password: shadowsocks
   cipher: aes-128-gcm
+  password: shadowsocks
 - name: FREE-US-au-95cae0
   type: ss
   server: 37.19.198.236
   port: 443
-  password: shadowsocks
   cipher: aes-128-gcm
+  password: shadowsocks
 - name: FREE-CA-au-549056
   type: ss
   server: 137.184.174.93
   port: 8080
-  password: 14fFPrbezE3HDZzsMOr6
   cipher: rc4-md5
+  password: 14fFPrbezE3HDZzsMOr6
 - name: FREE-US-au-8fc6be
   type: ss
   server: 193.151.160.9
   port: 19999
-  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
   cipher: aes-256-gcm
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
 - name: FREE-ZA-au-57414b
   type: ss
   server: 102.37.156.224
   port: 443
-  password: aduB9HGxQHjA2SBMRjkHX6
   cipher: chacha20-ietf-poly1305
+  password: aduB9HGxQHjA2SBMRjkHX6
 - name: FREE-GB-au-5e14ff
   type: ss
   server: 82.38.31.11
   port: 8080
-  password: oZIoA69Q8yhcQV8ka3Pa3A
   cipher: chacha20-ietf-poly1305
+  password: oZIoA69Q8yhcQV8ka3Pa3A
 - name: FREE-JP-au-82686a
   type: trojan
   server: 45.32.52.173
@@ -587,13 +587,13 @@ proxies:
   type: vless
   server: 3.114.220.22
   port: 19645
+  tls: true
   reality-opts:
     public-key: k2hPp0tTW0Da-HK94wYpSCLbuK44LfGqC2MSJIM1Ti0
     short-id: 48050fab
-  client-fingerprint: chrome
-  tls: true
-  uuid: 814bd064-544d-4255-a070-5705c03f6da9
   flow: xtls-rprx-vision
+  uuid: 814bd064-544d-4255-a070-5705c03f6da9
+  client-fingerprint: chrome
   servername: www.apple.com
 - name: FREE-UNKNOWN-au-bced08
   type: vless
@@ -627,37 +627,37 @@ proxies:
   type: vless
   server: 3.114.220.22
   port: 10583
+  tls: true
   reality-opts:
     public-key: k2hPp0tTW0Da-HK94wYpSCLbuK44LfGqC2MSJIM1Ti0
     short-id: 48050fab
-  client-fingerprint: chrome
-  tls: true
-  uuid: 814bd064-544d-4255-a070-5705c03f6da9
   flow: xtls-rprx-vision
+  uuid: 814bd064-544d-4255-a070-5705c03f6da9
+  client-fingerprint: chrome
   servername: www.apple.com
 - name: FREE-SG-au-d5a09b
   type: vless
   server: 134.185.81.5
   port: 47881
+  tls: true
   reality-opts:
     public-key: 6XmXX1QXGodmtqU37Zx9CDHnCnPtonRdq8ieLmt__g4
     short-id: 38d72071
-  client-fingerprint: ios
-  tls: true
-  uuid: 59b203b2-b1bc-4e9c-a9e5-ccb8f691bf72
   flow: xtls-rprx-vision
+  uuid: 59b203b2-b1bc-4e9c-a9e5-ccb8f691bf72
+  client-fingerprint: ios
   servername: www.tesla.com
 - name: FREE-KR-au-d01498
   type: vless
   server: 3.39.4.109
   port: 18967
+  tls: true
   reality-opts:
     public-key: k2hPp0tTW0Da-HK94wYpSCLbuK44LfGqC2MSJIM1Ti0
     short-id: 48050fab
-  client-fingerprint: edge
-  tls: true
-  uuid: 814bd064-544d-4255-a070-5705c03f6da9
   flow: xtls-rprx-vision
+  uuid: 814bd064-544d-4255-a070-5705c03f6da9
+  client-fingerprint: edge
   servername: www.apple.com
 - name: FREE-UNKNOWN-au-621870
   type: vless
@@ -673,25 +673,25 @@ proxies:
   type: vless
   server: 3.0.111.82
   port: 17623
+  tls: true
   reality-opts:
     public-key: k2hPp0tTW0Da-HK94wYpSCLbuK44LfGqC2MSJIM1Ti0
     short-id: 48050fab
-  client-fingerprint: chrome
-  tls: true
-  uuid: 814bd064-544d-4255-a070-5705c03f6da9
   flow: xtls-rprx-vision
+  uuid: 814bd064-544d-4255-a070-5705c03f6da9
+  client-fingerprint: chrome
   servername: www.apple.com
 - name: FREE-SG-au-104d37
   type: vless
   server: 54.251.9.130
   port: 24146
+  tls: true
   reality-opts:
     public-key: VeluC9A7XDurAWQNgXKShS2SJSgoK79QHFgiAMYrvGo
     short-id: 7205d9079521832c
-  client-fingerprint: chrome
-  tls: true
-  uuid: 9d9a048b-3aea-4b3e-b106-1106bf301feb
   flow: xtls-rprx-vision
+  uuid: 9d9a048b-3aea-4b3e-b106-1106bf301feb
+  client-fingerprint: chrome
   servername: www.intel.com
 - name: FREE-UNKNOWN-au-990a98
   type: vless
@@ -705,23 +705,23 @@ proxies:
   type: vless
   server: 151.245.106.49
   port: 2053
+  tls: true
   reality-opts:
     public-key: F6C33iIbfmt1mUsuLTarIC8ygdHKMqsaGvrSQltyxUo
     short-id: 429499c03d4cc8a0
-  client-fingerprint: random
-  tls: true
   uuid: a2de9567-9646-45a9-a410-7303a43bdb6c
+  client-fingerprint: random
   servername: www.cloudflare.com
 - name: FREE-US-au-dfd04c
   type: vless
   server: 45.76.172.197
   port: 443
+  tls: true
   reality-opts:
     public-key: Ag8SQ5QdqfHO9pKWA93kqGmH5EQo7Xm5Z4RbPnwPBBE
     short-id: ff3597db
-  client-fingerprint: chrome
-  tls: true
   uuid: b256c867-a020-48e0-be80-1b079f2613a2
+  client-fingerprint: chrome
   network: ws
   ws-opts:
     path: /
@@ -807,80 +807,80 @@ proxies:
   type: ss
   server: 211.178.105.134
   port: 6123
-  password: qwerREWQ@@
   cipher: aes-256-cfb
+  password: qwerREWQ@@
 - name: FREE-US-au-e92a58
   type: ss
   server: 95.215.201.18
   port: 19999
-  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
   cipher: aes-256-gcm
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
 - name: FREE-US-au-4609bf
   type: ss
   server: 173.244.56.6
   port: 443
-  password: shadowsocks
   cipher: aes-128-gcm
+  password: shadowsocks
 - name: FREE-US-au-787aac
   type: ss
   server: 37.19.198.243
   port: 443
-  password: shadowsocks
   cipher: aes-128-gcm
+  password: shadowsocks
 - name: FREE-US-au-030263
   type: ss
   server: 193.151.163.18
   port: 19999
-  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
   cipher: aes-256-gcm
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
 - name: FREE-IT-au-f48d3f
   type: ss
   server: 202.50.253.63
   port: 19999
-  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
   cipher: aes-256-gcm
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
 - name: FREE-GB-au-5f926d
   type: ss
   server: 82.38.31.47
   port: 8080
-  password: oZIoA69Q8yhcQV8ka3Pa3A
   cipher: chacha20-ietf-poly1305
+  password: oZIoA69Q8yhcQV8ka3Pa3A
 - name: FREE-UA-au-0b8870
   type: ss
   server: 185.164.175.81
   port: 19999
-  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
   cipher: aes-256-gcm
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
 - name: FREE-NL-au-114cc1
   type: ss
   server: 193.29.139.151
   port: 8080
-  password: oZIoA69Q8yhcQV8ka3Pa3A
   cipher: chacha20-ietf-poly1305
+  password: oZIoA69Q8yhcQV8ka3Pa3A
 - name: FREE-GB-au-87abdc
   type: ss
   server: 82.38.31.39
   port: 8080
-  password: oZIoA69Q8yhcQV8ka3Pa3A
   cipher: chacha20-ietf-poly1305
+  password: oZIoA69Q8yhcQV8ka3Pa3A
 - name: FREE-GB-au-aa8661
   type: ss
   server: 82.38.31.62
   port: 8080
-  password: oZIoA69Q8yhcQV8ka3Pa3A
   cipher: chacha20-ietf-poly1305
+  password: oZIoA69Q8yhcQV8ka3Pa3A
 - name: FREE-GB-au-fb3737
   type: ss
   server: 82.38.31.2
   port: 8080
-  password: oZIoA69Q8yhcQV8ka3Pa3A
   cipher: chacha20-ietf-poly1305
+  password: oZIoA69Q8yhcQV8ka3Pa3A
 - name: FREE-US-au-0e9bde
   type: ss
   server: 79.110.53.169
   port: 8080
-  password: 14fFPrbezE3HDZzsMOr6
   cipher: rc4-md5
+  password: 14fFPrbezE3HDZzsMOr6
 - name: FREE-AU-au-066212
   type: trojan
   server: 45.63.30.142
@@ -903,59 +903,59 @@ proxies:
   type: vless
   server: 45.132.75.213
   port: 2053
+  tls: true
   reality-opts:
     public-key: TpWeZocgNOygOhMo0l7oJawPu7STkn9D-SOa0UppcyY
     short-id: cd7e85995ae2afc9
-  client-fingerprint: firefox
-  tls: true
   uuid: f46182d1-e13b-47d3-97e2-fa5426a93e7c
+  client-fingerprint: firefox
   servername: www.cloudflare.com
 - name: FREE-SG-au-a6a87a
   type: vless
   server: 206.206.76.75
   port: 443
+  tls: true
   reality-opts:
     public-key: gSHylaTvEzWj19Bk-zLHXKYUINGWVmo_ybCiD2CRinE
     short-id: a775360a48ef5cfb
-  client-fingerprint: firefox
-  tls: true
-  uuid: 32cf52f4-b8d2-4ed5-a37c-0d0a8e743309
   flow: xtls-rprx-vision
+  uuid: 32cf52f4-b8d2-4ed5-a37c-0d0a8e743309
+  client-fingerprint: firefox
   servername: www.cloudflare.com
 - name: FREE-SG-au-d36e6f
   type: vless
   server: 3.0.111.82
   port: 10574
+  tls: true
   reality-opts:
     public-key: k2hPp0tTW0Da-HK94wYpSCLbuK44LfGqC2MSJIM1Ti0
     short-id: 48050fab
-  client-fingerprint: chrome
-  tls: true
-  uuid: 814bd064-544d-4255-a070-5705c03f6da9
   flow: xtls-rprx-vision
+  uuid: 814bd064-544d-4255-a070-5705c03f6da9
+  client-fingerprint: chrome
   servername: www.apple.com
 - name: FREE-SG-au-06c1e5
   type: vless
   server: 3.0.111.82
   port: 12972
+  tls: true
   reality-opts:
     public-key: k2hPp0tTW0Da-HK94wYpSCLbuK44LfGqC2MSJIM1Ti0
     short-id: 48050fab
-  client-fingerprint: qq
-  tls: true
-  uuid: 814bd064-544d-4255-a070-5705c03f6da9
   flow: xtls-rprx-vision
+  uuid: 814bd064-544d-4255-a070-5705c03f6da9
+  client-fingerprint: qq
   servername: www.apple.com
 - name: FREE-US-au-a6c6ab
   type: vless
   server: 45.32.69.110
   port: 443
+  tls: true
   reality-opts:
     public-key: 6l-Yq_zkVrnExw8AVv85VwoYnfNc8-dRSpoj_AA-fxY
     short-id: c5cde18f
-  client-fingerprint: chrome
-  tls: true
   uuid: 1572b9c5-d741-46eb-b4a2-a5d23958dfbe
+  client-fingerprint: chrome
   network: ws
   ws-opts:
     path: /
@@ -964,25 +964,25 @@ proxies:
   type: vless
   server: 51.81.203.63
   port: 443
+  tls: true
   reality-opts:
     public-key: nqwCf6oW49tEtmQ0EzxigZ0uu1pg0E30CS54G40Iti0
     short-id: 4477382ff6d3d41c
-  client-fingerprint: chrome
-  tls: true
-  uuid: cb2dbb6a-a1ea-4023-9ace-6466cee57241
   flow: xtls-rprx-vision
+  uuid: cb2dbb6a-a1ea-4023-9ace-6466cee57241
+  client-fingerprint: chrome
   servername: www.icloud.com
 - name: FREE-US-au-311662
   type: vless
   server: 31.172.69.31
   port: 8443
+  tls: true
   reality-opts:
     public-key: H43_itYl9CE0AJiCktUfriENFmixY_MTHgX8slCrN2Q
     short-id: a4e32c324d86cfdf
-  client-fingerprint: qq
-  tls: true
-  uuid: 9c6e83fc-b755-4ad4-9b0a-14b610153d8f
   flow: xtls-rprx-vision
+  uuid: 9c6e83fc-b755-4ad4-9b0a-14b610153d8f
+  client-fingerprint: qq
   servername: www.samsung.com
 - name: FREE-AE-au-3d5f90
   type: vless
@@ -996,91 +996,91 @@ proxies:
   type: vless
   server: 511.150333.xyz
   port: 21003
+  tls: true
   reality-opts:
     public-key: HZwHZBP3x4Yo4UQiHcypRJIU_UdZY5OAapQM8RUqVAU
     short-id: bab49aa4c2a88d27
-  client-fingerprint: chrome
-  tls: true
   uuid: 41b1c169-5905-4d98-b6a6-56896c25737c
+  client-fingerprint: chrome
   servername: www.cloudflare.com
 - name: FREE-SG-au-53c8c4
   type: vless
   server: 511.150333.xyz
   port: 21002
+  tls: true
   reality-opts:
     public-key: HZwHZBP3x4Yo4UQiHcypRJIU_UdZY5OAapQM8RUqVAU
     short-id: 3ab8d93dd9b1a5be
-  client-fingerprint: chrome
-  tls: true
   uuid: 41b1c169-5905-4d98-b6a6-56896c25737c
+  client-fingerprint: chrome
   servername: www.cloudflare.com
 - name: FREE-SG-au-e46342
   type: vless
   server: 511.150333.xyz
   port: 21001
+  tls: true
   reality-opts:
     public-key: HZwHZBP3x4Yo4UQiHcypRJIU_UdZY5OAapQM8RUqVAU
     short-id: ab39fc68ab3dee81
-  client-fingerprint: chrome
-  tls: true
   uuid: 41b1c169-5905-4d98-b6a6-56896c25737c
+  client-fingerprint: chrome
   servername: www.cloudflare.com
 - name: FREE-SG-au-6a4552
   type: vless
   server: 510.150333.xyz
   port: 21004
+  tls: true
   reality-opts:
     public-key: IRaSB0ImgMO7fsrIbh9i3Pz-bgo5F1jKeC51Fpfs9AA
     short-id: 4e0418d648f86141
-  client-fingerprint: random
-  tls: true
   uuid: 67952583-8572-42e1-943d-0602794f885b
+  client-fingerprint: random
   servername: www.cloudflare.com
 - name: FREE-SG-au-b6f823
   type: vless
   server: 511.150333.xyz
   port: 21004
+  tls: true
   reality-opts:
     public-key: HZwHZBP3x4Yo4UQiHcypRJIU_UdZY5OAapQM8RUqVAU
     short-id: 2df2bd9d8366cef1
-  client-fingerprint: chrome
-  tls: true
   uuid: 41b1c169-5905-4d98-b6a6-56896c25737c
+  client-fingerprint: chrome
   servername: www.cloudflare.com
 - name: FREE-SG-au-36a3d4
   type: vless
   server: 103.106.229.37
   port: 21004
+  tls: true
   reality-opts:
     public-key: HZwHZBP3x4Yo4UQiHcypRJIU_UdZY5OAapQM8RUqVAU
     short-id: 2df2bd9d8366cef1
-  client-fingerprint: chrome
-  tls: true
   uuid: 41b1c169-5905-4d98-b6a6-56896c25737c
+  client-fingerprint: chrome
   servername: www.cloudflare.com
 - name: FREE-DE-au-a9c48f
   type: vless
   server: 169.40.42.35
   port: 443
+  tls: true
   reality-opts:
     public-key: e2RLf57Li_-MDZGE9ss1BWPgP54mqRb5PfXhW2jcVVg
     short-id: c39cc7310a
-  client-fingerprint: chrome
-  tls: true
-  uuid: d65cc14c-f53f-4fe2-b262-97856601319c
   flow: xtls-rprx-vision
+  uuid: d65cc14c-f53f-4fe2-b262-97856601319c
+  client-fingerprint: chrome
   servername: yahoo.com
 - name: FREE-DE-au-0d72fd
   type: vless
   server: 169.40.42.74
   port: 443
+  tls: true
   reality-opts:
     public-key: e2RLf57Li_-MDZGE9ss1BWPgP54mqRb5PfXhW2jcVVg
     short-id: c39cc7310a
-  client-fingerprint: random
-  tls: true
-  uuid: d65cc14c-f53f-4fe2-b262-97856601319c
   flow: xtls-rprx-vision
+  uuid: d65cc14c-f53f-4fe2-b262-97856601319c
+  client-fingerprint: random
   servername: yahoo.com
 - name: FREE-CA-au-ada29c
   type: vmess
@@ -1143,80 +1143,80 @@ proxies:
   type: ss
   server: 68.183.235.122
   port: 8080
-  password: 14fFPrbezE3HDZzsMOr6
   cipher: rc4-md5
+  password: 14fFPrbezE3HDZzsMOr6
 - name: FREE-JP-au-f736a1
   type: ss
   server: 84.247.155.196
   port: 80
-  password: 3eOFeNssde7PYYMv
   cipher: aes-256-gcm
+  password: 3eOFeNssde7PYYMv
 - name: FREE-US-au-4b7e1a
   type: ss
   server: 45.86.51.18
   port: 19999
-  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
   cipher: aes-256-gcm
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
 - name: FREE-IT-au-0367e0
   type: ss
   server: 202.50.253.90
   port: 19999
-  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
   cipher: aes-256-gcm
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
 - name: FREE-IT-au-b96a1d
   type: ss
   server: 202.50.253.54
   port: 19999
-  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
   cipher: aes-256-gcm
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
 - name: FREE-GB-au-30dc52
   type: ss
   server: 82.38.31.28
   port: 8080
-  password: oZIoA69Q8yhcQV8ka3Pa3A
   cipher: chacha20-ietf-poly1305
+  password: oZIoA69Q8yhcQV8ka3Pa3A
 - name: FREE-GB-au-1e7505
   type: ss
   server: 82.110.60.9
   port: 19999
-  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
   cipher: aes-256-gcm
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
 - name: FREE-GB-au-c81bd7
   type: ss
   server: sql.popmintxo.cc
   port: 43385
-  password: AwW1fV6oDDQKh8r2znmptv59tPgt4eHVTgFaTqgKS2jiSdikJ7GyGCBYehDaK38S8yMgHFdbJqcTmRJSfYS5CFw345bNhFZa
   cipher: chacha20-ietf-poly1305
+  password: AwW1fV6oDDQKh8r2znmptv59tPgt4eHVTgFaTqgKS2jiSdikJ7GyGCBYehDaK38S8yMgHFdbJqcTmRJSfYS5CFw345bNhFZa
 - name: FREE-NL-au-b1b1c7
   type: ss
   server: 193.29.139.197
   port: 8080
-  password: oZIoA69Q8yhcQV8ka3Pa3A
   cipher: chacha20-ietf-poly1305
+  password: oZIoA69Q8yhcQV8ka3Pa3A
 - name: FREE-US-au-e24125
   type: ss
   server: 15.204.247.206
   port: 4444
-  password: pKEW8JPByTVTLtM
   cipher: aes-256-gcm
+  password: pKEW8JPByTVTLtM
 - name: FREE-GB-au-3139d8
   type: ss
   server: 82.38.31.162
   port: 443
-  password: oZIoA69Q8yhcQV8ka3Pa3A
   cipher: chacha20-ietf-poly1305
+  password: oZIoA69Q8yhcQV8ka3Pa3A
 - name: FREE-GB-au-87c761
   type: ss
   server: 82.38.31.171
   port: 443
-  password: oZIoA69Q8yhcQV8ka3Pa3A
   cipher: chacha20-ietf-poly1305
+  password: oZIoA69Q8yhcQV8ka3Pa3A
 - name: FREE-NL-au-544780
   type: ss
   server: dns22.m3hrzd.ir
   port: 1355
-  password: D7VAn-qRmggr9bIZXCZbxRQ9nYGfkJ-l
   cipher: chacha20-ietf-poly1305
+  password: D7VAn-qRmggr9bIZXCZbxRQ9nYGfkJ-l
 - name: FREE-TW-au-c85735
   type: trojan
   server: 125.227.86.45
@@ -1327,13 +1327,13 @@ proxies:
   type: vless
   server: sg2-8sb.6121999.dpdns.org
   port: 19825
+  tls: true
   reality-opts:
     public-key: GvvkY8xYb9QjvwvzYq_uNC4tOGd0DCxRnz6770-xgkI
     short-id: 6ba85179e30d4fc2
-  client-fingerprint: chrome
-  tls: true
-  uuid: 2d1ad594-80a4-4bfb-87a6-038e39701f51
   flow: xtls-rprx-vision
+  uuid: 2d1ad594-80a4-4bfb-87a6-038e39701f51
+  client-fingerprint: chrome
   servername: sg2-8sb.6121999.dpdns.org
 - name: FREE-UNKNOWN-au-d07060
   type: vless
@@ -1349,25 +1349,25 @@ proxies:
   type: vless
   server: 154.26.188.52
   port: 443
+  tls: true
   reality-opts:
     public-key: Njwb7fCl8PXKOs3owDB-gjzbmEyEewlL6JlMKwMTUQc
     short-id: b46b142b
-  client-fingerprint: chrome
-  tls: true
-  uuid: 91ad30e9-ab06-4b4c-9fb9-1c2aa97d8b3a
   flow: xtls-rprx-vision
+  uuid: 91ad30e9-ab06-4b4c-9fb9-1c2aa97d8b3a
+  client-fingerprint: chrome
   servername: www.amazon.com
 - name: FREE-US-au-b0e210
   type: vless
   server: 15.204.97.214
   port: 23576
+  tls: true
   reality-opts:
     public-key: 1y5h2FGWKXTJ9xLPCqPo6Mw7RxoZzh6fGkEQKNxpZ3s
     short-id: '01'
-  client-fingerprint: chrome
-  tls: true
-  uuid: 48ff2b70-e180-582f-8866-d9a2edeed5f5
   flow: xtls-rprx-vision
+  uuid: 48ff2b70-e180-582f-8866-d9a2edeed5f5
+  client-fingerprint: chrome
   servername: fuck.rkn
 - name: FREE-UNKNOWN-au-d67ee6
   type: vless
@@ -1383,13 +1383,13 @@ proxies:
   type: vless
   server: ww13.levikogjgfdd.ir
   port: 23576
+  tls: true
   reality-opts:
     public-key: 1y5h2FGWKXTJ9xLPCqPo6Mw7RxoZzh6fGkEQKNxpZ3s
     short-id: '01'
-  client-fingerprint: chrome
-  tls: true
-  uuid: 48ff2b70-e180-582f-8866-d9a2edeed5f5
   flow: xtls-rprx-vision
+  uuid: 48ff2b70-e180-582f-8866-d9a2edeed5f5
+  client-fingerprint: chrome
   servername: fuck.rkn
 - name: FREE-US-au-52b9b9
   type: vless
@@ -1400,12 +1400,12 @@ proxies:
   type: vless
   server: 144.202.126.147
   port: 443
+  tls: true
   reality-opts:
     public-key: jO7THaLxz0Oz3kePAJcuwcKNTlsWoEWGh18zzRmiXgo
     short-id: 77c4230d
-  client-fingerprint: chrome
-  tls: true
   uuid: 45d51389-0c38-4843-8ae8-cffb94e97a72
+  client-fingerprint: chrome
   network: ws
   ws-opts:
     path: /
@@ -1414,25 +1414,25 @@ proxies:
   type: vless
   server: 5.253.42.164
   port: 40443
+  tls: true
   reality-opts:
     public-key: g77ZJbm18JEotapmVRjaXi133MzkbhkU2lxhVeXx8zw
     short-id: 68a8
-  client-fingerprint: chrome
-  tls: true
-  uuid: e99ba96d-dec8-42eb-be53-19e71eef7cab
   flow: xtls-rprx-vision
+  uuid: e99ba96d-dec8-42eb-be53-19e71eef7cab
+  client-fingerprint: chrome
   servername: deepl.com
 - name: FREE-US-au-292147
   type: vless
   server: 185.168.208.190
   port: 47443
+  tls: true
   reality-opts:
     public-key: hz7rzdHvTAVwfy48pa6313yBF-sV7V0svvPVnl95bgY
     short-id: ae97246a8f799854
-  client-fingerprint: chrome
-  tls: true
-  uuid: 1fe01c8a-ab37-4e95-bbfc-95d4a608931e
   flow: xtls-rprx-vision
+  uuid: 1fe01c8a-ab37-4e95-bbfc-95d4a608931e
+  client-fingerprint: chrome
   servername: us-1.waspguard.ru
 - name: FREE-UNKNOWN-au-bca189
   type: vless
@@ -1458,166 +1458,166 @@ proxies:
   type: vless
   server: 510.150333.xyz
   port: 21002
+  tls: true
   reality-opts:
     public-key: IRaSB0ImgMO7fsrIbh9i3Pz-bgo5F1jKeC51Fpfs9AA
     short-id: d9a6b52e98121db2
-  client-fingerprint: chrome
-  tls: true
   uuid: 67952583-8572-42e1-943d-0602794f885b
+  client-fingerprint: chrome
   servername: www.cloudflare.com
 - name: FREE-DE-au-3e3175
   type: vless
   server: 169.40.42.231
   port: 443
+  tls: true
   reality-opts:
     public-key: e2RLf57Li_-MDZGE9ss1BWPgP54mqRb5PfXhW2jcVVg
     short-id: c39cc7310a
-  client-fingerprint: chrome
-  tls: true
-  uuid: d65cc14c-f53f-4fe2-b262-97856601319c
   flow: xtls-rprx-vision
+  uuid: d65cc14c-f53f-4fe2-b262-97856601319c
+  client-fingerprint: chrome
   servername: yahoo.com
 - name: FREE-SG-au-d4747b
   type: vless
   server: 510.150333.xyz
   port: 21003
+  tls: true
   reality-opts:
     public-key: IRaSB0ImgMO7fsrIbh9i3Pz-bgo5F1jKeC51Fpfs9AA
     short-id: f3602a3a1cf928b7
-  client-fingerprint: random
-  tls: true
   uuid: 67952583-8572-42e1-943d-0602794f885b
+  client-fingerprint: random
   servername: www.cloudflare.com
 - name: FREE-DE-au-4b4e5b
   type: vless
   server: 169.40.42.89
   port: 443
+  tls: true
   reality-opts:
     public-key: e2RLf57Li_-MDZGE9ss1BWPgP54mqRb5PfXhW2jcVVg
     short-id: c39cc7310a
-  client-fingerprint: chrome
-  tls: true
-  uuid: d65cc14c-f53f-4fe2-b262-97856601319c
   flow: xtls-rprx-vision
+  uuid: d65cc14c-f53f-4fe2-b262-97856601319c
+  client-fingerprint: chrome
   servername: yahoo.com
 - name: FREE-DE-au-f24417
   type: vless
   server: 169.40.42.235
   port: 443
+  tls: true
   reality-opts:
     public-key: e2RLf57Li_-MDZGE9ss1BWPgP54mqRb5PfXhW2jcVVg
     short-id: c39cc7310a
-  client-fingerprint: random
-  tls: true
-  uuid: d65cc14c-f53f-4fe2-b262-97856601319c
   flow: xtls-rprx-vision
+  uuid: d65cc14c-f53f-4fe2-b262-97856601319c
+  client-fingerprint: random
   servername: yahoo.com
 - name: FREE-DE-au-a731ee
   type: vless
   server: 169.40.42.90
   port: 443
+  tls: true
   reality-opts:
     public-key: e2RLf57Li_-MDZGE9ss1BWPgP54mqRb5PfXhW2jcVVg
     short-id: c39cc7310a
-  client-fingerprint: ios
-  tls: true
-  uuid: d65cc14c-f53f-4fe2-b262-97856601319c
   flow: xtls-rprx-vision
+  uuid: d65cc14c-f53f-4fe2-b262-97856601319c
+  client-fingerprint: ios
   servername: yahoo.com
 - name: FREE-DE-au-6fa3de
   type: vless
   server: 169.40.42.168
   port: 443
+  tls: true
   reality-opts:
     public-key: e2RLf57Li_-MDZGE9ss1BWPgP54mqRb5PfXhW2jcVVg
     short-id: c39cc7310a
-  client-fingerprint: firefox
-  tls: true
-  uuid: d65cc14c-f53f-4fe2-b262-97856601319c
   flow: xtls-rprx-vision
+  uuid: d65cc14c-f53f-4fe2-b262-97856601319c
+  client-fingerprint: firefox
   servername: yahoo.com
 - name: FREE-DE-au-5a3499
   type: vless
   server: 169.40.42.104
   port: 443
+  tls: true
   reality-opts:
     public-key: e2RLf57Li_-MDZGE9ss1BWPgP54mqRb5PfXhW2jcVVg
     short-id: c39cc7310a
-  client-fingerprint: chrome
-  tls: true
-  uuid: d65cc14c-f53f-4fe2-b262-97856601319c
   flow: xtls-rprx-vision
+  uuid: d65cc14c-f53f-4fe2-b262-97856601319c
+  client-fingerprint: chrome
   servername: yahoo.com
 - name: FREE-US-au-84100c
   type: vless
   server: 167.17.69.171
   port: 443
+  tls: true
   reality-opts:
     public-key: ALT8hIGeZEhi0sQFbXP_ntBg8Xo-v7i0YCLrqTnBxRk
     short-id: 0990d22f
-  client-fingerprint: chrome
-  tls: true
-  uuid: 00144519-7e0d-476b-8d28-435576af9262
   flow: xtls-rprx-vision
+  uuid: 00144519-7e0d-476b-8d28-435576af9262
+  client-fingerprint: chrome
   servername: www.cloudflare.com
 - name: FREE-US-au-3c621f
   type: vless
   server: 159.89.87.21
   port: 28190
+  tls: true
   reality-opts:
     public-key: ZJRnFU-1s1JOnO8E9uZ7b00l1fPEh63fGRbdBANFRno
     short-id: ''
-  client-fingerprint: firefox
-  tls: true
-  uuid: 14c80e0e-f7ce-4991-94fc-99a1db4a9b1e
   flow: xtls-rprx-vision
+  uuid: 14c80e0e-f7ce-4991-94fc-99a1db4a9b1e
+  client-fingerprint: firefox
   servername: aws.amazon.com
 - name: FREE-CA-au-32497f
   type: vless
   server: 66.70.179.198
   port: 2053
+  tls: true
   reality-opts:
     public-key: k4l6TxwkBbx9DhZAFpByq5rfCWFSgyOex3f_eFe9CWU
     short-id: 83f8317a948bb769
-  client-fingerprint: firefox
-  tls: true
   uuid: dc620cd6-a9d8-4a0f-8f18-006b895db77e
+  client-fingerprint: firefox
   servername: www.cloudflare.com
 - name: FREE-IL-au-ee0fec
   type: vless
   server: 185.95.231.156
   port: 443
+  tls: true
   reality-opts:
     public-key: 8eXftARun6KH38UZhuqIfPR1VF2DLS9RMBZEnF5k6To
     short-id: a3a578ab
-  client-fingerprint: chrome
-  tls: true
-  uuid: 1f8cf47a-b66a-4916-979f-26edfcf44eea
   flow: xtls-rprx-vision
+  uuid: 1f8cf47a-b66a-4916-979f-26edfcf44eea
+  client-fingerprint: chrome
   servername: www.apple.com
 - name: FREE-DE-au-fc6977
   type: vless
   server: 169.40.42.225
   port: 443
+  tls: true
   reality-opts:
     public-key: e2RLf57Li_-MDZGE9ss1BWPgP54mqRb5PfXhW2jcVVg
     short-id: c39cc7310a
-  client-fingerprint: random
-  tls: true
-  uuid: d65cc14c-f53f-4fe2-b262-97856601319c
   flow: xtls-rprx-vision
+  uuid: d65cc14c-f53f-4fe2-b262-97856601319c
+  client-fingerprint: random
   servername: yahoo.com
 - name: FREE-DE-au-a3e987
   type: vless
   server: 169.40.42.163
   port: 443
+  tls: true
   reality-opts:
     public-key: e2RLf57Li_-MDZGE9ss1BWPgP54mqRb5PfXhW2jcVVg
     short-id: c39cc7310a
-  client-fingerprint: chrome
-  tls: true
-  uuid: d65cc14c-f53f-4fe2-b262-97856601319c
   flow: xtls-rprx-vision
+  uuid: d65cc14c-f53f-4fe2-b262-97856601319c
+  client-fingerprint: chrome
   servername: yahoo.com
 - name: FREE-US-au-fcef12
   type: vless
@@ -1631,25 +1631,25 @@ proxies:
   type: vless
   server: 169.40.42.202
   port: 443
+  tls: true
   reality-opts:
     public-key: e2RLf57Li_-MDZGE9ss1BWPgP54mqRb5PfXhW2jcVVg
     short-id: c39cc7310a
-  client-fingerprint: ios
-  tls: true
-  uuid: d65cc14c-f53f-4fe2-b262-97856601319c
   flow: xtls-rprx-vision
+  uuid: d65cc14c-f53f-4fe2-b262-97856601319c
+  client-fingerprint: ios
   servername: yahoo.com
 - name: FREE-DE-au-d5f570
   type: vless
   server: 31.56.189.208
   port: 47443
+  tls: true
   reality-opts:
     public-key: ITUrGb0T4zee52YrsT7lPXvdPmBDDN5R9nh1zBoVnkg
     short-id: ae97223a8f799002
-  client-fingerprint: firefox
-  tls: true
-  uuid: 1fe01c8a-ab37-4e95-bbfc-95d4a608931e
   flow: xtls-rprx-vision
+  uuid: 1fe01c8a-ab37-4e95-bbfc-95d4a608931e
+  client-fingerprint: firefox
   servername: ge-2.waspguard.ru
 - name: FREE-DE-au-2ccc79
   type: vless
@@ -1738,68 +1738,68 @@ proxies:
   type: ss
   server: 68.183.227.4
   port: 8080
-  password: 14fFPrbezE3HDZzsMOr6
   cipher: rc4-md5
+  password: 14fFPrbezE3HDZzsMOr6
 - name: FREE-US-au-2a2b1b
   type: ss
   server: 193.151.160.18
   port: 19999
-  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
   cipher: aes-256-gcm
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
 - name: FREE-NL-au-85b3ee
   type: ss
   server: 193.29.139.198
   port: 8080
-  password: k1dBOmOB4oqi7Ump37a1bQ
   cipher: chacha20-ietf-poly1305
+  password: k1dBOmOB4oqi7Ump37a1bQ
 - name: FREE-ZA-au-a0afcc
   type: ss
   server: 102.133.165.160
   port: 16233
-  password: Xsy8Ox4yOV3xLlpxtjzs3X
   cipher: chacha20-ietf-poly1305
+  password: Xsy8Ox4yOV3xLlpxtjzs3X
 - name: FREE-GB-au-bbd5b1
   type: ss
   server: 82.38.31.179
   port: 8080
-  password: k1dBOmOB4oqi7Ump37a1bQ
   cipher: chacha20-ietf-poly1305
+  password: k1dBOmOB4oqi7Ump37a1bQ
 - name: FREE-GB-au-bb7bb5
   type: ss
   server: 82.38.31.176
   port: 8080
-  password: k1dBOmOB4oqi7Ump37a1bQ
   cipher: chacha20-ietf-poly1305
+  password: k1dBOmOB4oqi7Ump37a1bQ
 - name: FREE-GB-au-c0ea69
   type: ss
   server: 82.38.31.170
   port: 443
-  password: oZIoA69Q8yhcQV8ka3Pa3A
   cipher: chacha20-ietf-poly1305
+  password: oZIoA69Q8yhcQV8ka3Pa3A
 - name: FREE-GB-au-788a3d
   type: ss
   server: 82.38.31.82
   port: 8080
-  password: oZIoA69Q8yhcQV8ka3Pa3A
   cipher: chacha20-ietf-poly1305
+  password: oZIoA69Q8yhcQV8ka3Pa3A
 - name: FREE-FR-au-b76e57
   type: ss
   server: 54.36.174.134
   port: 443
-  password: 6heexyz
   cipher: chacha20-ietf-poly1305
+  password: 6heexyz
 - name: FREE-GB-au-876523
   type: ss
   server: 98.98.207.163
   port: 8080
-  password: 14fFPrbezE3HDZzsMOr6
   cipher: rc4-md5
+  password: 14fFPrbezE3HDZzsMOr6
 - name: FREE-GB-au-cec1df
   type: ss
   server: 98.98.142.161
   port: 8080
-  password: 14fFPrbezE3HDZzsMOr6
   cipher: rc4-md5
+  password: 14fFPrbezE3HDZzsMOr6
 - name: FREE-US-au-a27e6a
   type: trojan
   server: 167.88.61.198
@@ -1927,13 +1927,13 @@ proxies:
   type: vless
   server: us1.oh-node.com
   port: 443
+  tls: true
   reality-opts:
     public-key: 0_UOGGSOr0NZqCA-nQo-Ct0MjQPfghmBL_sh6XU5pW8
     short-id: 16217b4ca76913e2
-  client-fingerprint: chrome
-  tls: true
-  uuid: 4bcf0215-f07e-4a0b-97e2-7464a565e8f1
   flow: xtls-rprx-vision
+  uuid: 4bcf0215-f07e-4a0b-97e2-7464a565e8f1
+  client-fingerprint: chrome
   servername: download-porter.hoyoverse.com
 - name: FREE-UNKNOWN-au-db24ae
   type: vless
@@ -1959,93 +1959,93 @@ proxies:
   type: vless
   server: 15.204.97.219
   port: 23576
+  tls: true
   reality-opts:
     public-key: 1y5h2FGWKXTJ9xLPCqPo6Mw7RxoZzh6fGkEQKNxpZ3s
     short-id: '01'
-  client-fingerprint: chrome
-  tls: true
-  uuid: 48ff2b70-e180-582f-8866-d9a2edeed5f5
   flow: xtls-rprx-vision
+  uuid: 48ff2b70-e180-582f-8866-d9a2edeed5f5
+  client-fingerprint: chrome
   servername: fuck.rkn
 - name: FREE-HK-au-7ff4cb
   type: vless
   server: 103.238.227.211
   port: 21003
+  tls: true
   reality-opts:
     public-key: EXU8eOS1kf_ROqC68NO-zbzRFGx7U5zE6WvjxRzYeTo
     short-id: eb9539689690d35c
-  client-fingerprint: firefox
-  tls: true
   uuid: 52d2187c-34e1-40fd-a6f5-0a74ff7d3e9a
+  client-fingerprint: firefox
   servername: www.cloudflare.com
 - name: FREE-TH-au-5849af
   type: vless
   server: 45.154.26.63
   port: 443
+  tls: true
   reality-opts:
     public-key: MiQ5B4j6In71lWvCi0vO_DkVSDb7sii34bh5efBMswk
     short-id: 3c032a7e
-  client-fingerprint: chrome
-  tls: true
-  uuid: ff85e702-b605-4109-884d-2c1f065d0954
   flow: xtls-rprx-vision
+  uuid: ff85e702-b605-4109-884d-2c1f065d0954
+  client-fingerprint: chrome
   servername: www.cloudflare.com
 - name: FREE-HK-au-bfba6c
   type: vless
   server: 103.238.227.211
   port: 21001
+  tls: true
   reality-opts:
     public-key: EXU8eOS1kf_ROqC68NO-zbzRFGx7U5zE6WvjxRzYeTo
     short-id: b6dfd5c750351c57
-  client-fingerprint: chrome
-  tls: true
   uuid: 52d2187c-34e1-40fd-a6f5-0a74ff7d3e9a
+  client-fingerprint: chrome
   servername: www.cloudflare.com
 - name: FREE-HK-au-f73e72
   type: vless
   server: 526.150333.xyz
   port: 21003
+  tls: true
   reality-opts:
     public-key: EXU8eOS1kf_ROqC68NO-zbzRFGx7U5zE6WvjxRzYeTo
     short-id: eb9539689690d35c
-  client-fingerprint: chrome
-  tls: true
   uuid: 52d2187c-34e1-40fd-a6f5-0a74ff7d3e9a
+  client-fingerprint: chrome
   servername: www.cloudflare.com
 - name: FREE-SG-au-bc1953
   type: vless
   server: 510.150333.xyz
   port: 21001
+  tls: true
   reality-opts:
     public-key: IRaSB0ImgMO7fsrIbh9i3Pz-bgo5F1jKeC51Fpfs9AA
     short-id: a51c3ccb2320024a
-  client-fingerprint: chrome
-  tls: true
   uuid: 67952583-8572-42e1-943d-0602794f885b
+  client-fingerprint: chrome
   servername: www.cloudflare.com
 - name: FREE-DE-au-43c8c6
   type: vless
   server: 169.40.42.224
   port: 443
+  tls: true
   reality-opts:
     public-key: e2RLf57Li_-MDZGE9ss1BWPgP54mqRb5PfXhW2jcVVg
     short-id: c39cc7310a
-  client-fingerprint: ios
-  tls: true
-  uuid: d65cc14c-f53f-4fe2-b262-97856601319c
   flow: xtls-rprx-vision
+  uuid: d65cc14c-f53f-4fe2-b262-97856601319c
+  client-fingerprint: ios
   servername: yahoo.com
 - name: FREE-US-au-2e8633
   type: vless
   server: 195.123.240.65
   port: 443
+  tls: true
   reality-opts:
     public-key: StPbcmBuzpuYUfa4oZ5SI3Bq1OSF_-oU1vp2AcyvQVE
     short-id: 19296c9f1bf9c7b1
-  client-fingerprint: chrome
-  tls: true
-  uuid: ce18d0eb-5c71-41f9-96e5-1632e22456e4
   flow: xtls-rprx-vision
+  uuid: ce18d0eb-5c71-41f9-96e5-1632e22456e4
+  client-fingerprint: chrome
   servername: www.cloudflare.com
 - name: FREE-DE-au-21d1a1
   type: vless
@@ -2061,49 +2061,49 @@ proxies:
   type: vless
   server: 169.40.42.229
   port: 443
+  tls: true
   reality-opts:
     public-key: e2RLf57Li_-MDZGE9ss1BWPgP54mqRb5PfXhW2jcVVg
     short-id: c39cc7310a
-  client-fingerprint: chrome
-  tls: true
-  uuid: d65cc14c-f53f-4fe2-b262-97856601319c
   flow: xtls-rprx-vision
+  uuid: d65cc14c-f53f-4fe2-b262-97856601319c
+  client-fingerprint: chrome
   servername: yahoo.com
 - name: FREE-BR-au-f86505
   type: vless
   server: 177.7.51.29
   port: 8443
+  tls: true
   reality-opts:
     public-key: laG5BxoSbdRozpauATNFBPPTwhuDuu0JFl_SCP2ZQlU
     short-id: 14fbf992
-  client-fingerprint: firefox
-  tls: true
-  uuid: c6b1b2d0-ed5e-48ce-99e6-112ff330030d
   flow: xtls-rprx-vision
+  uuid: c6b1b2d0-ed5e-48ce-99e6-112ff330030d
+  client-fingerprint: firefox
   servername: www.apple.com
 - name: FREE-US-au-22479f
   type: vless
   server: 195.211.98.43
   port: 443
+  tls: true
   reality-opts:
     public-key: xPnpkXu5qfwIArlHKvJsqKJnGdGbJK1tT2GzWMyLohA
     short-id: 9c56fddf237e8eaf
-  client-fingerprint: chrome
-  tls: true
-  uuid: 1b4b11d5-4c2d-4533-9a55-636757cdee94
   flow: xtls-rprx-vision
+  uuid: 1b4b11d5-4c2d-4533-9a55-636757cdee94
+  client-fingerprint: chrome
   servername: www.cloudflare.com
 - name: FREE-CA-au-ae6c45
   type: vless
   server: 209.200.246.148
   port: 443
+  tls: true
   reality-opts:
     public-key: uTmb-ytXsx8p0fkBz7A76SHpWk7_oVutIA4LGTE8BQk
     short-id: f98843107912e782
-  client-fingerprint: firefox
-  tls: true
-  uuid: ca52e2b6-fb9f-4dac-b6dc-49da9923f251
   flow: xtls-rprx-vision
+  uuid: ca52e2b6-fb9f-4dac-b6dc-49da9923f251
+  client-fingerprint: firefox
   servername: www.cloudflare.com
 - name: FREE-UNKNOWN-au-e3db24
   type: vless
@@ -2119,12 +2119,12 @@ proxies:
   type: vless
   server: 178.212.35.198
   port: 443
+  tls: true
   reality-opts:
     public-key: 3LbVuwKpQv55GngyRhvGl9KyAHIDAgvJx_VRM5mUD2Q
     short-id: 6bdc8320
-  client-fingerprint: firefox
-  tls: true
   uuid: 6bdc8320-7eae-46fc-be08-f5f54e65dfc8
+  client-fingerprint: firefox
   servername: www.cloudflare.com
 - name: FREE-KR-au-97644b
   type: vmess
@@ -2197,68 +2197,68 @@ proxies:
   type: ss
   server: 138.199.43.159
   port: 8080
-  password: 14fFPrbezE3HDZzsMOr6
   cipher: rc4-md5
+  password: 14fFPrbezE3HDZzsMOr6
 - name: FREE-US-au-e92624
   type: ss
   server: 138.199.42.68
   port: 8080
-  password: 14fFPrbezE3HDZzsMOr6
   cipher: rc4-md5
+  password: 14fFPrbezE3HDZzsMOr6
 - name: FREE-GB-au-9f9bf2
   type: ss
   server: 185.176.206.9
   port: 19999
-  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
   cipher: aes-256-gcm
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
 - name: FREE-GB-au-521c7f
   type: ss
   server: 82.38.31.193
   port: 8080
-  password: k1dBOmOB4oqi7Ump37a1bQ
   cipher: chacha20-ietf-poly1305
+  password: k1dBOmOB4oqi7Ump37a1bQ
 - name: FREE-GB-au-4cea24
   type: ss
   server: 82.38.31.174
   port: 443
-  password: oZIoA69Q8yhcQV8ka3Pa3A
   cipher: chacha20-ietf-poly1305
+  password: oZIoA69Q8yhcQV8ka3Pa3A
 - name: FREE-NL-au-d5dd8b
   type: ss
   server: 193.29.139.204
   port: 8080
-  password: oZIoA69Q8yhcQV8ka3Pa3A
   cipher: chacha20-ietf-poly1305
+  password: oZIoA69Q8yhcQV8ka3Pa3A
 - name: FREE-GB-au-b796e7
   type: ss
   server: 141.98.101.181
   port: 443
-  password: shadowsocks
   cipher: aes-128-gcm
+  password: shadowsocks
 - name: FREE-GB-au-db753c
   type: ss
   server: 82.38.31.190
   port: 8080
-  password: k1dBOmOB4oqi7Ump37a1bQ
   cipher: chacha20-ietf-poly1305
+  password: k1dBOmOB4oqi7Ump37a1bQ
 - name: FREE-NL-au-88823c
   type: ss
   server: 193.29.139.188
   port: 8080
-  password: oZIoA69Q8yhcQV8ka3Pa3A
   cipher: chacha20-ietf-poly1305
+  password: oZIoA69Q8yhcQV8ka3Pa3A
 - name: FREE-GB-au-4f40b9
   type: ss
   server: 82.38.31.10
   port: 8080
-  password: oZIoA69Q8yhcQV8ka3Pa3A
   cipher: chacha20-ietf-poly1305
+  password: oZIoA69Q8yhcQV8ka3Pa3A
 - name: FREE-SG-au-9b918d
   type: ss
   server: 68.183.235.240
   port: 8080
-  password: 14fFPrbezE3HDZzsMOr6
   cipher: rc4-md5
+  password: 14fFPrbezE3HDZzsMOr6
 - name: FREE-US-au-48a795
   type: trojan
   server: resources.findlocaljobnetworkandbuildcommunityconnections.com
@@ -2403,25 +2403,25 @@ proxies:
   type: vless
   server: 47.251.108.158
   port: 443
+  tls: true
   reality-opts:
     public-key: SmgYcFIvvFXW3xh4gvGhIJuQsaZvWkAylcjB6TEddEs
     short-id: 896f52ba2cfca903
-  client-fingerprint: safari
-  tls: true
-  uuid: 975fc322-6e38-434b-a53c-d39fed49b9a9
   flow: xtls-rprx-vision
+  uuid: 975fc322-6e38-434b-a53c-d39fed49b9a9
+  client-fingerprint: safari
   servername: www.cloudflare.com
 - name: FREE-US-au-c4c7d3
   type: vless
   server: us3.oh-node.com
   port: 443
+  tls: true
   reality-opts:
     public-key: Xxlyh5wfeoNPedBBkb8Sq8rjGEwmNHfE-sVyU7pJEnA
     short-id: 16217b4ca76913e2
-  client-fingerprint: chrome
-  tls: true
-  uuid: 4bcf0215-f07e-4a0b-97e2-7464a565e8f1
   flow: xtls-rprx-vision
+  uuid: 4bcf0215-f07e-4a0b-97e2-7464a565e8f1
+  client-fingerprint: chrome
   servername: download-porter.hoyoverse.com
 - name: FREE-UNKNOWN-au-e00954
   type: vless
@@ -2437,13 +2437,13 @@ proxies:
   type: vless
   server: 5.253.28.224
   port: 40443
+  tls: true
   reality-opts:
     public-key: g77ZJbm18JEotapmVRjaXi133MzkbhkU2lxhVeXx8zw
     short-id: 68a8
-  client-fingerprint: chrome
-  tls: true
-  uuid: af5eac96-e478-488a-bc8c-45269d7e8847
   flow: xtls-rprx-vision
+  uuid: af5eac96-e478-488a-bc8c-45269d7e8847
+  client-fingerprint: chrome
   servername: deepl.com
 - name: FREE-UNKNOWN-au-811d0e
   type: vless
@@ -2459,12 +2459,12 @@ proxies:
   type: vless
   server: 45.63.53.81
   port: 443
+  tls: true
   reality-opts:
     public-key: 6nTROV2ELz-3vNUl0A00hp378QngpYABrPgjCpUknD0
     short-id: f436f707
-  client-fingerprint: chrome
-  tls: true
   uuid: c512dcbd-1847-40a2-9c99-989c8bfe4717
+  client-fingerprint: chrome
   network: ws
   ws-opts:
     path: /
@@ -2480,39 +2480,39 @@ proxies:
   type: vless
   server: 154.21.203.106
   port: 51279
+  tls: true
   reality-opts:
     public-key: f6Tj8-uvWsLv3V-lGLuPciArp5oKqUImBg-U7-WJ-0A
     short-id: bb82c8
-  client-fingerprint: random
-  tls: true
-  uuid: 57beeeb0-03fc-4fc9-94da-7604488a7134
   flow: xtls-rprx-vision
+  uuid: 57beeeb0-03fc-4fc9-94da-7604488a7134
+  client-fingerprint: random
   servername: www.tesla.com
 - name: FREE-US-au-dd0aad
   type: vless
   server: 195.123.235.183
   port: 443
+  tls: true
   reality-opts:
     public-key: H3R3BUAl7thrIZsznTbb-eRREIjQOH2f3WO0oTN7OGY
     short-id: a0e2a6074c6456b0
-  client-fingerprint: chrome
-  tls: true
-  uuid: c14ec728-3eca-4750-87fc-fd1e6aeb81d5
   flow: xtls-rprx-vision
+  uuid: c14ec728-3eca-4750-87fc-fd1e6aeb81d5
+  client-fingerprint: chrome
   servername: gateway.icloud.com
 - name: FREE-US-au-54f402
   type: vless
   server: 5.34.178.120
   port: 443
+  tls: true
   reality-opts:
     public-key: EVhq2BxKuw2Cody1DmF_HPvUYKwzdXbHP47blUv-eRM
     short-id: 55ab5559e3a6d10a
-  client-fingerprint: chrome
-  tls: true
-  uuid: 9063f9fb-e88a-4ee0-b4a4-a92ca7316a9f
   flow: xtls-rprx-vision
+  uuid: 9063f9fb-e88a-4ee0-b4a4-a92ca7316a9f
+  client-fingerprint: chrome
   servername: www.cloudflare.com
-- name: FREE-DE-au-1992db
+- name: FREE-FR-au-1992db
   type: vless
   server: connect.wecantos.site
   port: 10000
@@ -2521,13 +2521,13 @@ proxies:
   type: vless
   server: 2.24.124.64
   port: 443
+  tls: true
   reality-opts:
     public-key: zpXR6Y36C8qUCIVk2p_j8C9KGeBk5xisLw66j3WFOls
     short-id: 9f1fc5a631ef3126
-  client-fingerprint: chrome
-  tls: true
-  uuid: 719b9354-45e2-4718-8709-d965b64554db
   flow: xtls-rprx-vision
+  uuid: 719b9354-45e2-4718-8709-d965b64554db
+  client-fingerprint: chrome
   servername: www.cloudflare.com
 - name: FREE-FR-au-450e4c
   type: vless
@@ -2543,13 +2543,13 @@ proxies:
   type: vless
   server: xray1-direct-mci1-fs-ce.freesocks.work
   port: 443
+  tls: true
   reality-opts:
     public-key: 7j3hmlHrEDk3Kjx-dFG3E3jf0c6PZF45trIPFsuKWmI
     short-id: ''
-  client-fingerprint: chrome
-  tls: true
-  uuid: d8feda9a-54c5-426f-a918-b5c9756c0464
   flow: xtls-rprx-vision
+  uuid: d8feda9a-54c5-426f-a918-b5c9756c0464
+  client-fingerprint: chrome
   servername: dl.google.com
 - name: FREE-DE-au-a3ca25
   type: vless
@@ -2570,809 +2570,809 @@ proxies:
   type: vless
   server: 54.71.51.243
   port: 443
+  tls: true
   reality-opts:
     public-key: zyTOrYSLMmN8aBb_-QWGr58VkDR-9L80AwCzpxeFTSY
     short-id: 7c59504333892d97
-  client-fingerprint: chrome
-  tls: true
-  uuid: 3447fe7d-c5a2-4dbb-983b-960dc08ee122
   flow: xtls-rprx-vision
+  uuid: 3447fe7d-c5a2-4dbb-983b-960dc08ee122
+  client-fingerprint: chrome
   servername: www.microsoft.com
 - name: FREE-CH-au-526348
   type: vless
   server: 208.69.78.217
   port: 2053
+  tls: true
   reality-opts:
     public-key: A49ue7zXSusJZdErPAewg3jqGdUFIO1a9xOunEKJfC0
     short-id: ad86e2d52ff40ebd
-  client-fingerprint: firefox
-  tls: true
   uuid: c0dd6d59-1573-43af-8b70-1470b2632a6d
+  client-fingerprint: firefox
   servername: www.apple.com
 - name: FREE-GB-nr-c0936f
   type: ss
   server: 82.38.31.195
   port: 8080
-  password: k1dBOmOB4oqi7Ump37a1bQ
   cipher: chacha20-ietf-poly1305
+  password: k1dBOmOB4oqi7Ump37a1bQ
 - name: FREE-GB-nr-17fd85
   type: ss
   server: 82.38.31.218
   port: 8080
-  password: k1dBOmOB4oqi7Ump37a1bQ
   cipher: chacha20-ietf-poly1305
+  password: k1dBOmOB4oqi7Ump37a1bQ
 - name: FREE-GB-nr-1a7119
   type: ss
   server: 82.38.31.219
   port: 8080
-  password: k1dBOmOB4oqi7Ump37a1bQ
   cipher: chacha20-ietf-poly1305
+  password: k1dBOmOB4oqi7Ump37a1bQ
 - name: FREE-NL-nr-ee882d
   type: ss
   server: 158.173.20.208
   port: 443
-  password: shadowsocks
   cipher: aes-128-gcm
+  password: shadowsocks
 - name: FREE-GB-nr-e68024
   type: ss
   server: 82.38.31.204
   port: 8080
-  password: k1dBOmOB4oqi7Ump37a1bQ
   cipher: chacha20-ietf-poly1305
+  password: k1dBOmOB4oqi7Ump37a1bQ
 - name: FREE-GB-nr-6d963d
   type: ss
   server: 82.38.31.220
   port: 8080
-  password: k1dBOmOB4oqi7Ump37a1bQ
   cipher: chacha20-ietf-poly1305
+  password: k1dBOmOB4oqi7Ump37a1bQ
 - name: FREE-GB-nr-4f6250
   type: ss
   server: 82.38.31.49
   port: 8080
-  password: oZIoA69Q8yhcQV8ka3Pa3A
   cipher: chacha20-ietf-poly1305
+  password: oZIoA69Q8yhcQV8ka3Pa3A
 - name: FREE-GB-nr-9c22b6
   type: ss
   server: 82.38.31.186
   port: 8080
-  password: k1dBOmOB4oqi7Ump37a1bQ
   cipher: chacha20-ietf-poly1305
+  password: k1dBOmOB4oqi7Ump37a1bQ
 - name: FREE-IT-nr-d79de1
   type: ss
   server: 202.50.253.81
   port: 19999
-  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
   cipher: aes-256-gcm
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
 - name: FREE-NL-nr-3b3513
   type: ss
   server: 193.29.139.212
   port: 8080
-  password: QCXDxuDlTTMD7jtgHUjIoj
   cipher: chacha20-ietf-poly1305
+  password: QCXDxuDlTTMD7jtgHUjIoj
 - name: FREE-DE-nr-6d42e8
   type: ss
   server: 185.226.172.8
   port: 8008
-  password: XKFKl2rULjIp74
   cipher: aes-256-gcm
+  password: XKFKl2rULjIp74
 - name: FREE-GB-nr-a65c3d
   type: ss
   server: 82.38.31.215
   port: 8080
-  password: k1dBOmOB4oqi7Ump37a1bQ
   cipher: chacha20-ietf-poly1305
+  password: k1dBOmOB4oqi7Ump37a1bQ
 - name: FREE-GB-nr-435234
   type: ss
   server: 82.38.31.157
   port: 8080
-  password: oZIoA69Q8yhcQV8ka3Pa3A
   cipher: chacha20-ietf-poly1305
+  password: oZIoA69Q8yhcQV8ka3Pa3A
 - name: FREE-GB-nr-18c8a9
   type: ss
   server: 82.38.31.199
   port: 8080
-  password: k1dBOmOB4oqi7Ump37a1bQ
   cipher: chacha20-ietf-poly1305
+  password: k1dBOmOB4oqi7Ump37a1bQ
 - name: FREE-GB-nr-76ee10
   type: ss
   server: 82.38.31.192
   port: 8080
-  password: k1dBOmOB4oqi7Ump37a1bQ
   cipher: chacha20-ietf-poly1305
+  password: k1dBOmOB4oqi7Ump37a1bQ
 - name: FREE-GB-nr-6a70ca
   type: ss
   server: 82.38.31.200
   port: 8080
-  password: k1dBOmOB4oqi7Ump37a1bQ
   cipher: chacha20-ietf-poly1305
+  password: k1dBOmOB4oqi7Ump37a1bQ
 - name: FREE-GB-nr-9493f9
   type: ss
   server: 82.38.31.156
   port: 8080
-  password: oZIoA69Q8yhcQV8ka3Pa3A
   cipher: chacha20-ietf-poly1305
+  password: oZIoA69Q8yhcQV8ka3Pa3A
 - name: FREE-GB-nr-caa962
   type: ss
   server: 82.38.31.165
   port: 443
-  password: oZIoA69Q8yhcQV8ka3Pa3A
   cipher: chacha20-ietf-poly1305
+  password: oZIoA69Q8yhcQV8ka3Pa3A
 - name: FREE-GB-nr-794be2
   type: ss
   server: 82.38.31.42
   port: 8080
-  password: oZIoA69Q8yhcQV8ka3Pa3A
   cipher: chacha20-ietf-poly1305
+  password: oZIoA69Q8yhcQV8ka3Pa3A
 - name: FREE-NL-nr-3c0da4
   type: ss
   server: 109.201.152.181
   port: 443
-  password: shadowsocks
   cipher: aes-128-cfb
+  password: shadowsocks
 - name: FREE-GB-nr-12a693
   type: ss
   server: 82.38.31.185
   port: 8080
-  password: k1dBOmOB4oqi7Ump37a1bQ
   cipher: chacha20-ietf-poly1305
+  password: k1dBOmOB4oqi7Ump37a1bQ
 - name: FREE-GB-nr-8e1a10
   type: ss
   server: 82.38.31.191
   port: 8080
-  password: k1dBOmOB4oqi7Ump37a1bQ
   cipher: chacha20-ietf-poly1305
+  password: k1dBOmOB4oqi7Ump37a1bQ
 - name: FREE-GB-nr-aef102
   type: ss
   server: 82.38.31.216
   port: 8080
-  password: k1dBOmOB4oqi7Ump37a1bQ
   cipher: chacha20-ietf-poly1305
+  password: k1dBOmOB4oqi7Ump37a1bQ
 - name: FREE-GB-nr-857d4a
   type: ss
   server: 82.38.31.202
   port: 8080
-  password: k1dBOmOB4oqi7Ump37a1bQ
   cipher: chacha20-ietf-poly1305
+  password: k1dBOmOB4oqi7Ump37a1bQ
 - name: FREE-GB-nr-90ecb0
   type: ss
   server: 82.38.31.178
   port: 8080
-  password: k1dBOmOB4oqi7Ump37a1bQ
   cipher: chacha20-ietf-poly1305
+  password: k1dBOmOB4oqi7Ump37a1bQ
 - name: FREE-GB-nr-74c17e
   type: ss
   server: 82.38.31.182
   port: 8080
-  password: k1dBOmOB4oqi7Ump37a1bQ
   cipher: chacha20-ietf-poly1305
+  password: k1dBOmOB4oqi7Ump37a1bQ
 - name: FREE-GB-nr-b5a85e
   type: ss
   server: 82.38.31.48
   port: 8080
-  password: oZIoA69Q8yhcQV8ka3Pa3A
   cipher: chacha20-ietf-poly1305
+  password: oZIoA69Q8yhcQV8ka3Pa3A
 - name: FREE-GB-nr-5afa67
   type: ss
   server: 82.38.31.46
   port: 8080
-  password: oZIoA69Q8yhcQV8ka3Pa3A
   cipher: chacha20-ietf-poly1305
+  password: oZIoA69Q8yhcQV8ka3Pa3A
 - name: FREE-DE-nr-f2db6d
   type: ss
   server: 146.70.20.147
   port: 8080
-  password: 14fFPrbezE3HDZzsMOr6
   cipher: rc4-md5
+  password: 14fFPrbezE3HDZzsMOr6
 - name: FREE-GB-nr-405bdb
   type: ss
   server: 82.38.31.155
   port: 8080
-  password: oZIoA69Q8yhcQV8ka3Pa3A
   cipher: chacha20-ietf-poly1305
+  password: oZIoA69Q8yhcQV8ka3Pa3A
 - name: FREE-DE-nr-32d75d
   type: ss
   server: 169.150.210.233
   port: 8080
-  password: 14fFPrbezE3HDZzsMOr6
   cipher: rc4-md5
+  password: 14fFPrbezE3HDZzsMOr6
 - name: FREE-GB-nr-d75c0a
   type: ss
   server: 82.38.31.183
   port: 8080
-  password: k1dBOmOB4oqi7Ump37a1bQ
   cipher: chacha20-ietf-poly1305
+  password: k1dBOmOB4oqi7Ump37a1bQ
 - name: FREE-DE-nr-609751
   type: ss
   server: 213.202.208.199
   port: 5000
-  password: Y6R9pAtvxxzmGC
   cipher: aes-256-gcm
+  password: Y6R9pAtvxxzmGC
 - name: FREE-GB-nr-6e4520
   type: ss
   server: 82.38.31.210
   port: 8080
-  password: k1dBOmOB4oqi7Ump37a1bQ
   cipher: chacha20-ietf-poly1305
+  password: k1dBOmOB4oqi7Ump37a1bQ
 - name: FREE-IT-nr-f43962
   type: ss
   server: 202.50.253.45
   port: 19999
-  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
   cipher: aes-256-gcm
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
 - name: FREE-GB-nr-443e68
   type: ss
   server: 82.38.31.217
   port: 8080
-  password: k1dBOmOB4oqi7Ump37a1bQ
   cipher: chacha20-ietf-poly1305
+  password: k1dBOmOB4oqi7Ump37a1bQ
 - name: FREE-GB-nr-6766c6
   type: ss
   server: 82.38.31.203
   port: 8080
-  password: k1dBOmOB4oqi7Ump37a1bQ
   cipher: chacha20-ietf-poly1305
+  password: k1dBOmOB4oqi7Ump37a1bQ
 - name: FREE-GB-nr-c154c3
   type: ss
   server: 82.38.31.159
   port: 443
-  password: oZIoA69Q8yhcQV8ka3Pa3A
   cipher: chacha20-ietf-poly1305
+  password: oZIoA69Q8yhcQV8ka3Pa3A
 - name: FREE-GB-nr-7a7ae2
   type: ss
   server: 146.70.61.18
   port: 8080
-  password: 14fFPrbezE3HDZzsMOr6
   cipher: rc4-md5
+  password: 14fFPrbezE3HDZzsMOr6
 - name: FREE-NL-nr-16ebec
   type: ss
   server: 193.29.139.235
   port: 443
-  password: oZIoA69Q8yhcQV8ka3Pa3A
   cipher: chacha20-ietf-poly1305
+  password: oZIoA69Q8yhcQV8ka3Pa3A
 - name: FREE-GB-nr-4d99b2
   type: ss
   server: 82.38.31.35
   port: 8080
-  password: oZIoA69Q8yhcQV8ka3Pa3A
   cipher: chacha20-ietf-poly1305
+  password: oZIoA69Q8yhcQV8ka3Pa3A
 - name: FREE-US-nr-1b16a3
   type: ss
   server: 156.146.38.169
   port: 443
-  password: shadowsocks
   cipher: aes-128-gcm
+  password: shadowsocks
 - name: FREE-GB-nr-dee521
   type: ss
   server: 146.70.46.214
   port: 8080
-  password: 14fFPrbezE3HDZzsMOr6
   cipher: rc4-md5
+  password: 14fFPrbezE3HDZzsMOr6
 - name: FREE-BG-nr-73e65b
   type: ss
   server: 213.183.63.60
   port: 9064
-  password: cp8pRSUAyLhTfVWH
   cipher: aes-256-cfb
+  password: cp8pRSUAyLhTfVWH
 - name: FREE-US-nr-c15fc4
   type: ss
   server: 15.204.233.41
   port: 8882
-  password: kDWvXYZoTBcGkC4
   cipher: aes-256-gcm
+  password: kDWvXYZoTBcGkC4
 - name: FREE-GB-nr-a24e04
   type: ss
   server: 146.70.46.199
   port: 8080
-  password: 14fFPrbezE3HDZzsMOr6
   cipher: rc4-md5
+  password: 14fFPrbezE3HDZzsMOr6
 - name: FREE-SG-nr-1ba890
   type: ss
   server: 128.1.186.132
   port: 8080
-  password: 14fFPrbezE3HDZzsMOr6
   cipher: rc4-md5
+  password: 14fFPrbezE3HDZzsMOr6
 - name: FREE-US-nr-bb00bb
   type: ss
   server: 98.98.79.198
   port: 8080
-  password: 14fFPrbezE3HDZzsMOr6
   cipher: rc4-md5
+  password: 14fFPrbezE3HDZzsMOr6
 - name: FREE-SG-nr-ea3273
   type: ss
   server: 68.183.227.45
   port: 8080
-  password: 14fFPrbezE3HDZzsMOr6
   cipher: rc4-md5
+  password: 14fFPrbezE3HDZzsMOr6
 - name: FREE-SG-nr-5f05ae
   type: ss
   server: 128.199.172.224
   port: 8080
-  password: 14fFPrbezE3HDZzsMOr6
   cipher: rc4-md5
+  password: 14fFPrbezE3HDZzsMOr6
 - name: FREE-NL-nr-ccb0e6
   type: ss
   server: 193.29.139.234
   port: 8080
-  password: 4a2rfixophdjffa8KVA4Aa
   cipher: chacha20-ietf-poly1305
+  password: 4a2rfixophdjffa8KVA4Aa
 - name: FREE-US-nr-e86182
   type: ss
   server: 107.151.182.253
   port: 8080
-  password: 14fFPrbezE3HDZzsMOr6
   cipher: rc4-md5
+  password: 14fFPrbezE3HDZzsMOr6
 - name: FREE-NL-nr-8edbcc
   type: ss
   server: 193.29.139.168
   port: 8080
-  password: QCXDxuDlTTMD7jtgHUjIoj
   cipher: chacha20-ietf-poly1305
+  password: QCXDxuDlTTMD7jtgHUjIoj
 - name: FREE-GB-nr-f0afb1
   type: ss
   server: 82.38.31.211
   port: 8080
-  password: k1dBOmOB4oqi7Ump37a1bQ
   cipher: chacha20-ietf-poly1305
+  password: k1dBOmOB4oqi7Ump37a1bQ
 - name: FREE-US-nr-57565b
   type: ss
   server: 15.204.246.132
   port: 7307
-  password: FoOiGlkAA9yPEGP
   cipher: aes-256-gcm
+  password: FoOiGlkAA9yPEGP
 - name: FREE-GB-nr-1b8d2b
   type: ss
   server: 94.156.250.148
   port: 7001
-  password: RexnBgU7EV5ADxG
   cipher: aes-256-gcm
+  password: RexnBgU7EV5ADxG
 - name: FREE-LT-nr-35f9ab
   type: ss
   server: 195.238.126.20
   port: 9045
-  password: Lp27rqyJq72bZsqX
   cipher: aes-256-cfb
+  password: Lp27rqyJq72bZsqX
 - name: FREE-GB-nr-a8951d
   type: ss
   server: 82.38.31.214
   port: 8080
-  password: k1dBOmOB4oqi7Ump37a1bQ
   cipher: chacha20-ietf-poly1305
+  password: k1dBOmOB4oqi7Ump37a1bQ
 - name: FREE-NL-nr-db7297
   type: ss
   server: 193.29.139.132
   port: 8080
-  password: k1dBOmOB4oqi7Ump37a1bQ
   cipher: chacha20-ietf-poly1305
+  password: k1dBOmOB4oqi7Ump37a1bQ
 - name: FREE-GB-nr-f250d5
   type: ss
   server: 82.38.31.194
   port: 8080
-  password: k1dBOmOB4oqi7Ump37a1bQ
   cipher: chacha20-ietf-poly1305
+  password: k1dBOmOB4oqi7Ump37a1bQ
 - name: FREE-IT-nr-b2387e
   type: ss
   server: 202.50.253.99
   port: 19999
-  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
   cipher: aes-256-gcm
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
 - name: FREE-GB-nr-8be47a
   type: ss
   server: 82.38.31.198
   port: 8080
-  password: k1dBOmOB4oqi7Ump37a1bQ
   cipher: chacha20-ietf-poly1305
+  password: k1dBOmOB4oqi7Ump37a1bQ
 - name: FREE-GB-nr-8dff8d
   type: ss
   server: 82.38.31.187
   port: 8080
-  password: k1dBOmOB4oqi7Ump37a1bQ
   cipher: chacha20-ietf-poly1305
+  password: k1dBOmOB4oqi7Ump37a1bQ
 - name: FREE-GB-nr-950836
   type: ss
   server: 82.38.31.205
   port: 8080
-  password: k1dBOmOB4oqi7Ump37a1bQ
   cipher: chacha20-ietf-poly1305
+  password: k1dBOmOB4oqi7Ump37a1bQ
 - name: FREE-GB-nr-2086ea
   type: ss
   server: 82.38.31.213
   port: 8080
-  password: k1dBOmOB4oqi7Ump37a1bQ
   cipher: chacha20-ietf-poly1305
+  password: k1dBOmOB4oqi7Ump37a1bQ
 - name: FREE-GB-nr-f7bfae
   type: ss
   server: 82.38.31.184
   port: 8080
-  password: k1dBOmOB4oqi7Ump37a1bQ
   cipher: chacha20-ietf-poly1305
+  password: k1dBOmOB4oqi7Ump37a1bQ
 - name: FREE-DE-nr-c52fc4
   type: ss
   server: 213.202.208.199
   port: 7001
-  password: RexnBgU7EV5ADxG
   cipher: aes-256-gcm
+  password: RexnBgU7EV5ADxG
 - name: FREE-GB-nr-d6e8a8
   type: ss
   server: 82.38.31.212
   port: 8080
-  password: k1dBOmOB4oqi7Ump37a1bQ
   cipher: chacha20-ietf-poly1305
+  password: k1dBOmOB4oqi7Ump37a1bQ
 - name: FREE-IT-nr-802fd1
   type: ss
   server: 202.50.253.36
   port: 19999
-  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
   cipher: aes-256-gcm
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
 - name: FREE-GB-nr-b41098
   type: ss
   server: 82.38.31.180
   port: 8080
-  password: k1dBOmOB4oqi7Ump37a1bQ
   cipher: chacha20-ietf-poly1305
+  password: k1dBOmOB4oqi7Ump37a1bQ
 - name: FREE-NL-nr-e112eb
   type: ss
   server: 193.29.139.223
   port: 8080
-  password: k1dBOmOB4oqi7Ump37a1bQ
   cipher: chacha20-ietf-poly1305
+  password: k1dBOmOB4oqi7Ump37a1bQ
 - name: FREE-LT-nr-2ea81f
   type: ss
   server: 195.238.126.20
   port: 9008
-  password: y9VURyNzJWNRYEGQ
   cipher: aes-256-cfb
+  password: y9VURyNzJWNRYEGQ
 - name: FREE-BG-nr-05d394
   type: ss
   server: 213.183.63.60
   port: 9028
-  password: 9eeJ2fwnZA5Fxgz8
   cipher: aes-256-cfb
+  password: 9eeJ2fwnZA5Fxgz8
 - name: FREE-LT-nr-5e03b5
   type: ss
   server: 195.238.126.20
   port: 9086
-  password: 37Z4TFCYhfxcpc9Q
   cipher: aes-256-cfb
+  password: 37Z4TFCYhfxcpc9Q
 - name: FREE-LT-nr-ca1884
   type: ss
   server: 195.238.126.20
   port: 9012
-  password: xaupMUvhptwxdDUg
   cipher: aes-256-cfb
+  password: xaupMUvhptwxdDUg
 - name: FREE-DE-nr-8bc963
   type: ss
   server: 57.129.113.16
   port: 8388
-  password: NcAXc0UZI6yQJE1p8QmOv8
   cipher: chacha20-ietf-poly1305
+  password: NcAXc0UZI6yQJE1p8QmOv8
 - name: FREE-IN-nr-354457
   type: ss
   server: 172.105.39.124
   port: 7002
-  password: RexnBgU7EV5ADxG
   cipher: aes-256-gcm
+  password: RexnBgU7EV5ADxG
 - name: FREE-KR-nr-aadef6
   type: ss
   server: 218.237.185.234
   port: 4652
-  password: qwerREWQ@@
   cipher: aes-256-cfb
+  password: qwerREWQ@@
 - name: FREE-GB-nr-311231
   type: ss
   server: 104.239.12.81
   port: 43385
-  password: AwW1fV6oDDQKh8r2znmptv59tPgt4eHVTgFaTqgKS2jiSdikJ7GyGCBYehDaK38S8yMgHFdbJqcTmRJSfYS5CFw345bNhFZa
   cipher: chacha20-ietf-poly1305
+  password: AwW1fV6oDDQKh8r2znmptv59tPgt4eHVTgFaTqgKS2jiSdikJ7GyGCBYehDaK38S8yMgHFdbJqcTmRJSfYS5CFw345bNhFZa
 - name: FREE-FR-nr-c7851d
   type: ss
   server: 54.36.174.140
   port: 443
-  password: 6heexyz
   cipher: chacha20-ietf-poly1305
+  password: 6heexyz
 - name: FREE-NL-nr-020bce
   type: ss
   server: 193.29.139.147
   port: 8080
-  password: k1dBOmOB4oqi7Ump37a1bQ
   cipher: chacha20-ietf-poly1305
+  password: k1dBOmOB4oqi7Ump37a1bQ
 - name: FREE-BG-nr-42a3a1
   type: ss
   server: 213.183.63.60
   port: 9049
-  password: PRBf4BS2HvJqtWxY
   cipher: aes-256-cfb
+  password: PRBf4BS2HvJqtWxY
 - name: FREE-GB-nr-cf8a28
   type: ss
   server: 82.38.31.181
   port: 8080
-  password: k1dBOmOB4oqi7Ump37a1bQ
   cipher: chacha20-ietf-poly1305
+  password: k1dBOmOB4oqi7Ump37a1bQ
 - name: FREE-IT-nr-801bc2
   type: ss
   server: 202.50.253.18
   port: 19999
-  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
   cipher: aes-256-gcm
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
 - name: FREE-GB-nr-4baefe
   type: ss
   server: 82.38.31.189
   port: 8080
-  password: k1dBOmOB4oqi7Ump37a1bQ
   cipher: chacha20-ietf-poly1305
+  password: k1dBOmOB4oqi7Ump37a1bQ
 - name: FREE-LT-nr-a5a6fb
   type: ss
   server: 195.238.126.20
   port: 9078
-  password: JCJpbRbQZNw9XFZG
   cipher: aes-256-cfb
+  password: JCJpbRbQZNw9XFZG
 - name: FREE-BG-nr-130bc3
   type: ss
   server: 213.183.63.60
   port: 9066
-  password: 2KUaE2a8NWTvuCZ3
   cipher: aes-256-cfb
+  password: 2KUaE2a8NWTvuCZ3
 - name: FREE-US-nr-507b75
   type: ss
   server: 198.98.53.130
   port: 443
-  password: eDfN7SODQceIOmIAbtJJtK
   cipher: chacha20-ietf-poly1305
+  password: eDfN7SODQceIOmIAbtJJtK
 - name: FREE-BG-nr-e2829e
   type: ss
   server: 213.183.63.60
   port: 9061
-  password: 4R3hUfZ2FHhDmNcP
   cipher: aes-256-cfb
+  password: 4R3hUfZ2FHhDmNcP
 - name: FREE-CA-nr-f90a2b
   type: ss
   server: 51.222.200.165
   port: 5000
-  password: Y6R9pAtvxxzmGC
   cipher: aes-256-gcm
+  password: Y6R9pAtvxxzmGC
 - name: FREE-LT-nr-d2ae63
   type: ss
   server: 195.238.126.20
   port: 9068
-  password: mwgRg9hRq3b4Qnwb
   cipher: aes-256-cfb
+  password: mwgRg9hRq3b4Qnwb
 - name: FREE-SC-nr-f0bdfd
   type: ss
   server: 45.207.207.25
   port: 443
-  password: gj1+XKulKV0nmw6IThckOkkJh5DSM7+C
   cipher: aes-256-gcm
+  password: gj1+XKulKV0nmw6IThckOkkJh5DSM7+C
 - name: FREE-GB-nr-2d032b
   type: ss
   server: 82.38.31.206
   port: 8080
-  password: k1dBOmOB4oqi7Ump37a1bQ
   cipher: chacha20-ietf-poly1305
+  password: k1dBOmOB4oqi7Ump37a1bQ
 - name: FREE-GB-nr-09acf5
   type: ss
   server: 82.38.31.208
   port: 8080
-  password: k1dBOmOB4oqi7Ump37a1bQ
   cipher: chacha20-ietf-poly1305
+  password: k1dBOmOB4oqi7Ump37a1bQ
 - name: FREE-GB-nr-fec8d3
   type: ss
   server: 82.38.31.207
   port: 8080
-  password: k1dBOmOB4oqi7Ump37a1bQ
   cipher: chacha20-ietf-poly1305
+  password: k1dBOmOB4oqi7Ump37a1bQ
 - name: FREE-BG-nr-184728
   type: ss
   server: 213.183.63.60
   port: 9054
-  password: VcFuyXvND2yQWSFY
   cipher: aes-256-cfb
+  password: VcFuyXvND2yQWSFY
 - name: FREE-NO-nr-736774
   type: ss
   server: 185.213.23.63
   port: 990
-  password: ARgvGZywA+gacgGV26Bvmu05+wZmRW/j+AdU+Z8Bt44=
   cipher: chacha20-ietf-poly1305
+  password: ARgvGZywA+gacgGV26Bvmu05+wZmRW/j+AdU+Z8Bt44=
 - name: FREE-LT-nr-f5589c
   type: ss
   server: 195.238.126.20
   port: 9002
-  password: b8KkNDjEd5QqFyRm
   cipher: aes-256-cfb
+  password: b8KkNDjEd5QqFyRm
 - name: FREE-CA-nr-ee0c89
   type: ss
   server: 51.222.12.127
   port: 445
-  password: zDNVedRFPQexG9v
   cipher: aes-256-gcm
+  password: zDNVedRFPQexG9v
 - name: FREE-CA-nr-84df9d
   type: ss
   server: 51.222.155.113
   port: 5601
-  password: Y6R9pAtvxxzmGC
   cipher: aes-256-gcm
+  password: Y6R9pAtvxxzmGC
 - name: FREE-BG-nr-a82d20
   type: ss
   server: 213.183.63.60
   port: 9085
-  password: 9ej82EKe2gq7gLAM
   cipher: aes-256-cfb
+  password: 9ej82EKe2gq7gLAM
 - name: FREE-BG-nr-f4fb4c
   type: ss
   server: 213.183.63.60
   port: 9098
-  password: aLpQtfEZe445QyHk
   cipher: aes-256-cfb
+  password: aLpQtfEZe445QyHk
 - name: FREE-US-nr-7b4998
   type: ss
   server: 185.215.132.18
   port: 19999
-  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
   cipher: aes-256-gcm
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
 - name: FREE-US-nr-433a22
   type: ss
   server: 185.215.132.9
   port: 19999
-  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
   cipher: aes-256-gcm
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
 - name: FREE-CA-nr-119ce2
   type: ss
   server: 51.222.141.125
   port: 445
-  password: zDNVedRFPQexG9v
   cipher: aes-256-gcm
+  password: zDNVedRFPQexG9v
 - name: FREE-US-nr-d99695
   type: ss
   server: 15.204.247.244
   port: 4444
-  password: pKEW8JPByTVTLtM
   cipher: aes-256-gcm
+  password: pKEW8JPByTVTLtM
 - name: FREE-BG-nr-20e817
   type: ss
   server: 213.183.63.60
   port: 9030
-  password: GeregetR8cvQHzYr
   cipher: aes-256-cfb
+  password: GeregetR8cvQHzYr
 - name: FREE-RU-nr-e9a4a3
   type: ss
   server: 46.17.46.27
   port: 18443
-  password: cCMJgJTA3BA489YUYrFq7XHXSiSpWlLa
   cipher: aes-256-gcm
+  password: cCMJgJTA3BA489YUYrFq7XHXSiSpWlLa
 - name: FREE-NL-nr-cb6164
   type: ssr
   server: 109.104.153.43
   port: 33336
-  password: dongtaiwang.com
-  protocol: auth_chain_a
   cipher: chacha20-ietf
+  password: dongtaiwang.com
   obfs: tls1.2_ticket_auth
+  protocol: auth_chain_a
 - name: FREE-PH-nr-642f6d
   type: ss
   server: 149.104.109.252
   port: 8882
-  password: kDWvXYZoTBcGkC4
   cipher: aes-256-gcm
+  password: kDWvXYZoTBcGkC4
 - name: FREE-US-nr-512769
   type: ss
   server: 15.204.247.175
   port: 8008
-  password: XKFKl2rULjIp74
   cipher: aes-256-gcm
+  password: XKFKl2rULjIp74
 - name: FREE-BG-nr-0495e6
   type: ss
   server: 213.183.63.60
   port: 9029
-  password: dU3DSNS8wYPXzEKw
   cipher: aes-256-cfb
+  password: dU3DSNS8wYPXzEKw
 - name: FREE-LT-nr-7e5e1c
   type: ss
   server: 195.238.126.20
   port: 9001
-  password: UkXRsXvR6buDMG2Y
   cipher: aes-256-cfb
+  password: UkXRsXvR6buDMG2Y
 - name: FREE-US-nr-6cb008
   type: ss
   server: 138.197.89.234
   port: 28960
-  password: DZRy4Q3QH0jUGfKFl2jDCZ
   cipher: chacha20-ietf-poly1305
+  password: DZRy4Q3QH0jUGfKFl2jDCZ
 - name: FREE-US-nr-143a80
   type: ss
   server: 15.204.247.124
   port: 2375
-  password: faBAoD54k87UJG7
   cipher: aes-256-gcm
+  password: faBAoD54k87UJG7
 - name: FREE-HK-nr-f30c80
   type: ss
   server: 38.54.85.230
   port: 8445
-  password: +SpI6Aj5R5Tex6qKfWF3Zw==
   cipher: 2022-blake3-aes-128-gcm
+  password: +SpI6Aj5R5Tex6qKfWF3Zw==
 - name: FREE-CA-nr-016272
   type: ss
   server: 51.79.85.185
   port: 8118
-  password: cdBIDV42DCwnfIN
   cipher: aes-256-gcm
+  password: cdBIDV42DCwnfIN
 - name: FREE-US-nr-50bda0
   type: ss
   server: 49.51.39.148
   port: 443
-  password: LCvps-199-168-136-193-bak8443
   cipher: chacha20-ietf-poly1305
+  password: LCvps-199-168-136-193-bak8443
 - name: FREE-US-nr-f4cf55
   type: ss
   server: 15.204.247.244
   port: 443
-  password: pKEW8JPByTVTLtM
   cipher: aes-256-gcm
+  password: pKEW8JPByTVTLtM
 - name: FREE-CA-nr-12b63d
   type: ss
   server: 51.222.155.32
   port: 5003
-  password: g5MeD6Ft3CWlJId
   cipher: aes-256-gcm
+  password: g5MeD6Ft3CWlJId
 - name: FREE-CA-nr-e32b5f
   type: ss
   server: 51.79.64.198
   port: 8119
-  password: cdBIDV42DCwnfIN
   cipher: aes-256-gcm
+  password: cdBIDV42DCwnfIN
 - name: FREE-JP-nr-908e06
   type: ss
   server: 154.36.158.197
   port: 8388
-  password: BeaUf9c0AEWH40Pu
   cipher: aes-256-gcm
+  password: BeaUf9c0AEWH40Pu
 - name: FREE-FR-nr-953c53
   type: ss
   server: 51.83.192.80
   port: 8388
-  password: itzvpn@321
   cipher: aes-256-gcm
+  password: itzvpn@321
 - name: FREE-US-nr-c18a4e
   type: ss
   server: 216.105.168.18
   port: 443
-  password: bQZl7HDxSabr1FurTYQHFU
   cipher: chacha20-ietf-poly1305
+  password: bQZl7HDxSabr1FurTYQHFU
 - name: FREE-US-nr-2f0060
   type: ss
   server: 15.204.246.107
   port: 8888
-  password: Y6R9pAtvxxzmGC
   cipher: aes-256-gcm
+  password: Y6R9pAtvxxzmGC
 - name: FREE-AT-nr-3edf76
   type: ss
   server: 152.53.1.57
   port: 8388
-  password: AdawffFMHymlasRb0VOP3HFf7sTG5sJx
   cipher: chacha20-ietf-poly1305
+  password: AdawffFMHymlasRb0VOP3HFf7sTG5sJx
 - name: FREE-US-nr-ec1b5b
   type: ss
   server: 38.145.220.193
   port: 8443
-  password: jUbDNsFamcyDfpm+rI3Zyw==
   cipher: 2022-blake3-aes-128-gcm
+  password: jUbDNsFamcyDfpm+rI3Zyw==
 - name: FREE-RO-nr-e89243
   type: ss
   server: 154.46.31.106
   port: 443
-  password: QFWzCw2uX9B9i6qAYeFBIE
   cipher: chacha20-ietf-poly1305
+  password: QFWzCw2uX9B9i6qAYeFBIE
 - name: FREE-US-nr-06aa70
   type: ssr
   server: 107.151.182.253
   port: 8080
-  password: 14fFPrbezE3HDZzsMOr6
-  protocol: origin
   cipher: rc4-md5
+  password: 14fFPrbezE3HDZzsMOr6
   obfs: plain
+  protocol: origin
 - name: FREE-US-nr-9e4a8b
   type: ss
   server: 216.105.168.18
   port: 443
-  password: hCCWOcIsK5wrFz4OX70rWf
   cipher: chacha20-ietf-poly1305
+  password: hCCWOcIsK5wrFz4OX70rWf
 - name: FREE-DE-nr-f93c3a
   type: trojan
   server: 193.108.119.78
@@ -3384,8 +3384,8 @@ proxies:
   server: 51.15.16.68
   port: 37186
   password: capadm54312235:JdypYweuDQOrFqWTcFAL6aFq
-  obfs-password: ypvL8T4HFIBLoH8q
   obfs: salamander
+  obfs-password: ypvL8T4HFIBLoH8q
   sni: vpn.local
 - name: FREE-DE-nr-09c4eb
   type: trojan
@@ -3410,24 +3410,24 @@ proxies:
   server: 51.77.217.70
   port: 8447
   password: capadmbd5f18bd:jX4BuciLLIqLvzJZsHpoXtc2
-  obfs-password: ChY5QQQT3ZtUdNT8
   obfs: salamander
+  obfs-password: ChY5QQQT3ZtUdNT8
   sni: vpn.local
 - name: FREE-NL-nr-f84d7c
   type: hysteria2
   server: 51.15.16.68
   port: 24044
   password: capadm54312235:JdypYweuDQOrFqWTcFAL6aFq
-  obfs-password: ypvL8T4HFIBLoH8q
   obfs: salamander
+  obfs-password: ypvL8T4HFIBLoH8q
   sni: vpn.local
 - name: FREE-FR-nr-c18de4
   type: hysteria2
   server: 51.77.217.70
   port: 8445
   password: capadmbd5f18bd:jX4BuciLLIqLvzJZsHpoXtc2
-  obfs-password: ChY5QQQT3ZtUdNT8
   obfs: salamander
+  obfs-password: ChY5QQQT3ZtUdNT8
   sni: vpn.local
 - name: FREE-DE-nr-52f63f
   type: trojan
@@ -3440,8 +3440,8 @@ proxies:
   server: 208.69.78.217
   port: 33117
   password: capadm96216165:nXUv9sPkKFsDMmhZ7jbE28sw
-  obfs-password: mbQXP2ASuHbF6ZPq
   obfs: salamander
+  obfs-password: mbQXP2ASuHbF6ZPq
   sni: vpn.local
 - name: FREE-DE-nr-9bd8a8
   type: hysteria2
@@ -3478,16 +3478,16 @@ proxies:
   server: hy2.aspidnet.xyz
   port: 443
   password: p7Q76LzlnS4hIzr1W3staBOnUe_WwSkR
-  obfs-password: rG07s3COMIEvdnQipRyWzx_H_2xygNC3
   obfs: salamander
+  obfs-password: rG07s3COMIEvdnQipRyWzx_H_2xygNC3
   sni: hy2.aspidnet.xyz
 - name: FREE-CH-nr-dc1e5c
   type: hysteria2
   server: 208.69.78.217
   port: 21084
   password: capadm96216165:nXUv9sPkKFsDMmhZ7jbE28sw
-  obfs-password: mbQXP2ASuHbF6ZPq
   obfs: salamander
+  obfs-password: mbQXP2ASuHbF6ZPq
   sni: vpn.local
 - name: FREE-CH-nr-e234d1
   type: hysteria2
@@ -3500,8 +3500,8 @@ proxies:
   server: 208.69.78.217
   port: 33195
   password: capadm96216165:nXUv9sPkKFsDMmhZ7jbE28sw
-  obfs-password: mbQXP2ASuHbF6ZPq
   obfs: salamander
+  obfs-password: mbQXP2ASuHbF6ZPq
   sni: vpn.local
 - name: FREE-CH-nr-487119
   type: trojan
@@ -3514,16 +3514,16 @@ proxies:
   server: 51.15.16.68
   port: 37066
   password: capadm54312235:JdypYweuDQOrFqWTcFAL6aFq
-  obfs-password: ypvL8T4HFIBLoH8q
   obfs: salamander
+  obfs-password: ypvL8T4HFIBLoH8q
   sni: vpn.local
 - name: FREE-CH-nr-40a7ad
   type: hysteria2
   server: 208.69.78.217
   port: 33187
   password: capadm96216165:nXUv9sPkKFsDMmhZ7jbE28sw
-  obfs-password: mbQXP2ASuHbF6ZPq
   obfs: salamander
+  obfs-password: mbQXP2ASuHbF6ZPq
   sni: vpn.local
 - name: FREE-NL-nr-19da33
   type: trojan
@@ -3542,8 +3542,8 @@ proxies:
   server: 51.15.16.68
   port: 37043
   password: capadm54312235:JdypYweuDQOrFqWTcFAL6aFq
-  obfs-password: ypvL8T4HFIBLoH8q
   obfs: salamander
+  obfs-password: ypvL8T4HFIBLoH8q
   sni: vpn.local
 - name: FREE-DE-nr-423155
   type: trojan
@@ -3557,31 +3557,31 @@ proxies:
   server: hy2.aspidnet.xyz
   port: 443
   password: p7Q76LzlnS4hIzr1W3staBOnUe_WwSkR
-  obfs-password: rG07s3COMIEvdnQipRyWzx_H_2xygNC3
   obfs: salamander
+  obfs-password: rG07s3COMIEvdnQipRyWzx_H_2xygNC3
 - name: FREE-AE-nr-d0475b
   type: hysteria2
   server: 130.49.161.70
   port: 443
   password: p7Q76LzlnS4hIzr1W3staBOnUe_WwSkR
-  obfs-password: rG07s3COMIEvdnQipRyWzx_H_2xygNC3
   obfs: salamander
+  obfs-password: rG07s3COMIEvdnQipRyWzx_H_2xygNC3
   sni: hy2.aspidnet.xyz
 - name: FREE-CH-nr-10c6db
   type: hysteria2
   server: 152.67.75.161
   port: 443
   password: 3a702d4d1de4949005d8431220e040fb
-  obfs-password: c13f29db6a638ad2b211b9ce2669ef27
   obfs: salamander
+  obfs-password: c13f29db6a638ad2b211b9ce2669ef27
   sni: www.bing.com
 - name: FREE-FR-nr-ff7528
   type: hysteria2
   server: 51.77.217.70
   port: 21182
   password: capadmbd5f18bd:jX4BuciLLIqLvzJZsHpoXtc2
-  obfs-password: ChY5QQQT3ZtUdNT8
   obfs: salamander
+  obfs-password: ChY5QQQT3ZtUdNT8
   sni: vpn.local
 - name: FREE-NL-nr-933c4b
   type: trojan
@@ -3601,8 +3601,8 @@ proxies:
   server: 51.15.16.68
   port: 24050
   password: capadm54312235:JdypYweuDQOrFqWTcFAL6aFq
-  obfs-password: ypvL8T4HFIBLoH8q
   obfs: salamander
+  obfs-password: ypvL8T4HFIBLoH8q
   sni: vpn.local
 - name: FREE-FR-nr-1c9520
   type: hysteria2
@@ -3621,8 +3621,8 @@ proxies:
   server: 51.15.19.206
   port: 8443
   password: HowdyHysteria2023w0W
-  obfs-password: HysteriaHowdy
   obfs: salamander
+  obfs-password: HysteriaHowdy
   sni: sni-here.com
 - name: FREE-CH-nr-e51c8e
   type: trojan
@@ -3635,26 +3635,26 @@ proxies:
   server: 2001:bc8:32d7:1a9::3
   port: 18901
   alterId: 0
-  ws-opts:
-    path: /github.com/Alvin9999-newpac/fanqiang
   cipher: auto
   uuid: 3a966d20-7b9d-48cc-ba2c-8d38161b6d3a
   network: ws
+  ws-opts:
+    path: /github.com/Alvin9999-newpac/fanqiang
 - name: FREE-NL-nr-c5c795
   type: hysteria2
   server: 51.15.16.68
   port: 37075
   password: capadm54312235:JdypYweuDQOrFqWTcFAL6aFq
-  obfs-password: ypvL8T4HFIBLoH8q
   obfs: salamander
+  obfs-password: ypvL8T4HFIBLoH8q
   sni: vpn.local
 - name: FREE-CH-nr-18422b
   type: hysteria2
   server: 208.69.78.217
   port: 21154
   password: capadm96216165:nXUv9sPkKFsDMmhZ7jbE28sw
-  obfs-password: mbQXP2ASuHbF6ZPq
   obfs: salamander
+  obfs-password: mbQXP2ASuHbF6ZPq
   sni: vpn.local
 - name: FREE-FR-nr-11d706
   type: vmess
@@ -3676,28 +3676,28 @@ proxies:
   server: 2001:bc8:32d7:1a9::2
   port: 18901
   alterId: 0
-  ws-opts:
-    path: /github.com/Alvin9999-newpac/fanqiang?ed#Telegram---PLANB_NET---PLANB_NET---PLANB_NET---PLANB_NET
   cipher: auto
   uuid: 3a966d20-7b9d-48cc-ba2c-8d38161b6d3a
   network: ws
+  ws-opts:
+    path: /github.com/Alvin9999-newpac/fanqiang?ed#Telegram---PLANB_NET---PLANB_NET---PLANB_NET---PLANB_NET
 - name: FREE-FR-nr-fd4e7f
   type: vmess
   server: 2001:bc8:32d7:1a9::2
   port: 18901
   alterId: 0
-  ws-opts:
-    path: /github.com/Alvin9999-newpac/fanqiang?ed
   cipher: auto
   uuid: 3a966d20-7b9d-48cc-ba2c-8d38161b6d3a
   network: ws
+  ws-opts:
+    path: /github.com/Alvin9999-newpac/fanqiang?ed
 - name: FREE-FR-nr-6ca62d
   type: hysteria2
   server: 51.77.217.70
   port: 33128
   password: capadmbd5f18bd:jX4BuciLLIqLvzJZsHpoXtc2
-  obfs-password: ChY5QQQT3ZtUdNT8
   obfs: salamander
+  obfs-password: ChY5QQQT3ZtUdNT8
   sni: vpn.local
 - name: FREE-DE-nr-ac9a26
   type: hysteria2
@@ -3722,24 +3722,24 @@ proxies:
   server: 208.69.78.217
   port: 21021
   password: capadm96216165:nXUv9sPkKFsDMmhZ7jbE28sw
-  obfs-password: mbQXP2ASuHbF6ZPq
   obfs: salamander
+  obfs-password: mbQXP2ASuHbF6ZPq
   sni: vpn.local
 - name: FREE-RO-nr-ef0356
   type: hysteria2
   server: hy2-new.aspidnet.xyz
   port: 443
   password: QCgqi_I4EkV8UR-OgQ_tG4EnVTEVvIyR2GgRBzrIn2s
-  obfs-password: c1b4086fea89914496c7e10967a419216566
   obfs: salamander
+  obfs-password: c1b4086fea89914496c7e10967a419216566
   sni: hy2-new.aspidnet.xyz
 - name: FREE-GB-nr-ca6ead
   type: hysteria2
   server: promo2.betust.net
   port: 443
+  password: 2bc6428196efb899f544d750bea0c06d
   alpn:
   - h3
-  password: 2bc6428196efb899f544d750bea0c06d
   sni: promo2.betust.net
 - name: FREE-EE-nr-88292d
   type: hysteria2
@@ -3752,32 +3752,32 @@ proxies:
   server: 162.249.125.133
   port: 443
   password: QCgqi_I4EkV8UR-OgQ_tG4EnVTEVvIyR2GgRBzrIn2s
-  obfs-password: c1b4086fea89914496c7e10967a419216566
   obfs: salamander
+  obfs-password: c1b4086fea89914496c7e10967a419216566
   sni: hy2-new.aspidnet.xyz
 - name: FREE-NL-nr-aa0c95
   type: hysteria2
   server: 51.15.16.68
   port: 24146
   password: capadm54312235:JdypYweuDQOrFqWTcFAL6aFq
-  obfs-password: ypvL8T4HFIBLoH8q
   obfs: salamander
+  obfs-password: ypvL8T4HFIBLoH8q
   sni: vpn.local
 - name: FREE-FR-nr-9b1ae5
   type: hysteria2
   server: 51.77.217.70
   port: 8446
   password: capadmbd5f18bd:jX4BuciLLIqLvzJZsHpoXtc2
-  obfs-password: ChY5QQQT3ZtUdNT8
   obfs: salamander
+  obfs-password: ChY5QQQT3ZtUdNT8
   sni: vpn.local
 - name: FREE-NL-nr-5e4348
   type: hysteria2
   server: 51.15.16.68
   port: 37181
   password: capadm54312235:JdypYweuDQOrFqWTcFAL6aFq
-  obfs-password: ypvL8T4HFIBLoH8q
   obfs: salamander
+  obfs-password: ypvL8T4HFIBLoH8q
   sni: vpn.local
 - name: FREE-DE-nr-86ba46
   type: trojan
@@ -3790,28 +3790,28 @@ proxies:
   type: vless
   server: 104.17.70.206
   port: 8443
-  alpn:
-  - http/1.1
+  tls: true
+  uuid: 5f704d93-7e7f-45b5-81f5-08db4a946220
+  network: ws
   ws-opts:
     path: /
     headers:
       Host: free.sahanwickramasinghe.com
-  tls: true
-  uuid: 5f704d93-7e7f-45b5-81f5-08db4a946220
-  network: ws
+  alpn:
+  - http/1.1
   servername: free.sahanwickramasinghe.com
 - name: FREE-GB-nr-e5c066
   type: vmess
   server: 57.129.132.223
   port: 80
   alterId: 0
+  cipher: auto
+  uuid: a25cbf11-2908-4a1b-a3a8-9a571777dca3
+  network: ws
   ws-opts:
     path: /vmess/
     headers:
       Host: 57.129.132.223
-  cipher: auto
-  uuid: a25cbf11-2908-4a1b-a3a8-9a571777dca3
-  network: ws
 - name: FREE-US-nr-8cea85
   type: hysteria2
   server: 13.143.188.142
@@ -3829,6 +3829,9 @@ proxies:
   server: 185.212.149.7
   port: 2053
   alterId: 0
+  cipher: auto
+  uuid: aeb3c019-ae83-4677-af97-846baa787ad5
+  network: http
   http-opts:
     method: GET
     path:
@@ -3836,9 +3839,6 @@ proxies:
     headers:
       Host:
       - down-cdn.dingtalk.com
-  cipher: auto
-  uuid: aeb3c019-ae83-4677-af97-846baa787ad5
-  network: http
 - name: FREE-CH-nr-5741f5
   type: trojan
   server: 208.69.78.208
@@ -3851,23 +3851,23 @@ proxies:
   server: 57.129.132.223
   port: 80
   alterId: 0
+  cipher: auto
+  uuid: a25cbf11-2908-4a1b-a3a8-9a571777dca3
+  network: ws
   ws-opts:
     path: /vmess/
     headers:
       Host: google.com
-  cipher: auto
-  uuid: a25cbf11-2908-4a1b-a3a8-9a571777dca3
-  network: ws
 - name: FREE-FR-nr-0eba63
   type: vmess
   server: 2001:bc8:32d7:1a9::2
   port: 18901
   alterId: 0
-  ws-opts:
-    path: /github.com/Alvin9999-newpac/fanqiang
   cipher: auto
   uuid: 3a966d20-7b9d-48cc-ba2c-8d38161b6d3a
   network: ws
+  ws-opts:
+    path: /github.com/Alvin9999-newpac/fanqiang
 - name: FREE-DE-nr-cb5299
   type: hysteria2
   server: 151.243.169.164
@@ -3885,17 +3885,17 @@ proxies:
   server: 51.77.217.70
   port: 21000
   password: capadmbd5f18bd:jX4BuciLLIqLvzJZsHpoXtc2
-  ports: 21000-21199,33000-33199
-  obfs-password: ChY5QQQT3ZtUdNT8
   obfs: salamander
+  obfs-password: ChY5QQQT3ZtUdNT8
+  ports: 21000-21199,33000-33199
   sni: vpn.local
 - name: FREE-CH-nr-9f746e
   type: hysteria2
   server: 208.69.78.217
   port: 33044
   password: capadm96216165:nXUv9sPkKFsDMmhZ7jbE28sw
-  obfs-password: mbQXP2ASuHbF6ZPq
   obfs: salamander
+  obfs-password: mbQXP2ASuHbF6ZPq
   sni: vpn.local
 - name: FREE-US-nr-f7284f
   type: hysteria2
@@ -3915,8 +3915,8 @@ proxies:
   server: hysteria.udpgw.com
   port: 8443
   password: HowdyHysteria2023w0W
-  obfs-password: HysteriaHowdy
   obfs: salamander
+  obfs-password: HysteriaHowdy
   sni: sni-here.com
 - name: FREE-US-nr-3499f3
   type: hysteria2
@@ -3941,8 +3941,8 @@ proxies:
   server: 208.69.78.217
   port: 21151
   password: capadm96216165:nXUv9sPkKFsDMmhZ7jbE28sw
-  obfs-password: mbQXP2ASuHbF6ZPq
   obfs: salamander
+  obfs-password: mbQXP2ASuHbF6ZPq
   sni: vpn.local
 - name: FREE-DE-nr-0449ef
   type: hysteria2
@@ -3968,32 +3968,35 @@ proxies:
   server: 51.77.217.70
   port: 21169
   password: capadmbd5f18bd:jX4BuciLLIqLvzJZsHpoXtc2
-  obfs-password: ChY5QQQT3ZtUdNT8
   obfs: salamander
+  obfs-password: ChY5QQQT3ZtUdNT8
   sni: vpn.local
 - name: FREE-NL-nr-076115
   type: hysteria2
   server: 51.15.16.68
   port: 24062
   password: capadm54312235:JdypYweuDQOrFqWTcFAL6aFq
-  obfs-password: ypvL8T4HFIBLoH8q
   obfs: salamander
+  obfs-password: ypvL8T4HFIBLoH8q
   sni: vpn.local
 - name: FREE-FR-nr-bff722
   type: vmess
   server: 2001:bc8:32d7:1a9::3
   port: 18901
   alterId: 0
-  ws-opts:
-    path: /github.com/Alvin9999-newpac/fanqiang?ed#Telegram---PLANB_NET---PLANB_NET---PLANB_NET---PLANB_NET
   cipher: auto
   uuid: 3a966d20-7b9d-48cc-ba2c-8d38161b6d3a
   network: ws
+  ws-opts:
+    path: /github.com/Alvin9999-newpac/fanqiang?ed#Telegram---PLANB_NET---PLANB_NET---PLANB_NET---PLANB_NET
 - name: FREE-FI-nr-028ccc
   type: vmess
   server: 185.212.149.7
   port: 52080
   alterId: 0
+  cipher: auto
+  uuid: ec3c8b97-f308-4fee-aa16-95e2c7595acd
+  network: http
   http-opts:
     method: GET
     path:
@@ -4001,9 +4004,6 @@ proxies:
     headers:
       Host:
       - down-cdn.dingtalk.com
-  cipher: auto
-  uuid: ec3c8b97-f308-4fee-aa16-95e2c7595acd
-  network: http
 - name: FREE-FR-nr-2f8971
   type: hysteria2
   server: 173.212.201.85
@@ -4015,11 +4015,11 @@ proxies:
   server: 2001:bc8:32d7:1a9::3
   port: 18901
   alterId: 0
-  ws-opts:
-    path: /github.com/Alvin9999-newpac/fanqiang?TELEGRAM--B2Hub-B2Hub-B2Hub-B2Hub-B2Hub-B2Hub-B2Hub-B2Hub-B2Hub-B2Hub--TELEGRAM#TELEGRAM--B2Hub-B2Hub-B2Hub-B2Hub-B2Hub-B2Hub-B2Hub-B2Hub-B2Hub-B2Hub--TELEGRAM
   cipher: auto
   uuid: 3a966d20-7b9d-48cc-ba2c-8d38161b6d3a
   network: ws
+  ws-opts:
+    path: /github.com/Alvin9999-newpac/fanqiang?TELEGRAM--B2Hub-B2Hub-B2Hub-B2Hub-B2Hub-B2Hub-B2Hub-B2Hub-B2Hub-B2Hub--TELEGRAM#TELEGRAM--B2Hub-B2Hub-B2Hub-B2Hub-B2Hub-B2Hub-B2Hub-B2Hub-B2Hub-B2Hub--TELEGRAM
 - name: FREE-DE-nr-a1bb7a
   type: hysteria2
   server: 18.193.79.104
@@ -4043,22 +4043,22 @@ proxies:
   server: 51.15.19.206
   port: 8443
   password: HowdyHysteria2023w0W
-  obfs-password: HysteriaHowdy
   obfs: salamander
+  obfs-password: HysteriaHowdy
   sni: vk.com
 - name: FREE-UNKNOWN-nr-cdfcc3
   type: vmess
   server: 172.67.156.121
   port: 443
   alterId: 0
-  ws-opts:
-    path: /truth
-    headers:
-      Host: www.gptcloudai.com
   cipher: auto
   tls: true
   uuid: e70a5b70-f63c-4450-af8b-94990cdf80c0
   network: ws
+  ws-opts:
+    path: /truth
+    headers:
+      Host: www.gptcloudai.com
   servername: www.gptcloudai.com
 - name: FREE-DE-nr-16f0c9
   type: hysteria2
@@ -4098,13 +4098,13 @@ proxies:
   type: vless
   server: 89.144.53.4
   port: 8445
+  tls: true
   reality-opts:
     public-key: kBTMVLCNE0jjwuJF6H5-65l5Pe0QToS0Hg-9Tmaa7Sk
     short-id: 1a2b3c4d
-  client-fingerprint: firefox
-  tls: true
-  uuid: 5c32201a-6c0e-451b-8f0a-24b4bd40df59
   flow: xtls-rprx-vision
+  uuid: 5c32201a-6c0e-451b-8f0a-24b4bd40df59
+  client-fingerprint: firefox
   servername: videos.porsche.com
 - name: FREE-DE-nr-5db298
   type: hysteria2
@@ -4123,32 +4123,32 @@ proxies:
   server: 57.129.132.223
   port: 80
   alterId: 0
+  cipher: auto
+  uuid: a25cbf11-2908-4a1b-a3a8-9a571777dca3
+  network: ws
   ws-opts:
     path: /vmess/
     headers:
       Host: viber.com
-  cipher: auto
-  uuid: a25cbf11-2908-4a1b-a3a8-9a571777dca3
-  network: ws
 - name: FREE-FR-nr-036387
   type: vmess
   server: 54.37.131.126
   port: 80
   alterId: 0
+  cipher: auto
+  uuid: 059fda3e-5ca9-4fbd-dd89-01cc6d4bb5dd
+  network: ws
   ws-opts:
     path: /
     headers:
       Host: google.whatsapp.snapp.torob.basalam.hesanid8.ir.
-  cipher: auto
-  uuid: 059fda3e-5ca9-4fbd-dd89-01cc6d4bb5dd
-  network: ws
 - name: FREE-NL-nr-8f2bca
   type: hysteria2
   server: 51.15.16.68
   port: 24111
   password: capadm54312235:JdypYweuDQOrFqWTcFAL6aFq
-  obfs-password: ypvL8T4HFIBLoH8q
   obfs: salamander
+  obfs-password: ypvL8T4HFIBLoH8q
   sni: vpn.local
 - name: FREE-NL-nr-a3fa00
   type: trojan
@@ -4184,9 +4184,9 @@ proxies:
   type: hysteria2
   server: bl1.nexfile.net
   port: 4444
+  password: a35c508f-4d5d-4531-842e-6e9d43c762c0
   alpn:
   - h3
-  password: a35c508f-4d5d-4531-842e-6e9d43c762c0
   sni: bl1.nexfile.net
 - name: FREE-US-nr-486d81
   type: hysteria2
@@ -4230,8 +4230,8 @@ proxies:
   server: 208.69.78.217
   port: 21158
   password: capadm96216165:nXUv9sPkKFsDMmhZ7jbE28sw
-  obfs-password: mbQXP2ASuHbF6ZPq
   obfs: salamander
+  obfs-password: mbQXP2ASuHbF6ZPq
   sni: vpn.local
 - name: FREE-RO-nr-a686d1
   type: hysteria2
@@ -4243,5 +4243,5 @@ proxies:
   type: ss
   server: pl140.vpnbook.com
   port: 443
-  password: 6heexyz
   cipher: chacha20-ietf-poly1305
+  password: 6heexyz
