@@ -40,12 +40,20 @@ class GeoResolver:
         import maxminddb
 
         self._fh = None
+        self._tmp_mmdb = None
         try:
             self._db = maxminddb.open_database(mmdb_path)
         except (FileNotFoundError, OSError):
-            # Windows 上 C 扩展对含非 ASCII 字符的绝对路径会失败，改用文件对象绕过
-            self._fh = open(mmdb_path, "rb")
-            self._db = maxminddb.open_database(self._fh)
+            # Windows 上 C 扩展对含非 ASCII 字符的绝对路径会失败：
+            # 复制到纯 ASCII 的临时路径再读（maxminddb 3.x 不接受文件对象）
+            import shutil
+            import tempfile
+
+            fd, tmp = tempfile.mkstemp(prefix="fnh-country-", suffix=".mmdb")
+            os.close(fd)
+            shutil.copyfile(mmdb_path, tmp)
+            self._tmp_mmdb = tmp
+            self._db = maxminddb.open_database(tmp)
         self._cache_path = cache_path
         self._cache: dict[str, dict] = {}
         if cache_path and os.path.exists(cache_path):
@@ -63,6 +71,11 @@ class GeoResolver:
         if self._fh is not None:
             try:
                 self._fh.close()
+            except Exception:
+                pass
+        if self._tmp_mmdb:
+            try:
+                os.unlink(self._tmp_mmdb)
             except Exception:
                 pass
 

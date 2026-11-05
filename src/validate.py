@@ -25,6 +25,9 @@ def _run(mihomo: str, cfg_path: str, workdir: str) -> tuple[bool, str]:
         )
     except subprocess.TimeoutExpired:
         return False, "内核校验超时（>180s）"
+    except OSError as e:
+        # 内核路径不是可执行文件 / 权限不足 / 架构不匹配
+        return False, f"内核无法执行：{type(e).__name__}: {e}"
     out = (proc.stdout or b"").decode("utf-8", "replace") + (proc.stderr or b"").decode("utf-8", "replace")
     out = scrub(out).strip()
     ok = proc.returncode == 0 and "test is successful" in out

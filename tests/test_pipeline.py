@@ -19,9 +19,9 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(HERE)
 sys.path.insert(0, os.path.join(ROOT, "src"))
 
-from build import identity, make_name, parse_proxies  # noqa: E402
+from build import decide_publish, identity, make_name, parse_proxies  # noqa: E402
 from common import fingerprint  # noqa: E402
-from sanitize import Reject, sanitize  # noqa: E402
+from sanitize import Reject, sanitize, unsupported_types  # noqa: E402
 
 CASES = []
 
@@ -227,6 +227,63 @@ def test_unknown_region_prefix():
     used: set[str] = set()
     n = make_name("UNKNOWN", "nr", "abcdef123456", used)
     assert n.startswith("FREE-UNKNOWN-nr-")
+
+
+# ------------------------------------------------------------------ 发布门禁
+
+@case
+def test_gate_blocks_invalid_config_even_with_force():
+    d, _ = decide_publish(alive_count=500, prev_total=100, min_publish=20, min_ratio=0.5,
+                          validation_ok=False, probe_required=True, probe_error=None, force=True)
+    assert d == "blocked_invalid_config", d
+
+
+@case
+def test_gate_blocks_probe_failure_even_with_force():
+    """探测设施故障时绝不发布未验证节点，--force 也不能越过。"""
+    d, r = decide_publish(alive_count=500, prev_total=100, min_publish=20, min_ratio=0.5,
+                          validation_ok=True, probe_required=True,
+                          probe_error="RuntimeError: kernel exit", force=True)
+    assert d == "blocked_probe_failed", (d, r)
+
+
+@case
+def test_gate_ignores_probe_error_when_probe_not_required():
+    d, _ = decide_publish(alive_count=500, prev_total=100, min_publish=20, min_ratio=0.5,
+                          validation_ok=True, probe_required=False,
+                          probe_error="ignored", force=False)
+    assert d == "publish", d
+
+
+@case
+def test_gate_blocks_empty_even_with_force():
+    d, _ = decide_publish(alive_count=0, prev_total=327, min_publish=20, min_ratio=0.5,
+                          validation_ok=True, probe_required=True, probe_error=None, force=True)
+    assert d == "blocked_below_minimum", d
+
+
+@case
+def test_gate_count_drop_respects_force():
+    a, _ = decide_publish(alive_count=100, prev_total=327, min_publish=20, min_ratio=0.5,
+                          validation_ok=True, probe_required=True, probe_error=None, force=False)
+    b, _ = decide_publish(alive_count=100, prev_total=327, min_publish=20, min_ratio=0.5,
+                          validation_ok=True, probe_required=True, probe_error=None, force=True)
+    assert a == "blocked_count_drop", a
+    assert b == "publish", b  # force 只能越过相对降幅
+
+
+@case
+def test_gate_publishes_when_healthy():
+    d, _ = decide_publish(alive_count=327, prev_total=300, min_publish=20, min_ratio=0.5,
+                          validation_ok=True, probe_required=True, probe_error=None, force=False)
+    assert d == "publish", d
+
+
+@case
+def test_unsupported_protocol_detected():
+    assert unsupported_types([{"type": "ss"}, {"type": "hysteria2"}]) == {}
+    bad = unsupported_types([{"type": "obfs4"}, {"type": "ss"}, {"type": "wireguard"}])
+    assert bad == {"obfs4": 1, "wireguard": 1}, bad
 
 
 # ------------------------------------------------------------------ 运行器

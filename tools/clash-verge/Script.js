@@ -37,7 +37,14 @@ var FNH = {
   healthCheckInterval: 600,
   // 组定义：filter 只匹配我们自己的命名规则 FREE-<地区>-<来源>-<哈希>，
   // 不会误抓到付费节点，也不依赖上游节点名。
+  //
+  // 本地优选 vs AUTO 的区别：
+  //   - 本地优选：lazy=false，内核启动后就持续做本地探测，每 30 分钟全量重测一次，
+  //     自动切到当前实测最快的节点。不需要任何外部进程，也不需要你手动选。
+  //   - AUTO：lazy=true，只在你真正使用该组时才测，省流量。
   groups: [
+    { name: "免费节点-本地优选", type: "url-test", interval: 1800, tolerance: 50,
+      lazy: false, timeout: 5000, "expected-status": 204 },
     { name: "免费节点-AUTO", type: "url-test" },
     { name: "免费节点-手动", type: "select" },
     { name: "免费香港", type: "url-test", filter: "^FREE-HK-" },
@@ -113,10 +120,13 @@ function injectFreeNodes(config) {
     var g = { name: spec.name, type: spec.type, use: [FNH.providerName] };
     if (spec.filter) g.filter = spec.filter;
     if (spec.type !== "select") {
-      g.url = FNH.healthCheckUrl;
-      g.interval = FNH.healthCheckInterval;
-      g.tolerance = 50;
-      g.lazy = true;
+      g.url = spec.url || FNH.healthCheckUrl;
+      g.interval = spec.interval || FNH.healthCheckInterval;
+      g.tolerance = spec.tolerance || 50;
+      g.timeout = spec.timeout || 5000;
+      // 默认懒测，只有显式声明 lazy:false 的组才会常驻探测
+      g.lazy = spec.lazy === undefined ? true : spec.lazy;
+      if (spec["expected-status"]) g["expected-status"] = spec["expected-status"];
     }
     return g;
   });
@@ -124,13 +134,13 @@ function injectFreeNodes(config) {
   // 手动组做成"总入口"：地区组 + DIRECT + provider 全部节点
   var manual = built.filter(function (g) { return g.name === "免费节点-手动"; })[0];
   if (manual) {
-    manual.proxies = ["免费节点-AUTO", "免费香港", "免费日本", "免费美国",
-                      "免费新加坡", "免费台湾", "DIRECT"];
+    manual.proxies = ["免费节点-本地优选", "免费节点-AUTO", "免费香港", "免费日本",
+                      "免费美国", "免费新加坡", "免费台湾", "DIRECT"];
   }
 
   config["proxy-groups"] = kept.concat(built);
 
-  // --- 3) 挂到主选择组：找 MATCH 指向的 select 组，把免费组追加到末尾 ---
+  // --- 3) 找主选择组：MATCH 指向的那个 select 组 ---
   var rules = Array.isArray(config.rules) ? config.rules : [];
   var target = null;
   for (var i = rules.length - 1; i >= 0; i--) {
@@ -159,22 +169,40 @@ function injectFreeNodes(config) {
   members = members.filter(function (n) { return wantedNames.indexOf(n) === -1; });
   mainGroup.proxies = members.concat(wantedNames);
 
-  // --- 4) 让内核通过付费线路去拉订阅 ---
-  // 原因：内核拉 provider 是它自己直连，不走系统代理；raw.githubusercontent 在国内
-  // 直连基本不通，直连拉取会永远拿到 0 个节点。
-  // 这里挑一个"只含付费节点"的组作为出口，避免出现
-  // 免费组 → provider → 免费组 的循环依赖。
-  var fetchVia = null;
+  // --- 4) 订阅下载出口 ---
+  // 内核拉 provider 是它自己直连、不走系统代理；raw.githubusercontent 在国内直连基本不通，
+  // 但绑定死付费线路又会在机场挂掉时彻底断掉更新。所以用 fallback：
+  // 优先付费（自动选择），付费不通就落到 DIRECT。
+  // 这里刻意不引用任何免费节点，避免"免费组 → provider → 免费组"的循环依赖。
+  var infraName = "订阅更新出口";
+  var infraMembers = [];
   for (var m = 0; m < all.length; m++) {
-    var g = all[m];
-    if (!g || g.type === "select") continue;
-    if (g.name === "自动选择" && Array.isArray(g.proxies) && g.proxies.length) { fetchVia = g; break; }
+    if (all[m] && all[m].name === "自动选择" && all[m].type === "url-test") {
+      infraMembers.push("自动选择");
+      break;
+    }
   }
-  if (!fetchVia) {
-    // 退而求其次：主选择组本身（它的成员是付费节点 + 免费组，只要当前选的是付费节点就安全）
-    fetchVia = mainGroup;
+  infraMembers.push("DIRECT");
+
+  var infra = null;
+  for (var n = 0; n < all.length; n++) {
+    if (all[n] && all[n].name === infraName) { infra = all[n]; break; }
   }
-  if (fetchVia) {
-    config["proxy-providers"][FNH.providerName].proxy = fetchVia.name;
+  if (!infra) {
+    infra = {
+      name: infraName,
+      type: "fallback",
+      proxies: infraMembers,
+      url: FNH.healthCheckUrl,
+      interval: 600,
+      timeout: 5000,
+      lazy: false
+    };
+    config["proxy-groups"].push(infra);
+  } else {
+    infra.type = "fallback";
+    infra.proxies = infraMembers;
   }
+
+  config["proxy-providers"][FNH.providerName].proxy = infraName;
 }

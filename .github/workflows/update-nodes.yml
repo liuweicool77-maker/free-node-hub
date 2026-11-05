@@ -15,9 +15,10 @@ on:
         type: boolean
         default: false
 
-# 最小权限：只需要写仓库内容
+# 最小权限：写仓库内容（提交产物）+ 开 Issue（连续失败告警）
 permissions:
   contents: write
+  issues: write
 
 # 同一时刻只跑一个，避免两次构建互相覆盖
 concurrency:
@@ -53,6 +54,9 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: bash tools/prepare_deps.sh bin
 
+      - name: 故障与缓存回归测试
+        run: python tests/test_failure_modes.py --mihomo ./bin/mihomo
+
       - name: 构建订阅
         id: build
         shell: bash
@@ -67,8 +71,8 @@ jobs:
           echo "code=$code" >> "$GITHUB_OUTPUT"
           case "$code" in
             0) echo "构建与发布成功" ;;
-            2) echo "::warning title=发布门禁拦截::节点数低于门槛，已保留旧版本，未提交任何变更" ;;
-            3) echo "::warning title=配置校验失败::生成的配置未通过内核校验，已保留旧版本" ;;
+            2) echo "::warning title=发布门禁拦截::本轮不发布，已保留上一版产物。原因见运行摘要（数量骤降/探测设施故障/低于下限）" ;;
+            3) echo "::warning title=配置校验失败::生成的配置未通过内核校验，已保留上一版产物" ;;
             *) echo "::error title=构建失败::见上方日志" ; exit 1 ;;
           esac
 
@@ -110,6 +114,43 @@ jobs:
           } >> "$GITHUB_STEP_SUMMARY"
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: 连续失败告警
+        if: always()
+        shell: bash
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set +e
+          REPO="${{ github.repository }}"
+          WF="update-nodes.yml"
+          failed_now=0
+          [ "${{ steps.build.outputs.code }}" != "0" ] && failed_now=1
+
+          # 最近 3 次已完成运行的结论（不含本次，本次尚未结束）
+          prev=$(gh api "repos/$REPO/actions/workflows/$WF/runs?per_page=6" \
+            --jq '[.workflow_runs[] | select(.status=="completed") | .conclusion] | .[0:3] | join(",")')
+          prev_fails=$(echo "$prev" | tr ',' '\n' | grep -c '^failure$')
+          echo "本次失败: $failed_now | 最近三次: $prev（失败 $prev_fails 次）"
+
+          existing=$(gh issue list --label build-failure --state open --json number --jq '.[0].number // empty')
+
+          if [ "$failed_now" = "1" ] && [ "$prev_fails" -ge 2 ]; then
+            body=$(printf '连续 3 次构建未成功，订阅可能已停止更新。\n\n- 仓库: %s\n- 工作流: %s\n- 最近三次: %s\n- 本次运行: %s/%s/actions/runs/%s\n\n排查顺序：1) 看本页运行摘要的 `gate.decision` 2) 看 `dist/stats.json` 的 `probe.error` 3) 上游源是否整体失效。\n\n修复后下一次成功构建会自动关闭本 Issue。' \
+              "$REPO" "$WF" "$prev" "${{ github.server_url }}" "$REPO" "${{ github.run_id }}")
+            gh label create build-failure --color B60205 --description "构建连续失败" 2>/dev/null
+            if [ -n "$existing" ]; then
+              gh issue comment "$existing" --body "$body"
+            else
+              gh issue create --title "构建连续失败：免费节点订阅可能已停止更新" \
+                --label build-failure --body "$body"
+            fi
+            echo "::error title=连续构建失败::已创建/更新告警 Issue"
+          elif [ "$failed_now" = "0" ] && [ -n "$existing" ]; then
+            gh issue comment "$existing" --body "本次构建已成功（run ${{ github.run_id }}），自动关闭。"
+            gh issue close "$existing"
+            echo "已自动关闭告警 Issue"
+          fi
 
       - name: 上传统计
         if: always()

@@ -80,6 +80,16 @@ class Reject(Exception):
         self.detail = detail
 
 
+def unsupported_types(proxies: list[dict]) -> dict[str, int]:
+    """发布前的最后一道协议检查：产物里不允许出现 allowlist 之外的协议。"""
+    bad: dict[str, int] = {}
+    for p in proxies:
+        t = str(p.get("type", ""))
+        if t not in TYPE_FIELDS:
+            bad[t] = bad.get(t, 0) + 1
+    return bad
+
+
 # ---------------------------------------------------------------- 基础校验
 
 def _as_int(value: Any) -> int | None:
@@ -301,12 +311,13 @@ def sanitize(raw: Any) -> tuple[dict, dict]:
 def _validate_common(clean: dict, raw: dict) -> None:
     # 协议名 / 密码类字段必须是可打印短字符串
     for key in ("password", "uuid", "auth-str", "obfs-password", "username", "cipher"):
-        if key in clean:
-            v = clean[key]
-            if not isinstance(v, str):
-                clean[key] = str(v)
-            if _BAD_CHARS.search(clean[key]) or len(clean["password"] if key == "password" else clean[key]) > 512:
-                raise Reject("bad_auth_field", key)
+        if key not in clean:
+            continue
+        if not isinstance(clean[key], str):
+            clean[key] = str(clean[key])
+        value = clean[key]
+        if _BAD_CHARS.search(value) or len(value) > 512:
+            raise Reject("bad_auth_field", key)
 
     network = clean.get("network")
     if network is not None:

@@ -29,14 +29,18 @@
 
 ## 2. 数据来源
 
-| ID | 仓库 | 订阅地址 | 许可 |
-| --- | --- | --- | --- |
-| `zh` | [zhuhaiuk/free-nodes](https://github.com/zhuhaiuk/free-nodes) | `raw…/clash_config.yaml` | 未声明 |
-| `au` | [Au1rxx/free-vpn-subscriptions](https://github.com/Au1rxx/free-vpn-subscriptions) | `raw…/output/clash.yaml` | MIT |
-| `nr` | [nodesradar/nodesradar-en](https://github.com/nodesradar/nodesradar-en) | `https://radarhub.top/clash.yaml` | 未声明 |
+| ID | 仓库 | 订阅地址 | 许可 | 是否进入公开产物 |
+| --- | --- | --- | --- | --- |
+| `au` | [Au1rxx/free-vpn-subscriptions](https://github.com/Au1rxx/free-vpn-subscriptions) | `raw…/output/clash.yaml` | MIT | ✅ 是 |
+| `zh` | [zhuhaiuk/free-nodes](https://github.com/zhuhaiuk/free-nodes) | `raw…/clash_config.yaml` | 未声明 | ❌ 否 |
+| `nr` | [nodesradar/nodesradar-en](https://github.com/nodesradar/nodesradar-en) | `https://radarhub.top/clash.yaml` | 未声明 | ❌ 否 |
 
 只采集这些源明确公开的免费节点；不触碰任何付费、鉴权或私人订阅。
-未声明许可的源仅作聚合引用，不二次售卖，节点版权归各源作者所有。
+
+**关于再分发**：未声明许可 ≠ 已获得再分发授权。`config/sources.yaml` 里每个源都有
+`redistribute` 开关，默认 `false`；只有明确许可允许的来源才会进入这个**公开**仓库的产物。
+要让 `zh` / `nr` 参与，请先自行确认其条款，再把对应的 `redistribute` 改成 `true`。
+被排除的来源会在 `stats.json` 的 `sources_excluded_by_license` 里列出，不会静默消失。
 
 ## 3. 目录
 
@@ -50,7 +54,8 @@ src/probe.py                 真实代理探测（内核 API delay 测试）
 src/build.py                 流水线主程序
 tools/prepare_deps.sh        下载 Mihomo 内核与 Country.mmdb
 tools/clash-verge/           客户端集成脚本 + 离线验证工具
-tests/test_pipeline.py       离线单测（无第三方依赖）
+tests/test_pipeline.py       离线单测：清洗/去重/门禁/协议（无第三方依赖）
+tests/test_failure_modes.py  故障回归：下载失败/0 节点/内核起不来/缓存保全/脚本幂等
 dist/free-proxies.yaml       发布产物
 dist/stats.json              每轮统计
 ```
@@ -95,9 +100,14 @@ https://raw.githubusercontent.com/<owner>/free-node-hub/main/dist/free-proxies.y
 脚本做三件事，全部是"只增加、不替换"：
 
 - 写入一个 `proxy-providers.free-node-hub`（`interval: 21600`，health-check 为 Mihomo 官方写法）
-- 给 provider 加 `proxy: 自动选择`：内核拉订阅是**自己直连**、不走系统代理，
-  而 `raw.githubusercontent.com` 在国内基本连不上。让它走只含付费节点的 `自动选择` 组，
-  既能拉通，也不会形成"免费组 → provider → 免费组"的循环依赖
+- 新增 8 个免费组，其中 **`免费节点-本地优选`** 是重点：
+  `url-test` + `lazy: false` + `interval: 1800` + `expected-status: 204`，
+  内核启动后持续在**本机**实测，每 30 分钟全量重测并自动切到当前最快的节点。
+  完全用内核原生能力，没有常驻 Python 进程，也不需要你手动重选。
+- 新增内部组 **`订阅更新出口`**（`fallback`：`自动选择` → `DIRECT`），作为 provider 的拉取出口：
+  内核拉订阅是**自己直连**、不走系统代理，而 `raw.githubusercontent.com` 在国内基本连不上；
+  绑死付费线路又会在机场挂掉时彻底断更。用 fallback 优先走付费、付费不通落直连，
+  且**不引用任何免费节点**，不会形成"免费组 → provider → 免费组"的循环依赖。
 - 追加 7 个代理组：`免费节点-AUTO` / `免费节点-手动` / `免费香港` / `免费日本` / `免费美国` / `免费新加坡` / `免费台湾`
 - 把这 7 个组**追加到主选择组（`MATCH` 指向的 select 组）的末尾**
 
@@ -128,8 +138,15 @@ python tools/clash-verge/verify_integration.py \
 | 全部源失败 | 发布门禁拦截，**保留上一版 `dist/free-proxies.yaml`**，退出码 2 |
 | 节点数骤降（< 上一版 50%） | 同上，退出码 2 |
 | 内核校验失败 | 同上，退出码 3 |
-| 探测设施异常 | 降级为不探测，照常发布，`stats.json` 记录 `probe.error` |
-| 免费节点全挂 | 客户端侧组为空但不报错，付费线路不受影响 |
+| **探测内核起不来 / 节点未全部加载 / API 异常** | **直接中止发布，保留上一版**，退出码 2，`gate.decision=blocked_probe_failed` |
+| 免费节点全挂（0 个） | 门禁拦截；客户端侧组为空但不报错，付费线路不受影响 |
+| 客户端拉取订阅失败 | 内核继续用 `./providers/free-node-hub.yaml` 里的**上一份缓存**，不会清空 |
+
+**`--force` 的边界**：只能跳过"相对上一版的降幅"判断。以下三条它一律越不过去——
+配置校验失败、探测设施故障、低于绝对下限 `min_publish`（默认为 20）。所以它永远不会发出空订阅。
+
+`--no-probe` 只用于人工排障，产出的 `stats.json` 会明确记 `probe.enabled: false`，
+不会被当成"已探测"。定时任务永远走带探测的路径。
 
 GitHub 侧回滚：
 
@@ -152,7 +169,16 @@ GitHub 对**连续 60 天无提交**的仓库会停用 schedule。本仓库每�
 **不会**为了"保持活跃"而制造空提交。若真被停用，最直接的信号是客户端里免费节点列表长时间不变
 （超过 24 小时未变化即需检查）。
 
-## 8. 已知限制
+## 8. 连续失败告警（不花钱）
+
+每次运行结束都会检查：若**本次失败 + 最近两次也失败**，就自动开一个带 `build-failure`
+标签的 Issue，标题为「构建连续失败：免费节点订阅可能已停止更新」，正文带最近三次结论和
+本次运行链接；下一次成功构建会**自动关闭**该 Issue。
+
+没有引入任何第三方监控服务，用的就是 GitHub 自己的 Issue 和 `GITHUB_TOKEN`（权限只要
+`issues: write`）。关掉桌面通知也能在仓库首页看到这个 Issue。
+
+## 9. 已知限制
 
 - 探测在 GitHub 云端执行，**只证明"从 GitHub runner 可达"，不等于你本机可用**。
   国内网络对同一节点可达性差异可能很大，所以免费节点定位是"备用线路"，不是主力线路。
@@ -160,7 +186,7 @@ GitHub 对**连续 60 天无提交**的仓库会停用 schedule。本仓库每�
 - 免费节点带宽、稳定性、隐私均无保障，不要用免费节点登录敏感账号。
 - `dist/free-proxies.yaml` 是公开的，任何人都能读到里面的节点凭据——但这正是上游的发布形态。
 
-## 9. 实测数据（2026-11-05，首次上线）
+## 10. 实测数据（2026-11-05，首次上线）
 
 | 环节 | 数字 |
 | --- | --- |
@@ -178,7 +204,7 @@ GitHub 对**连续 60 天无提交**的仓库会停用 schedule。本仓库每�
 原因很直接——CI 在美国 Azure 机房，国内直连海外免费节点的成功率天然低一个数量级。
 所以免费节点的定位只能是"付费线路挂了时的应急备胎"，不能当主力。
 
-## 10. 长期维护评估（客观）
+## 11. 长期维护评估（客观）
 
 真正需要人动手的只有下面这些，其余全自动：
 
@@ -192,6 +218,6 @@ GitHub 对**连续 60 天无提交**的仓库会停用 schedule。本仓库每�
 主要的不确定性来自上游免费源本身——这类源天然短命，这也是为什么本系统把"源失效"设计成
 可降级而不是可崩溃。
 
-## 11. 许可
+## 12. 许可
 
 本仓库代码 MIT。`dist/` 下的节点数据版权归各上游来源所有，本项目不主张任何权利。

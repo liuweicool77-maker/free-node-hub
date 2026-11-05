@@ -26,7 +26,7 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
 from common import LOG, fetch, fingerprint, write_json  # noqa: E402
 from geo import UNKNOWN, GeoResolver  # noqa: E402
-from sanitize import Reject, sanitize  # noqa: E402
+from sanitize import Reject, sanitize, unsupported_types  # noqa: E402
 
 EXIT_OK, EXIT_FATAL, EXIT_GATE, EXIT_INVALID = 0, 1, 2, 3
 
@@ -40,12 +40,19 @@ YAML_HEADER = (
 
 # ------------------------------------------------------------------ 抓取与解析
 
-def load_sources(path: str) -> tuple[list[dict], dict]:
+def load_sources(path: str) -> tuple[list[dict], list[dict], dict]:
+    """返回 (可再分发的来源, 因许可原因被排除的来源, limits)。
+
+    默认 **不** 假定未声明许可的来源可以公开再分发：必须在 sources.yaml 里
+    显式写 redistribute: true 才会进入公开产物。
+    """
     with open(path, encoding="utf-8") as f:
         doc = yaml.safe_load(f) or {}
-    sources = [s for s in (doc.get("sources") or []) if s.get("enabled", True)]
+    enabled = [s for s in (doc.get("sources") or []) if s.get("enabled", True)]
+    usable = [s for s in enabled if s.get("redistribute", False)]
+    excluded = [s for s in enabled if not s.get("redistribute", False)]
     limits = doc.get("limits") or {}
-    return sources, limits
+    return usable, excluded, limits
 
 
 def parse_proxies(payload: bytes) -> list[dict]:
@@ -66,10 +73,15 @@ def parse_proxies(payload: bytes) -> list[dict]:
 # ------------------------------------------------------------------ 身份与命名
 
 def identity(clean: dict) -> dict:
-    """去重 / 命名的内部指纹输入：协议 + 端点 + 认证参数 + 传输层特征。"""
+    """去重 / 命名的内部指纹输入：协议 + 端点 + 认证参数 + 传输层特征。
+
+    这里漏掉任何一项都会把"两个实际不同的节点"误判成重复，
+    所以传输层与认证相关的可选参数也要纳入。
+    """
     keys = (
         "type", "server", "port", "uuid", "password", "username", "auth-str",
         "cipher", "network", "sni", "servername", "plugin",
+        "obfs", "obfs-password", "flow", "protocol",
     )
     base = {k: clean[k] for k in keys if k in clean}
     if "ws-opts" in clean:
@@ -77,7 +89,50 @@ def identity(clean: dict) -> dict:
         base["ws-host"] = (clean["ws-opts"].get("headers") or {}).get("Host")
     if "grpc-opts" in clean:
         base["grpc"] = clean["grpc-opts"].get("grpc-service-name")
+    if "reality-opts" in clean:
+        base["reality-pk"] = clean["reality-opts"].get("public-key")
+        base["reality-sid"] = clean["reality-opts"].get("short-id")
+    if "plugin-opts" in clean:
+        po = clean["plugin-opts"]
+        if isinstance(po, dict):
+            base["plugin-opts"] = json.dumps(po, sort_keys=True, ensure_ascii=False)
     return base
+
+
+def decide_publish(
+    *,
+    alive_count: int,
+    prev_total: int,
+    min_publish: int,
+    min_ratio: float,
+    validation_ok: bool,
+    probe_required: bool,
+    probe_error: str | None,
+    force: bool,
+) -> tuple[str, str]:
+    """发布门禁（纯函数，便于单测）。
+
+    返回 (decision, human_reason)。decision == "publish" 才允许落盘。
+
+    优先级刻意这样排：
+      1) 配置本身不合法 → 一律不发布（--force 也不越过）
+      2) 本轮要求探测但探测设施故障 → 一律不发布，避免把未验证节点当已验证发布
+      3) 低于绝对下限 → 一律不发布（--force 也不越过空订阅保护）
+      4) 相对上一版骤降 → 只有 --force 能越过
+    """
+    threshold = max(min_publish, int(prev_total * min_ratio))
+
+    if not validation_ok:
+        return "blocked_invalid_config", "生成的配置未通过内核校验"
+    if probe_required and probe_error:
+        return "blocked_probe_failed", f"真实探测设施故障，拒绝发布未验证节点：{probe_error}"
+    if alive_count < min_publish:
+        return "blocked_below_minimum", f"节点数 {alive_count} 低于绝对下限 {min_publish}"
+    if alive_count < threshold:
+        if force:
+            return "publish", f"--force 越过数量下降门禁（{alive_count} < {threshold}）"
+        return "blocked_count_drop", f"节点数 {alive_count} 低于门槛 {threshold}（上一版 {prev_total}）"
+    return "publish", f"节点数 {alive_count} ≥ 门槛 {threshold}"
 
 
 def make_name(cc: str, src: str, fp: str, used: set[str]) -> str:
@@ -194,11 +249,20 @@ def main() -> int:
             return EXIT_FATAL
     # MMDB 不做 abspath：Windows 下 maxminddb 对含中文的绝对路径会打开失败，相对路径正常
 
-    sources, limits = load_sources(args.sources)
+    sources, excluded_sources, limits = load_sources(args.sources)
     total_max = int(limits.get("total_max", 600))
     min_publish = int(limits.get("min_publish", 20))
     min_ratio = float(limits.get("min_ratio_vs_previous", 0.5))
-    LOG.info("来源 %d 个，总量上限 %d", len(sources), total_max)
+    if excluded_sources:
+        for s in excluded_sources:
+            LOG.warning(
+                "来源 %s 许可为 %s，未声明可再分发，已排除出公开产物",
+                s.get("id"), s.get("license", "unknown"),
+            )
+    if not sources:
+        LOG.error("没有任何允许再分发的来源，拒绝执行")
+        return EXIT_FATAL
+    LOG.info("可发布来源 %d 个，总量上限 %d", len(sources), total_max)
 
     stats: dict = {
         "generated_at": dt.datetime.now(dt.timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
@@ -383,8 +447,13 @@ def main() -> int:
         return EXIT_INVALID
 
     # ---------------- 7. 真实代理探测
+    # 规则：只要本轮"要求探测"，探测设施出任何问题都必须中止发布，
+    # 绝不允许把未经验证的节点当作已验证节点推上线。
+    probe_required = not args.no_probe and bool(args.mihomo)
+    probe_error: str | None = None
     alive = named
-    if not args.no_probe and args.mihomo:
+
+    if probe_required:
         from probe import Prober
         candidates = named[: args.probe_limit]
         prober = None
@@ -392,55 +461,74 @@ def main() -> int:
             prober = Prober(args.mihomo)
             prober.start(candidates)
             names = prober.wait_ready(expected=len(candidates))
-            if len(names) < max(10, int(len(candidates) * 0.1)):
+            loaded_ratio = len(names) / max(1, len(candidates))
+            if loaded_ratio < 0.9:
                 raise RuntimeError(
-                    f"探测内核只注册了 {len(names)}/{len(candidates)} 个节点，视为探测设施异常"
+                    f"探测内核只注册了 {len(names)}/{len(candidates)} 个节点（{loaded_ratio:.0%}），"
+                    "低于 90% 视为内核启动/加载异常"
                 )
             delays = prober.run(names, timeout_ms=args.probe_timeout, workers=args.probe_workers)
-        except Exception as e:  # 探测设施故障不应阻断发布，但要如实记录
-            LOG.warning("探测失败（降级为不探测）：%s", e)
-            print(f"::warning title=真实探测已降级::本轮发布的是未经代理验证的节点：{e}")
+            if not isinstance(delays, dict):
+                raise RuntimeError("探测 API 返回非预期结构")
+        except Exception as e:  # noqa: BLE001 - 任何探测异常都算设施故障
+            probe_error = f"{type(e).__name__}: {e}"
+            LOG.error("探测设施故障，本轮不发布：%s", e)
             tail = prober.log_tail(30) if prober else "(无)"
             print("----- 探测内核日志尾部 -----")
             print(tail)
             print("---------------------------")
-            stats["probe"] = {"enabled": True, "error": str(e), "tested": 0, "alive": None,
-                              "core_log_tail": tail[-3000:]}
+            stats["probe"] = {
+                "enabled": True, "error": probe_error, "tested": 0, "alive": None,
+                "core_log_tail": tail[-3000:],
+            }
         else:
             alive = [n for n in candidates if n["name"] in delays]
             ds = sorted(delays.values())
             stats["probe"] = {
                 "enabled": True, "tested": len(names), "alive": len(alive),
+                "loaded_ratio": round(loaded_ratio, 3),
                 "median_delay_ms": ds[len(ds) // 2] if ds else None,
                 "min_delay_ms": ds[0] if ds else None,
                 "max_delay_ms": ds[-1] if ds else None,
             }
+            LOG.info("探测完成：%d/%d 存活", len(alive), len(names))
         finally:
             if prober:
                 prober.stop()
+    else:
+        stats["probe"] = {"enabled": False, "note": "本轮显式跳过探测（--no-probe）"}
+
+    # 协议白名单复核：产物里不允许出现当前内核不支持的协议
+    bad_types = unsupported_types(alive)
+    if bad_types:
+        LOG.error("产物中出现不支持的协议：%s", bad_types)
+        probe_error = probe_error or f"unsupported_protocol: {bad_types}"
 
     # ---------------- 8. 发布门禁
     prev_total = read_previous_total(args.out)
     threshold = max(min_publish, int(prev_total * min_ratio))
-    # 绝对下限永远生效：--force 只能跳过"相对上一版的降幅"判断，不能把空订阅推上去
-    if len(alive) < min_publish:
-        decision = "blocked_below_minimum"
-        LOG.error("节点数 %d 低于绝对下限 %d，无论是否 --force 都不发布", len(alive), min_publish)
-    elif args.force:
-        decision = "publish"
-        LOG.warning("--force 已启用，跳过数量下降门禁（绝对下限仍生效）")
-    elif len(alive) < threshold:
-        decision = "blocked_count_drop"
-        LOG.error("节点数 %d 低于门槛 %d（上一版 %d），保留旧版本", len(alive), threshold, prev_total)
-    else:
-        decision = "publish"
+    decision, reason = decide_publish(
+        alive_count=len(alive),
+        prev_total=prev_total,
+        min_publish=min_publish,
+        min_ratio=min_ratio,
+        validation_ok=vok,
+        probe_required=probe_required,
+        probe_error=probe_error,
+        force=args.force,
+    )
+    (LOG.warning if decision == "publish" else LOG.error)("发布门禁：%s — %s", decision, reason)
 
     stats["counts"] = {
         "raw": raw_total, "sanitized": sanitized_total, "duplicates_removed": dup,
         "after_cap": len(named), "probed_alive": len(alive),
         "published": 0 if decision != "publish" else len(alive),
     }
-    stats["gate"] = {"previous_total": prev_total, "threshold": threshold, "decision": decision}
+    stats["gate"] = {"previous_total": prev_total, "threshold": threshold,
+                     "decision": decision, "reason": reason}
+    stats["sources_excluded_by_license"] = [
+        {"id": s.get("id"), "license": s.get("license", "unknown")} for s in excluded_sources
+    ]
     stats["by_region"] = {}
     stats["by_protocol"] = {}
     for p in alive:

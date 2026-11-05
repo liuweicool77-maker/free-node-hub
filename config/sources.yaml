@@ -5,14 +5,13 @@
 #   - url 必须是稳定的原始订阅地址（raw / 直出 YAML），不得是网页 HTML。
 #   - 上游仓库中任何脚本、规则、DNS、TUN 段一律忽略，只取 proxies。
 #   - max_nodes 控制单源配额，避免单一来源刷爆总节点数。
+#   - redistribute 决定该来源的节点是否进入**公开发布**的产物。
+#     默认 false：未声明许可 ≠ 已获得再分发授权。要开启必须你本人确认来源条款允许。
 #
 # 上游许可状态（2026-11-05 核查）：
-#   zhuhaiuk/free-nodes        未声明 license
-#   Au1rxx/free-vpn-subscriptions  MIT
-#   nodesradar/nodesradar-en   未声明 license（订阅由 radarhub.top 直出）
-#
-# 说明：以上来源均为"公开免费节点聚合"，其内容本身就是公开发布的免费节点
-# 凭据。未声明 license 的源仅做聚合引用、不做二次售卖，并在 README 中署名。
+#   Au1rxx/free-vpn-subscriptions   MIT                   → 可再分发
+#   zhuhaiuk/free-nodes             未声明 license        → 默认不可再分发
+#   nodesradar/nodesradar-en        未声明 license        → 默认不可再分发
 
 sources:
   - id: zh
@@ -20,6 +19,7 @@ sources:
     repo: https://github.com/zhuhaiuk/free-nodes
     url: https://raw.githubusercontent.com/zhuhaiuk/free-nodes/main/clash_config.yaml
     license: none-declared
+    redistribute: false
     max_nodes: 60
     enabled: true
 
@@ -28,7 +28,8 @@ sources:
     repo: https://github.com/Au1rxx/free-vpn-subscriptions
     url: https://raw.githubusercontent.com/Au1rxx/free-vpn-subscriptions/main/output/clash.yaml
     license: MIT
-    max_nodes: 320
+    redistribute: true
+    max_nodes: 420
     enabled: true
 
   - id: nr
@@ -36,13 +37,14 @@ sources:
     repo: https://github.com/nodesradar/nodesradar-en
     url: https://radarhub.top/clash.yaml
     license: none-declared
+    redistribute: false
     max_nodes: 320
     enabled: true
 
 # 总量上限：最终发布节点数不超过该值（探测后仍保留此上限）
 limits:
   total_max: 600
-  # 低于该绝对值视为聚合失败，拒绝发布
+  # 低于该绝对值视为聚合失败，拒绝发布（--force 也不能越过）
   min_publish: 20
   # 相对上一版的最小保留比例，低于则视为"数量异常下降"，保留旧版本
   min_ratio_vs_previous: 0.5
