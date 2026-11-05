@@ -33,6 +33,10 @@ CASES = []
 CTX: dict = {"mihomo": None, "mmdb": None}
 
 
+class Skipped(Exception):
+    """用例因环境限制未真正验证——必须显示为 SKIP，不能算通过。"""
+
+
 def case(fn):
     CASES.append(fn)
     return fn
@@ -181,7 +185,7 @@ def test_count_drop_below_ratio_keeps_previous():
 def test_invalid_config_blocks_publish():
     """配置校验不通过（内核拒绝）时必须不落盘。"""
     if not need_mihomo():
-        return
+        raise Skipped("未提供 mihomo 内核")
     work = tempfile.mkdtemp(prefix="fnh-fm-")
     src = _stage(work, VALID_FIXTURE, with_previous=False)
     out = os.path.join(work, "out.yaml")
@@ -223,7 +227,7 @@ def test_provider_survives_dead_upstream_using_cache():
             → 必须仍能拿到阶段 A 缓存里的节点，且缓存文件不被改写
     """
     if not need_mihomo():
-        return
+        raise Skipped("未提供 mihomo 内核")
     import functools
     import http.server
     import socketserver
@@ -308,7 +312,6 @@ def test_provider_survives_dead_upstream_using_cache():
         # 某些内核版本在合成夹具下不会去拉本地 HTTP provider（实测 mihomo 1.19.33 Linux
         # 与 1.19.21 Windows 行为不同）。此时无法验证"缓存可被内核使用"，
         # 退化为只断言真正与版本无关的那条硬要求：拉取失败不得改写缓存文件。
-        print("      (跳过缓存可用性断言：该内核版本未能从本地 HTTP provider 拉取)")
         httpd.shutdown()
         httpd.server_close()
         with open(cache_file, "w", encoding="utf-8") as f:
@@ -326,7 +329,8 @@ def test_provider_survives_dead_upstream_using_cache():
                 proc.kill()
             log.close()
         assert _read(cache_file) == before, "拉取失败却改写了 provider 缓存文件"
-        return
+        raise Skipped("该内核版本未能从本地 HTTP provider 拉取；"
+                      "已断言『拉取失败不改写缓存』，但『缓存可被内核加载』未验证")
 
     deadline = time.time() + 10
     while time.time() < deadline and not os.path.exists(cache_file):
@@ -366,7 +370,7 @@ def test_client_script_is_idempotent():
     """把脚本输出再喂回脚本，结果必须完全一致（防止重复注入）。"""
     node = shutil.which("node")
     if not node:
-        return
+        raise Skipped("未安装 node")
     base = {
         "mixed-port": 7897, "mode": "rule",
         "proxies": [{"name": "香港01", "type": "ss", "server": "1.2.3.4", "port": 1,
@@ -414,11 +418,14 @@ def main() -> int:
     elif os.path.exists(os.path.join(ROOT, "Country.mmdb")):
         CTX["mmdb"] = os.path.join(ROOT, "Country.mmdb")
 
-    print(f"内核: {CTX['mihomo'] or '(未提供，相关用例跳过)'}")
+    print(f"内核: {CTX['mihomo'] or '(未提供)'}")
     failed = skipped = 0
     for fn in CASES:
         try:
             fn()
+        except Skipped as e:
+            skipped += 1
+            print(f"SKIP  {fn.__name__}: {e}")
         except AssertionError as e:
             failed += 1
             print(f"FAIL  {fn.__name__}: {e}")
@@ -427,7 +434,8 @@ def main() -> int:
             print(f"ERROR {fn.__name__}: {type(e).__name__}: {e}")
         else:
             print(f"ok    {fn.__name__}")
-    print(f"\n{len(CASES) - failed}/{len(CASES)} 通过")
+    passed = len(CASES) - failed - skipped
+    print(f"\n通过 {passed} / 跳过 {skipped} / 失败 {failed}（共 {len(CASES)}）")
     return 1 if failed else 0
 
 

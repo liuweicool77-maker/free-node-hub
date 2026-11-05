@@ -188,14 +188,19 @@ function injectFreeNodes(config) {
   }
   infraMembers.push("DIRECT");
 
-  // 固定追加到末尾，保证多次执行后组顺序完全一致
+  // 健康检查直接打**订阅自身的地址**，而不是 Google 204：
+  // 只有这个 URL 拉得通，才说明这条出口真的能更新订阅。
+  // 用 gstatic 只是"能上网"，跟"能拉到 raw 文件"是两件事。
+  // 注意：该组只被 provider 的 proxy 引用，不在任何规则路由链上，
+  // 因此这里怎么改都不会影响付费线路的正常转发。
   config["proxy-groups"].push({
     name: infraName,
     type: "fallback",
     proxies: infraMembers,
-    url: FNH.healthCheckUrl,
+    url: FNH.url,
     interval: 600,
-    timeout: 5000,
+    timeout: 8000,
+    "expected-status": 200,
     lazy: false
   });
 
