@@ -1,25 +1,7 @@
 {
-  "generated_at": "2026-11-05T11:58:38Z",
+  "generated_at": "2026-11-05T12:52:04Z",
   "tool": "FreeNodeHub/1.0",
   "sources": [
-    {
-      "id": "zh",
-      "name": "zhuhaiuk/free-nodes",
-      "url": "https://raw.githubusercontent.com/zhuhaiuk/free-nodes/main/clash_config.yaml",
-      "license": "none-declared",
-      "ok": true,
-      "http_status": 200,
-      "bytes": 5024,
-      "raw_nodes": 30,
-      "kept_nodes": 6,
-      "error": null,
-      "from_cache": false,
-      "rejected": {
-        "tls_ip_without_sni": 14,
-        "plaintext_proxy": 9,
-        "unsupported_type": 1
-      }
-    },
     {
       "id": "au",
       "name": "Au1rxx/free-vpn-subscriptions",
@@ -29,7 +11,7 @@
       "http_status": 200,
       "bytes": 615234,
       "raw_nodes": 1751,
-      "kept_nodes": 320,
+      "kept_nodes": 420,
       "error": null,
       "from_cache": false,
       "rejected": {
@@ -38,100 +20,81 @@
         "grpc_without_service_name": 32,
         "bad_network": 12
       }
-    },
-    {
-      "id": "nr",
-      "name": "nodesradar/nodesradar-en",
-      "url": "https://radarhub.top/clash.yaml",
-      "license": "none-declared",
-      "ok": true,
-      "http_status": 200,
-      "bytes": 135080,
-      "raw_nodes": 500,
-      "kept_nodes": 320,
-      "error": null,
-      "from_cache": false,
-      "rejected": {
-        "tls_ip_without_sni": 16,
-        "bad_sni": 2
-      }
     }
   ],
   "counts": {
-    "raw": 2281,
-    "sanitized": 646,
-    "duplicates_removed": 73,
-    "after_cap": 573,
-    "probed_alive": 327,
-    "published": 327
+    "raw": 1751,
+    "sanitized": 420,
+    "duplicates_removed": 0,
+    "after_cap": 420,
+    "probed_alive": 200,
+    "published": 200
   },
   "rejected_reasons": {
-    "tls_ip_without_sni": 67,
-    "plaintext_proxy": 9,
-    "unsupported_type": 1,
-    "bad_sni": 62,
+    "tls_ip_without_sni": 37,
+    "bad_sni": 60,
     "bad_network": 12,
     "grpc_without_service_name": 32
   },
   "by_region": {
-    "CN": 1,
-    "US": 80,
     "JP": 15,
     "SG": 28,
-    "CA": 12,
-    "GB": 75,
-    "IT": 8,
-    "DE": 26,
+    "US": 71,
+    "CA": 9,
+    "IT": 5,
+    "GB": 26,
+    "DE": 14,
     "HK": 2,
-    "KR": 8,
+    "KR": 6,
     "ZA": 2,
-    "IN": 4,
     "UA": 1,
     "AU": 1,
     "MX": 1,
-    "CY": 2,
     "IL": 1,
-    "NL": 14,
+    "NL": 6,
     "FR": 4,
     "TH": 1,
-    "CH": 7,
-    "BG": 9,
-    "LT": 8,
-    "SC": 1,
-    "NO": 1,
-    "RU": 1,
-    "AT": 1,
-    "AE": 3,
-    "RO": 2,
-    "EE": 1,
-    "UNKNOWN": 2,
-    "FI": 2,
-    "SE": 3
+    "IN": 1,
+    "CH": 2,
+    "ES": 1,
+    "PL": 1,
+    "CY": 1,
+    "BY": 1
   },
   "by_protocol": {
-    "vmess": 19,
-    "http": 2,
-    "trojan": 33,
-    "hysteria2": 28,
-    "ss": 184,
-    "vless": 59,
-    "ssr": 2
+    "hysteria2": 6,
+    "ss": 80,
+    "trojan": 30,
+    "vless": 71,
+    "vmess": 13
   },
   "probe": {
     "enabled": true,
-    "tested": 573,
-    "alive": 327,
-    "median_delay_ms": 114,
-    "min_delay_ms": 2,
-    "max_delay_ms": 2951
+    "tested": 420,
+    "alive": 200,
+    "loaded_ratio": 1.0,
+    "median_delay_ms": 97,
+    "min_delay_ms": 12,
+    "max_delay_ms": 1278
   },
   "gate": {
-    "previous_total": 573,
-    "threshold": 286,
-    "decision": "publish"
+    "previous_total": 327,
+    "threshold": 163,
+    "decision": "publish",
+    "reason": "节点数 200 ≥ 门槛 163"
   },
   "validation": {
     "ok": true,
-    "message": "time=\"2026-11-05T11:58:40.787566018Z\" level=info msg=\"Start initial configuration in progress\"\ntime=\"2026-11-05T11:58:40.810229418Z\" level=info msg=\"Geodata Loader mode: memconservative\"\ntime=\"2026-11-05T11:58:40.810247625Z\" level=info msg=\"Geosite Matcher implementation: succinct\"\ntime=\"2026-11-05T11:58:40.810367824Z\" level=info msg=\"Initial configuration complete, total time: 22ms\"\nconfiguration file /tmp/fnh-val-zkvs4v1w/validate.yaml test is successful"
-  }
+    "message": "time=\"2026-11-05T12:52:08.705266419Z\" level=info msg=\"Start initial configuration in progress\"\ntime=\"2026-11-05T12:52:08.731340863Z\" level=info msg=\"Geodata Loader mode: memconservative\"\ntime=\"2026-11-05T12:52:08.731365950Z\" level=info msg=\"Geosite Matcher implementation: succinct\"\ntime=\"2026-11-05T12:52:08.731486767Z\" level=info msg=\"Initial configuration complete, total time: 26ms\"\nconfiguration file /tmp/fnh-val-f74176xn/validate.yaml test is successful"
+  },
+  "sources_excluded_by_license": [
+    {
+      "id": "zh",
+      "license": "none-declared"
+    },
+    {
+      "id": "nr",
+      "license": "none-declared"
+    }
+  ]
 }
