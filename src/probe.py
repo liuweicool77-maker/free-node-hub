@@ -55,24 +55,21 @@ class Prober:
 
     def start(self, proxies: list[dict], start_timeout: float = 20.0) -> None:
         os.makedirs(self._tmp, exist_ok=True)
-        prov = os.path.join(self._tmp, "candidates.yaml")
-        with open(prov, "w", encoding="utf-8", newline="\n") as f:
-            json.dump({"proxies": proxies}, f, ensure_ascii=False, indent=1)  # JSON 是合法 YAML
 
+        # 直接把候选节点内联进配置，不用 file provider：
+        # 实测在 CI 的 Linux 内核上 file provider 一个节点都没注册上（只看到内置 PASS-RULE），
+        # 而内联 proxies 与 -t 校验走的是同一条已被验证的路径，行为确定。
+        names = [p["name"] for p in proxies]
         cfg = {
             "mixed-port": _free_port(),
             "mode": "rule",
-            "log-level": "warning",
+            "log-level": "info",
             "ipv6": False,
             "external-controller": f"127.0.0.1:{self.port}",
             "secret": SECRET,
             "unified-delay": True,
-            "proxy-providers": {
-                "cand": {"type": "file", "path": os.path.join(self._tmp, "candidates.yaml")}
-            },
-            "proxy-groups": [
-                {"name": PROBE_GROUP, "type": "select", "use": ["cand"]},
-            ],
+            "proxies": proxies,
+            "proxy-groups": [{"name": PROBE_GROUP, "type": "select", "proxies": names}],
             "rules": [f"MATCH,{PROBE_GROUP}"],
             "profile": {"store-selected": False},
         }
@@ -103,7 +100,10 @@ class Prober:
 
     def proxy_names(self) -> list[str]:
         data = _api(self.port, "/proxies")
-        skip = {"DIRECT", "REJECT", "REJECT-DROP", "PASS", "COMPATIBLE", "GLOBAL", PROBE_GROUP}
+        skip = {
+            "DIRECT", "REJECT", "REJECT-DROP", "PASS", "PASS-RULE", "COMPATIBLE",
+            "GLOBAL", PROBE_GROUP,
+        }
         return [n for n in data.get("proxies", {}) if n not in skip]
 
     def wait_ready(self, expected: int, timeout: float = 60.0) -> list[str]:
