@@ -161,22 +161,22 @@ proxies:
   type: vmess
   server: 149.88.23.202
   port: 18000
-  alterId: 0
   uuid: f8c8dc3d-0d37-46b0-8b34-a7232882fcfe
+  alterId: 0
   cipher: auto
 - name: FREE-SG-au-a1c4d8
   type: vmess
   server: 149.88.23.207
   port: 18000
-  alterId: 0
   uuid: f8c8dc3d-0d37-46b0-8b34-a7232882fcfe
+  alterId: 0
   cipher: auto
 - name: FREE-SG-au-8dae64
   type: vmess
   server: ww11.levikogjgfdd.ir
   port: 18000
-  alterId: 0
   uuid: f8c8dc3d-0d37-46b0-8b34-a7232882fcfe
+  alterId: 0
   cipher: auto
 - name: FREE-JP-au-61c45e
   type: ss
@@ -224,10 +224,10 @@ proxies:
   type: vless
   server: 3.39.4.109
   port: 13672
-  client-fingerprint: random
   tls: true
-  uuid: 814bd064-544d-4255-a070-5705c03f6da9
   flow: xtls-rprx-vision
+  uuid: 814bd064-544d-4255-a070-5705c03f6da9
+  client-fingerprint: random
   reality-opts:
     public-key: k2hPp0tTW0Da-HK94wYpSCLbuK44LfGqC2MSJIM1Ti0
     short-id: 48050fab
@@ -236,10 +236,10 @@ proxies:
   type: vless
   server: 54.169.200.246
   port: 41688
-  client-fingerprint: ios
   tls: true
-  uuid: 49c0aac1-5e05-4f04-b624-248fc59e03c4
   flow: xtls-rprx-vision
+  uuid: 49c0aac1-5e05-4f04-b624-248fc59e03c4
+  client-fingerprint: ios
   reality-opts:
     public-key: srwIElIGTPs0kshpN1vvPsn4wixV_pLd56y_v9m0sTk
     short-id: 7f342137c20387
@@ -248,27 +248,34 @@ proxies:
   type: vless
   server: 3.114.220.22
   port: 18007
-  client-fingerprint: ios
   tls: true
-  uuid: 814bd064-544d-4255-a070-5705c03f6da9
   flow: xtls-rprx-vision
+  uuid: 814bd064-544d-4255-a070-5705c03f6da9
+  client-fingerprint: ios
   reality-opts:
     public-key: k2hPp0tTW0Da-HK94wYpSCLbuK44LfGqC2MSJIM1Ti0
     short-id: 48050fab
   servername: www.apple.com
+- name: FREE-US-au-15a441
+  type: vmess
+  server: 169.197.142.22
+  port: 18000
+  uuid: f8c8dc3d-0d37-46b0-8b34-a7232882fcfe
+  alterId: 0
+  cipher: auto
 - name: FREE-US-au-a28299
   type: vmess
   server: 84.17.41.2
   port: 18000
-  alterId: 0
   uuid: f8c8dc3d-0d37-46b0-8b34-a7232882fcfe
+  alterId: 0
   cipher: auto
 - name: FREE-CA-au-44f485
   type: vmess
   server: 134.195.196.211
   port: 18000
-  alterId: 0
   uuid: f8c8dc3d-0d37-46b0-8b34-a7232882fcfe
+  alterId: 0
   cipher: auto
 - name: FREE-JP-au-78cb21
   type: ss
@@ -322,10 +329,10 @@ proxies:
   type: vless
   server: 3.114.220.22
   port: 19645
-  client-fingerprint: chrome
   tls: true
-  uuid: 814bd064-544d-4255-a070-5705c03f6da9
   flow: xtls-rprx-vision
+  uuid: 814bd064-544d-4255-a070-5705c03f6da9
+  client-fingerprint: chrome
   reality-opts:
     public-key: k2hPp0tTW0Da-HK94wYpSCLbuK44LfGqC2MSJIM1Ti0
     short-id: 48050fab
@@ -342,10 +349,10 @@ proxies:
   type: vless
   server: 3.114.220.22
   port: 10583
-  client-fingerprint: chrome
   tls: true
-  uuid: 814bd064-544d-4255-a070-5705c03f6da9
   flow: xtls-rprx-vision
+  uuid: 814bd064-544d-4255-a070-5705c03f6da9
+  client-fingerprint: chrome
   reality-opts:
     public-key: k2hPp0tTW0Da-HK94wYpSCLbuK44LfGqC2MSJIM1Ti0
     short-id: 48050fab
@@ -354,10 +361,10 @@ proxies:
   type: vless
   server: 134.185.81.5
   port: 47881
-  client-fingerprint: ios
   tls: true
-  uuid: 59b203b2-b1bc-4e9c-a9e5-ccb8f691bf72
   flow: xtls-rprx-vision
+  uuid: 59b203b2-b1bc-4e9c-a9e5-ccb8f691bf72
+  client-fingerprint: ios
   reality-opts:
     public-key: 6XmXX1QXGodmtqU37Zx9CDHnCnPtonRdq8ieLmt__g4
     short-id: 38d72071
@@ -366,10 +373,10 @@ proxies:
   type: vless
   server: 3.39.4.109
   port: 18967
-  client-fingerprint: edge
   tls: true
-  uuid: 814bd064-544d-4255-a070-5705c03f6da9
   flow: xtls-rprx-vision
+  uuid: 814bd064-544d-4255-a070-5705c03f6da9
+  client-fingerprint: edge
   reality-opts:
     public-key: k2hPp0tTW0Da-HK94wYpSCLbuK44LfGqC2MSJIM1Ti0
     short-id: 48050fab
@@ -378,33 +385,21 @@ proxies:
   type: vless
   server: 3.0.111.82
   port: 17623
-  client-fingerprint: chrome
   tls: true
-  uuid: 814bd064-544d-4255-a070-5705c03f6da9
   flow: xtls-rprx-vision
+  uuid: 814bd064-544d-4255-a070-5705c03f6da9
+  client-fingerprint: chrome
   reality-opts:
     public-key: k2hPp0tTW0Da-HK94wYpSCLbuK44LfGqC2MSJIM1Ti0
     short-id: 48050fab
   servername: www.apple.com
-- name: FREE-SG-au-e148c1
-  type: vless
-  server: 54.251.9.130
-  port: 24146
-  client-fingerprint: chrome
-  tls: true
-  uuid: 9d9a048b-3aea-4b3e-b106-1106bf301feb
-  flow: xtls-rprx-vision
-  reality-opts:
-    public-key: VeluC9A7XDurAWQNgXKShS2SJSgoK79QHFgiAMYrvGo
-    short-id: 7205d9079521832c
-  servername: www.intel.com
 - name: FREE-KR-au-7e55aa
   type: vless
   server: 151.245.106.49
   port: 2053
-  client-fingerprint: random
   tls: true
   uuid: a2de9567-9646-45a9-a410-7303a43bdb6c
+  client-fingerprint: random
   reality-opts:
     public-key: F6C33iIbfmt1mUsuLTarIC8ygdHKMqsaGvrSQltyxUo
     short-id: 429499c03d4cc8a0
@@ -413,15 +408,15 @@ proxies:
   type: vmess
   server: 67.220.95.3
   port: 18000
-  alterId: 0
   uuid: f8c8dc3d-0d37-46b0-8b34-a7232882fcfe
+  alterId: 0
   cipher: aes-128-gcm
 - name: FREE-US-au-793a62
   type: vmess
   server: 38.91.107.49
   port: 18000
-  alterId: 0
   uuid: f8c8dc3d-0d37-46b0-8b34-a7232882fcfe
+  alterId: 0
   cipher: auto
 - name: FREE-KR-au-88d4b1
   type: ss
@@ -511,9 +506,9 @@ proxies:
   type: vless
   server: 45.132.75.213
   port: 2053
-  client-fingerprint: firefox
   tls: true
   uuid: f46182d1-e13b-47d3-97e2-fa5426a93e7c
+  client-fingerprint: firefox
   reality-opts:
     public-key: TpWeZocgNOygOhMo0l7oJawPu7STkn9D-SOa0UppcyY
     short-id: cd7e85995ae2afc9
@@ -522,10 +517,10 @@ proxies:
   type: vless
   server: 3.0.111.82
   port: 10574
-  client-fingerprint: chrome
   tls: true
-  uuid: 814bd064-544d-4255-a070-5705c03f6da9
   flow: xtls-rprx-vision
+  uuid: 814bd064-544d-4255-a070-5705c03f6da9
+  client-fingerprint: chrome
   reality-opts:
     public-key: k2hPp0tTW0Da-HK94wYpSCLbuK44LfGqC2MSJIM1Ti0
     short-id: 48050fab
@@ -534,10 +529,10 @@ proxies:
   type: vless
   server: 3.0.111.82
   port: 12972
-  client-fingerprint: qq
   tls: true
-  uuid: 814bd064-544d-4255-a070-5705c03f6da9
   flow: xtls-rprx-vision
+  uuid: 814bd064-544d-4255-a070-5705c03f6da9
+  client-fingerprint: qq
   reality-opts:
     public-key: k2hPp0tTW0Da-HK94wYpSCLbuK44LfGqC2MSJIM1Ti0
     short-id: 48050fab
@@ -546,9 +541,9 @@ proxies:
   type: vless
   server: 511.150333.xyz
   port: 21003
-  client-fingerprint: chrome
   tls: true
   uuid: 41b1c169-5905-4d98-b6a6-56896c25737c
+  client-fingerprint: chrome
   reality-opts:
     public-key: HZwHZBP3x4Yo4UQiHcypRJIU_UdZY5OAapQM8RUqVAU
     short-id: bab49aa4c2a88d27
@@ -557,9 +552,9 @@ proxies:
   type: vless
   server: 511.150333.xyz
   port: 21002
-  client-fingerprint: chrome
   tls: true
   uuid: 41b1c169-5905-4d98-b6a6-56896c25737c
+  client-fingerprint: chrome
   reality-opts:
     public-key: HZwHZBP3x4Yo4UQiHcypRJIU_UdZY5OAapQM8RUqVAU
     short-id: 3ab8d93dd9b1a5be
@@ -568,9 +563,9 @@ proxies:
   type: vless
   server: 511.150333.xyz
   port: 21001
-  client-fingerprint: chrome
   tls: true
   uuid: 41b1c169-5905-4d98-b6a6-56896c25737c
+  client-fingerprint: chrome
   reality-opts:
     public-key: HZwHZBP3x4Yo4UQiHcypRJIU_UdZY5OAapQM8RUqVAU
     short-id: ab39fc68ab3dee81
@@ -579,9 +574,9 @@ proxies:
   type: vless
   server: 510.150333.xyz
   port: 21004
-  client-fingerprint: random
   tls: true
   uuid: 67952583-8572-42e1-943d-0602794f885b
+  client-fingerprint: random
   reality-opts:
     public-key: IRaSB0ImgMO7fsrIbh9i3Pz-bgo5F1jKeC51Fpfs9AA
     short-id: 4e0418d648f86141
@@ -590,9 +585,9 @@ proxies:
   type: vless
   server: 511.150333.xyz
   port: 21004
-  client-fingerprint: chrome
   tls: true
   uuid: 41b1c169-5905-4d98-b6a6-56896c25737c
+  client-fingerprint: chrome
   reality-opts:
     public-key: HZwHZBP3x4Yo4UQiHcypRJIU_UdZY5OAapQM8RUqVAU
     short-id: 2df2bd9d8366cef1
@@ -601,9 +596,9 @@ proxies:
   type: vless
   server: 103.106.229.37
   port: 21004
-  client-fingerprint: chrome
   tls: true
   uuid: 41b1c169-5905-4d98-b6a6-56896c25737c
+  client-fingerprint: chrome
   reality-opts:
     public-key: HZwHZBP3x4Yo4UQiHcypRJIU_UdZY5OAapQM8RUqVAU
     short-id: 2df2bd9d8366cef1
@@ -612,10 +607,10 @@ proxies:
   type: vless
   server: 169.40.42.35
   port: 443
-  client-fingerprint: chrome
   tls: true
-  uuid: d65cc14c-f53f-4fe2-b262-97856601319c
   flow: xtls-rprx-vision
+  uuid: d65cc14c-f53f-4fe2-b262-97856601319c
+  client-fingerprint: chrome
   reality-opts:
     public-key: e2RLf57Li_-MDZGE9ss1BWPgP54mqRb5PfXhW2jcVVg
     short-id: c39cc7310a
@@ -624,10 +619,10 @@ proxies:
   type: vless
   server: 169.40.42.74
   port: 443
-  client-fingerprint: random
   tls: true
-  uuid: d65cc14c-f53f-4fe2-b262-97856601319c
   flow: xtls-rprx-vision
+  uuid: d65cc14c-f53f-4fe2-b262-97856601319c
+  client-fingerprint: random
   reality-opts:
     public-key: e2RLf57Li_-MDZGE9ss1BWPgP54mqRb5PfXhW2jcVVg
     short-id: c39cc7310a
@@ -636,22 +631,22 @@ proxies:
   type: vmess
   server: 23.162.200.198
   port: 18000
-  alterId: 0
   uuid: f8c8dc3d-0d37-46b0-8b34-a7232882fcfe
+  alterId: 0
   cipher: auto
 - name: FREE-US-au-50e82b
   type: vmess
   server: 67.220.85.46
   port: 18000
-  alterId: 0
   uuid: f8c8dc3d-0d37-46b0-8b34-a7232882fcfe
+  alterId: 0
   cipher: auto
 - name: FREE-US-au-d78f3b
   type: vmess
   server: 38.110.1.246
   port: 18000
-  alterId: 0
   uuid: f8c8dc3d-0d37-46b0-8b34-a7232882fcfe
+  alterId: 0
   cipher: auto
 - name: FREE-SG-au-3168f5
   type: ss
@@ -723,10 +718,10 @@ proxies:
   type: vless
   server: 15.204.97.214
   port: 23576
-  client-fingerprint: chrome
   tls: true
-  uuid: 48ff2b70-e180-582f-8866-d9a2edeed5f5
   flow: xtls-rprx-vision
+  uuid: 48ff2b70-e180-582f-8866-d9a2edeed5f5
+  client-fingerprint: chrome
   reality-opts:
     public-key: 1y5h2FGWKXTJ9xLPCqPo6Mw7RxoZzh6fGkEQKNxpZ3s
     short-id: '01'
@@ -735,10 +730,10 @@ proxies:
   type: vless
   server: ww13.levikogjgfdd.ir
   port: 23576
-  client-fingerprint: chrome
   tls: true
-  uuid: 48ff2b70-e180-582f-8866-d9a2edeed5f5
   flow: xtls-rprx-vision
+  uuid: 48ff2b70-e180-582f-8866-d9a2edeed5f5
+  client-fingerprint: chrome
   reality-opts:
     public-key: 1y5h2FGWKXTJ9xLPCqPo6Mw7RxoZzh6fGkEQKNxpZ3s
     short-id: '01'
@@ -752,10 +747,10 @@ proxies:
   type: vless
   server: 5.253.42.164
   port: 40443
-  client-fingerprint: chrome
   tls: true
-  uuid: e99ba96d-dec8-42eb-be53-19e71eef7cab
   flow: xtls-rprx-vision
+  uuid: e99ba96d-dec8-42eb-be53-19e71eef7cab
+  client-fingerprint: chrome
   reality-opts:
     public-key: g77ZJbm18JEotapmVRjaXi133MzkbhkU2lxhVeXx8zw
     short-id: 68a8
@@ -764,9 +759,9 @@ proxies:
   type: vless
   server: 510.150333.xyz
   port: 21002
-  client-fingerprint: chrome
   tls: true
   uuid: 67952583-8572-42e1-943d-0602794f885b
+  client-fingerprint: chrome
   reality-opts:
     public-key: IRaSB0ImgMO7fsrIbh9i3Pz-bgo5F1jKeC51Fpfs9AA
     short-id: d9a6b52e98121db2
@@ -775,10 +770,10 @@ proxies:
   type: vless
   server: 169.40.42.231
   port: 443
-  client-fingerprint: chrome
   tls: true
-  uuid: d65cc14c-f53f-4fe2-b262-97856601319c
   flow: xtls-rprx-vision
+  uuid: d65cc14c-f53f-4fe2-b262-97856601319c
+  client-fingerprint: chrome
   reality-opts:
     public-key: e2RLf57Li_-MDZGE9ss1BWPgP54mqRb5PfXhW2jcVVg
     short-id: c39cc7310a
@@ -787,9 +782,9 @@ proxies:
   type: vless
   server: 510.150333.xyz
   port: 21003
-  client-fingerprint: random
   tls: true
   uuid: 67952583-8572-42e1-943d-0602794f885b
+  client-fingerprint: random
   reality-opts:
     public-key: IRaSB0ImgMO7fsrIbh9i3Pz-bgo5F1jKeC51Fpfs9AA
     short-id: f3602a3a1cf928b7
@@ -798,10 +793,10 @@ proxies:
   type: vless
   server: 169.40.42.89
   port: 443
-  client-fingerprint: chrome
   tls: true
-  uuid: d65cc14c-f53f-4fe2-b262-97856601319c
   flow: xtls-rprx-vision
+  uuid: d65cc14c-f53f-4fe2-b262-97856601319c
+  client-fingerprint: chrome
   reality-opts:
     public-key: e2RLf57Li_-MDZGE9ss1BWPgP54mqRb5PfXhW2jcVVg
     short-id: c39cc7310a
@@ -810,10 +805,10 @@ proxies:
   type: vless
   server: 169.40.42.90
   port: 443
-  client-fingerprint: ios
   tls: true
-  uuid: d65cc14c-f53f-4fe2-b262-97856601319c
   flow: xtls-rprx-vision
+  uuid: d65cc14c-f53f-4fe2-b262-97856601319c
+  client-fingerprint: ios
   reality-opts:
     public-key: e2RLf57Li_-MDZGE9ss1BWPgP54mqRb5PfXhW2jcVVg
     short-id: c39cc7310a
@@ -822,10 +817,10 @@ proxies:
   type: vless
   server: 169.40.42.168
   port: 443
-  client-fingerprint: firefox
   tls: true
-  uuid: d65cc14c-f53f-4fe2-b262-97856601319c
   flow: xtls-rprx-vision
+  uuid: d65cc14c-f53f-4fe2-b262-97856601319c
+  client-fingerprint: firefox
   reality-opts:
     public-key: e2RLf57Li_-MDZGE9ss1BWPgP54mqRb5PfXhW2jcVVg
     short-id: c39cc7310a
@@ -834,10 +829,10 @@ proxies:
   type: vless
   server: 167.17.69.171
   port: 443
-  client-fingerprint: chrome
   tls: true
-  uuid: 00144519-7e0d-476b-8d28-435576af9262
   flow: xtls-rprx-vision
+  uuid: 00144519-7e0d-476b-8d28-435576af9262
+  client-fingerprint: chrome
   reality-opts:
     public-key: ALT8hIGeZEhi0sQFbXP_ntBg8Xo-v7i0YCLrqTnBxRk
     short-id: 0990d22f
@@ -846,10 +841,10 @@ proxies:
   type: vless
   server: 159.89.87.21
   port: 28190
-  client-fingerprint: firefox
   tls: true
-  uuid: 14c80e0e-f7ce-4991-94fc-99a1db4a9b1e
   flow: xtls-rprx-vision
+  uuid: 14c80e0e-f7ce-4991-94fc-99a1db4a9b1e
+  client-fingerprint: firefox
   reality-opts:
     public-key: ZJRnFU-1s1JOnO8E9uZ7b00l1fPEh63fGRbdBANFRno
     short-id: ''
@@ -858,9 +853,9 @@ proxies:
   type: vless
   server: 66.70.179.198
   port: 2053
-  client-fingerprint: firefox
   tls: true
   uuid: dc620cd6-a9d8-4a0f-8f18-006b895db77e
+  client-fingerprint: firefox
   reality-opts:
     public-key: k4l6TxwkBbx9DhZAFpByq5rfCWFSgyOex3f_eFe9CWU
     short-id: 83f8317a948bb769
@@ -869,10 +864,10 @@ proxies:
   type: vless
   server: 185.95.231.156
   port: 443
-  client-fingerprint: chrome
   tls: true
-  uuid: 1f8cf47a-b66a-4916-979f-26edfcf44eea
   flow: xtls-rprx-vision
+  uuid: 1f8cf47a-b66a-4916-979f-26edfcf44eea
+  client-fingerprint: chrome
   reality-opts:
     public-key: 8eXftARun6KH38UZhuqIfPR1VF2DLS9RMBZEnF5k6To
     short-id: a3a578ab
@@ -881,10 +876,10 @@ proxies:
   type: vless
   server: 169.40.42.163
   port: 443
-  client-fingerprint: chrome
   tls: true
-  uuid: d65cc14c-f53f-4fe2-b262-97856601319c
   flow: xtls-rprx-vision
+  uuid: d65cc14c-f53f-4fe2-b262-97856601319c
+  client-fingerprint: chrome
   reality-opts:
     public-key: e2RLf57Li_-MDZGE9ss1BWPgP54mqRb5PfXhW2jcVVg
     short-id: c39cc7310a
@@ -893,10 +888,10 @@ proxies:
   type: vless
   server: 169.40.42.202
   port: 443
-  client-fingerprint: ios
   tls: true
-  uuid: d65cc14c-f53f-4fe2-b262-97856601319c
   flow: xtls-rprx-vision
+  uuid: d65cc14c-f53f-4fe2-b262-97856601319c
+  client-fingerprint: ios
   reality-opts:
     public-key: e2RLf57Li_-MDZGE9ss1BWPgP54mqRb5PfXhW2jcVVg
     short-id: c39cc7310a
@@ -983,10 +978,10 @@ proxies:
   type: vless
   server: 15.204.97.219
   port: 23576
-  client-fingerprint: chrome
   tls: true
-  uuid: 48ff2b70-e180-582f-8866-d9a2edeed5f5
   flow: xtls-rprx-vision
+  uuid: 48ff2b70-e180-582f-8866-d9a2edeed5f5
+  client-fingerprint: chrome
   reality-opts:
     public-key: 1y5h2FGWKXTJ9xLPCqPo6Mw7RxoZzh6fGkEQKNxpZ3s
     short-id: '01'
@@ -995,9 +990,9 @@ proxies:
   type: vless
   server: 510.150333.xyz
   port: 21001
-  client-fingerprint: chrome
   tls: true
   uuid: 67952583-8572-42e1-943d-0602794f885b
+  client-fingerprint: chrome
   reality-opts:
     public-key: IRaSB0ImgMO7fsrIbh9i3Pz-bgo5F1jKeC51Fpfs9AA
     short-id: a51c3ccb2320024a
@@ -1006,10 +1001,10 @@ proxies:
   type: vless
   server: 195.123.240.65
   port: 443
-  client-fingerprint: chrome
   tls: true
-  uuid: ce18d0eb-5c71-41f9-96e5-1632e22456e4
   flow: xtls-rprx-vision
+  uuid: ce18d0eb-5c71-41f9-96e5-1632e22456e4
+  client-fingerprint: chrome
   reality-opts:
     public-key: StPbcmBuzpuYUfa4oZ5SI3Bq1OSF_-oU1vp2AcyvQVE
     short-id: 19296c9f1bf9c7b1
@@ -1018,10 +1013,10 @@ proxies:
   type: vless
   server: 169.40.42.229
   port: 443
-  client-fingerprint: chrome
   tls: true
-  uuid: d65cc14c-f53f-4fe2-b262-97856601319c
   flow: xtls-rprx-vision
+  uuid: d65cc14c-f53f-4fe2-b262-97856601319c
+  client-fingerprint: chrome
   reality-opts:
     public-key: e2RLf57Li_-MDZGE9ss1BWPgP54mqRb5PfXhW2jcVVg
     short-id: c39cc7310a
@@ -1030,10 +1025,10 @@ proxies:
   type: vless
   server: 195.211.98.43
   port: 443
-  client-fingerprint: chrome
   tls: true
-  uuid: 1b4b11d5-4c2d-4533-9a55-636757cdee94
   flow: xtls-rprx-vision
+  uuid: 1b4b11d5-4c2d-4533-9a55-636757cdee94
+  client-fingerprint: chrome
   reality-opts:
     public-key: xPnpkXu5qfwIArlHKvJsqKJnGdGbJK1tT2GzWMyLohA
     short-id: 9c56fddf237e8eaf
@@ -1042,10 +1037,10 @@ proxies:
   type: vless
   server: 209.200.246.148
   port: 443
-  client-fingerprint: firefox
   tls: true
-  uuid: ca52e2b6-fb9f-4dac-b6dc-49da9923f251
   flow: xtls-rprx-vision
+  uuid: ca52e2b6-fb9f-4dac-b6dc-49da9923f251
+  client-fingerprint: firefox
   reality-opts:
     public-key: uTmb-ytXsx8p0fkBz7A76SHpWk7_oVutIA4LGTE8BQk
     short-id: f98843107912e782
@@ -1054,9 +1049,9 @@ proxies:
   type: vless
   server: 178.212.35.198
   port: 443
-  client-fingerprint: firefox
   tls: true
   uuid: 6bdc8320-7eae-46fc-be08-f5f54e65dfc8
+  client-fingerprint: firefox
   reality-opts:
     public-key: 3LbVuwKpQv55GngyRhvGl9KyAHIDAgvJx_VRM5mUD2Q
     short-id: 6bdc8320
@@ -1065,15 +1060,15 @@ proxies:
   type: vmess
   server: 140.238.2.250
   port: 443
-  alterId: 0
   uuid: 41a7089a-040b-4538-8b8d-010902405bde
+  alterId: 0
   cipher: auto
 - name: FREE-US-au-714fc4
   type: vmess
   server: 67.220.95.3
   port: 18000
-  alterId: 0
   uuid: f8c8dc3d-0d37-46b0-8b34-a7232882fcfe
+  alterId: 0
   cipher: auto
 - name: FREE-US-au-10380c
   type: ss
@@ -1199,18 +1194,6 @@ proxies:
   port: 443
   password: 0ab6c98dae3b48e8b9c4a776b6c9c19a
   sni: www.yourultimateprofessionalcareerhub.com
-- name: FREE-US-au-4161ee
-  type: vless
-  server: 47.251.108.158
-  port: 443
-  client-fingerprint: safari
-  tls: true
-  uuid: 975fc322-6e38-434b-a53c-d39fed49b9a9
-  flow: xtls-rprx-vision
-  reality-opts:
-    public-key: SmgYcFIvvFXW3xh4gvGhIJuQsaZvWkAylcjB6TEddEs
-    short-id: 896f52ba2cfca903
-  servername: www.cloudflare.com
 - name: FREE-US-au-f416af
   type: vless
   server: 108.61.119.63
@@ -1218,26 +1201,14 @@ proxies:
   tls: true
   uuid: e9a8144e-5237-488a-afb1-9ca3d8d54c80
   servername: us007.zestapp778.com
-- name: FREE-HK-au-f84922
-  type: vless
-  server: 154.21.203.106
-  port: 51279
-  client-fingerprint: random
-  tls: true
-  uuid: 57beeeb0-03fc-4fc9-94da-7604488a7134
-  flow: xtls-rprx-vision
-  reality-opts:
-    public-key: f6Tj8-uvWsLv3V-lGLuPciArp5oKqUImBg-U7-WJ-0A
-    short-id: bb82c8
-  servername: www.tesla.com
 - name: FREE-US-au-d37f3f
   type: vless
   server: 195.123.235.183
   port: 443
-  client-fingerprint: chrome
   tls: true
-  uuid: c14ec728-3eca-4750-87fc-fd1e6aeb81d5
   flow: xtls-rprx-vision
+  uuid: c14ec728-3eca-4750-87fc-fd1e6aeb81d5
+  client-fingerprint: chrome
   reality-opts:
     public-key: H3R3BUAl7thrIZsznTbb-eRREIjQOH2f3WO0oTN7OGY
     short-id: a0e2a6074c6456b0
@@ -1246,10 +1217,10 @@ proxies:
   type: vless
   server: 2.24.124.64
   port: 443
-  client-fingerprint: chrome
   tls: true
-  uuid: 719b9354-45e2-4718-8709-d965b64554db
   flow: xtls-rprx-vision
+  uuid: 719b9354-45e2-4718-8709-d965b64554db
+  client-fingerprint: chrome
   reality-opts:
     public-key: zpXR6Y36C8qUCIVk2p_j8C9KGeBk5xisLw66j3WFOls
     short-id: 9f1fc5a631ef3126
@@ -1258,9 +1229,9 @@ proxies:
   type: vless
   server: 208.69.78.217
   port: 2053
-  client-fingerprint: firefox
   tls: true
   uuid: c0dd6d59-1573-43af-8b70-1470b2632a6d
+  client-fingerprint: firefox
   reality-opts:
     public-key: A49ue7zXSusJZdErPAewg3jqGdUFIO1a9xOunEKJfC0
     short-id: ad86e2d52ff40ebd
@@ -1269,10 +1240,10 @@ proxies:
   type: vless
   server: 86.54.28.75
   port: 443
-  client-fingerprint: firefox
   tls: true
-  uuid: 44ae52b9-76fc-444d-8e43-186b4384b80a
   flow: xtls-rprx-vision
+  uuid: 44ae52b9-76fc-444d-8e43-186b4384b80a
+  client-fingerprint: firefox
   reality-opts:
     public-key: PryGoq51ilG0eLUPl9i0xCvmk1xpwkyFSr_tG4GNLlU
     short-id: 1d86d17709852910
@@ -1281,10 +1252,10 @@ proxies:
   type: vless
   server: free-amsterdam-node-1.cloudwidecdn.com
   port: 443
-  client-fingerprint: random
   tls: true
-  uuid: 44ae52b9-76fc-444d-8e43-186b4384b80a
   flow: xtls-rprx-vision
+  uuid: 44ae52b9-76fc-444d-8e43-186b4384b80a
+  client-fingerprint: random
   reality-opts:
     public-key: PryGoq51ilG0eLUPl9i0xCvmk1xpwkyFSr_tG4GNLlU
     short-id: 1d86d17709852910
@@ -1293,10 +1264,10 @@ proxies:
   type: vless
   server: 9.247.23.209
   port: 443
-  client-fingerprint: chrome
   tls: true
-  uuid: b9bfa54d-bc44-4592-a6d6-89a9665d286f
   flow: xtls-rprx-vision
+  uuid: b9bfa54d-bc44-4592-a6d6-89a9665d286f
+  client-fingerprint: chrome
   reality-opts:
     public-key: SbVKOEMjK0sIlbwg4akyBg5mL5KZwwB-ed4eEE7YnRc
     short-id: ''
@@ -1305,10 +1276,10 @@ proxies:
   type: vless
   server: edge.bookmai.com
   port: 443
-  client-fingerprint: chrome
   tls: true
-  uuid: b9bfa54d-bc44-4592-a6d6-89a9665d286f
   flow: xtls-rprx-vision
+  uuid: b9bfa54d-bc44-4592-a6d6-89a9665d286f
+  client-fingerprint: chrome
   reality-opts:
     public-key: SbVKOEMjK0sIlbwg4akyBg5mL5KZwwB-ed4eEE7YnRc
     short-id: ''
@@ -1317,9 +1288,9 @@ proxies:
   type: vless
   server: 51.77.217.70
   port: 2053
-  client-fingerprint: firefox
   tls: true
   uuid: bf16ee0c-8b3c-41e4-ab3a-8b48033c404e
+  client-fingerprint: firefox
   reality-opts:
     public-key: g63cT3uI0Y5iUtj3m__RYz7nmR1eIK4AYikdnZCl63w
     short-id: bfe58beb41f1d09f
@@ -1328,9 +1299,9 @@ proxies:
   type: vless
   server: 212.227.235.66
   port: 2053
-  client-fingerprint: chrome
   tls: true
   uuid: ead0dd61-d398-40ad-80d6-a0e1e516d7d3
+  client-fingerprint: chrome
   reality-opts:
     public-key: 7Y6Xb5Ql_03K25x8yKUSOKI2JTOMyv2nyCcFza90uxk
     short-id: 29e8dcd2b37aaa7f
@@ -1339,9 +1310,9 @@ proxies:
   type: vless
   server: 51.89.194.151
   port: 2053
-  client-fingerprint: random
   tls: true
   uuid: 8e790f25-1d71-4601-9fb0-d503931dcfca
+  client-fingerprint: random
   reality-opts:
     public-key: xPEBx4wUmwAAv4ikUALNBf5wH6TRhyeQ0Q2pcNELsV0
     short-id: d051f678212f9d54
@@ -1350,8 +1321,8 @@ proxies:
   type: vmess
   server: 67.220.95.3
   port: 18000
-  alterId: 0
   uuid: f8c8dc3d-0d37-46b0-8b34-a7232882fcfe
+  alterId: 0
   cipher: none
 - name: FREE-US-au-355650
   type: hysteria2
@@ -1365,12 +1336,6 @@ proxies:
   port: 443
   password: shadowsocks
   cipher: aes-128-gcm
-- name: FREE-US-au-507b75
-  type: ss
-  server: 198.98.53.130
-  port: 443
-  password: eDfN7SODQceIOmIAbtJJtK
-  cipher: chacha20-ietf-poly1305
 - name: FREE-US-au-e86182
   type: ss
   server: 107.151.182.253
@@ -1471,9 +1436,9 @@ proxies:
   type: vless
   server: 46.250.250.149
   port: 2053
-  client-fingerprint: chrome
   tls: true
   uuid: b4caaf57-ad77-4948-a6f5-51b3513799bf
+  client-fingerprint: chrome
   reality-opts:
     public-key: hieuCHb3HYdDYHmTDyWw2SGqyfo36AVuA-wSiZMdU1M
     short-id: 9922313fffed1c63
@@ -1482,10 +1447,10 @@ proxies:
   type: vless
   server: 5.34.177.164
   port: 443
-  client-fingerprint: chrome
   tls: true
-  uuid: ca678d26-5435-4d13-b378-06c4c3b070ff
   flow: xtls-rprx-vision
+  uuid: ca678d26-5435-4d13-b378-06c4c3b070ff
+  client-fingerprint: chrome
   reality-opts:
     public-key: cwWhNuekusD1iPZZ--7G891dU9PCacxyCYwsZxOApHA
     short-id: b2efed6d157e7bb0
@@ -1499,34 +1464,22 @@ proxies:
   type: vless
   server: 5.252.179.15
   port: 443
-  client-fingerprint: qq
   tls: true
-  uuid: 0ab273e4-cea6-41d0-bbab-41071d2fc455
   flow: xtls-rprx-vision
+  uuid: 0ab273e4-cea6-41d0-bbab-41071d2fc455
+  client-fingerprint: qq
   reality-opts:
     public-key: XQB2zIgrhD8AtxgYFM8UiiWYt1sLVBLhMg1M4-sGMAY
     short-id: 296f27de82dad7ff
   servername: www.bing.com
-- name: FREE-NL-au-3cad21
-  type: vless
-  server: 130.12.242.106
-  port: 443
-  client-fingerprint: chrome
-  tls: true
-  uuid: bc058e69-0444-4c7b-98da-bd67f0b143da
-  flow: xtls-rprx-vision
-  reality-opts:
-    public-key: vnjp7zIK2H3CGdjSis_79KXqS6IG-opmpbETPUD-EC8
-    short-id: 15affa0af66dfc79
-  servername: deepl.com
 - name: FREE-NL-au-5fa5a4
   type: vless
   server: 51.158.206.26
   port: 23576
-  client-fingerprint: chrome
   tls: true
-  uuid: 48ff2b70-e180-582f-8866-d9a2edeed5f5
   flow: xtls-rprx-vision
+  uuid: 48ff2b70-e180-582f-8866-d9a2edeed5f5
+  client-fingerprint: chrome
   reality-opts:
     public-key: 1y5h2FGWKXTJ9xLPCqPo6Mw7RxoZzh6fGkEQKNxpZ3s
     short-id: '01'
@@ -1535,10 +1488,10 @@ proxies:
   type: vless
   server: 51.158.206.80
   port: 23576
-  client-fingerprint: chrome
   tls: true
-  uuid: 48ff2b70-e180-582f-8866-d9a2edeed5f5
   flow: xtls-rprx-vision
+  uuid: 48ff2b70-e180-582f-8866-d9a2edeed5f5
+  client-fingerprint: chrome
   reality-opts:
     public-key: 1y5h2FGWKXTJ9xLPCqPo6Mw7RxoZzh6fGkEQKNxpZ3s
     short-id: '01'
@@ -1547,6 +1500,6 @@ proxies:
   type: vmess
   server: 84.17.41.2
   port: 18000
-  alterId: 0
   uuid: f8c8dc3d-0d37-46b0-8b34-a7232882fcfe
+  alterId: 0
   cipher: none
