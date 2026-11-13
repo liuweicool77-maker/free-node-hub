@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-13T07:27:32Z",
+  "generated_at": "2026-11-13T13:20:03Z",
   "tool": "FreeNodeHub/1.0",
   "sources": [
     {
@@ -37,13 +37,13 @@
     "grpc_without_service_name": 32
   },
   "by_region": {
-    "SG": 24,
-    "US": 66,
-    "CA": 8,
+    "SG": 22,
+    "US": 67,
+    "CA": 9,
     "IT": 5,
-    "GB": 21,
+    "GB": 20,
+    "JP": 6,
     "DE": 13,
-    "JP": 5,
     "ZA": 2,
     "KR": 4,
     "UA": 1,
@@ -61,8 +61,8 @@
   "by_protocol": {
     "ss": 62,
     "trojan": 32,
-    "vmess": 14,
-    "vless": 56,
+    "vmess": 15,
+    "vless": 55,
     "hysteria2": 1
   },
   "probe": {
@@ -70,19 +70,19 @@
     "tested": 420,
     "alive": 165,
     "loaded_ratio": 1.0,
-    "median_delay_ms": 139,
-    "min_delay_ms": 5,
-    "max_delay_ms": 629
+    "median_delay_ms": 99,
+    "min_delay_ms": 9,
+    "max_delay_ms": 561
   },
   "gate": {
-    "previous_total": 166,
-    "threshold": 83,
+    "previous_total": 165,
+    "threshold": 82,
     "decision": "publish",
-    "reason": "节点数 165 ≥ 门槛 83"
+    "reason": "节点数 165 ≥ 门槛 82"
   },
   "validation": {
     "ok": true,
-    "message": "time=\"2026-11-13T07:27:36.205492119Z\" level=info msg=\"Start initial configuration in progress\"\ntime=\"2026-11-13T07:27:36.225733867Z\" level=info msg=\"Geodata Loader mode: memconservative\"\ntime=\"2026-11-13T07:27:36.225750542Z\" level=info msg=\"Geosite Matcher implementation: succinct\"\ntime=\"2026-11-13T07:27:36.225855691Z\" level=info msg=\"Initial configuration complete, total time: 20ms\"\nconfiguration file /tmp/fnh-val-746d4w8h/validate.yaml test is successful"
+    "message": "time=\"2026-11-13T13:20:07.359399015Z\" level=info msg=\"Start initial configuration in progress\"\ntime=\"2026-11-13T13:20:07.383881109Z\" level=info msg=\"Geodata Loader mode: memconservative\"\ntime=\"2026-11-13T13:20:07.383903210Z\" level=info msg=\"Geosite Matcher implementation: succinct\"\ntime=\"2026-11-13T13:20:07.384034175Z\" level=info msg=\"Initial configuration complete, total time: 24ms\"\nconfiguration file /tmp/fnh-val-yfikjr0r/validate.yaml test is successful"
   },
   "sources_excluded_by_license": [
     {
