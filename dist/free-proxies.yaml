@@ -99,33 +99,33 @@ proxies:
   port: 8080
   password: 14fFPrbezE3HDZzsMOr6
   cipher: rc4-md5
-- name: FREE-SG-au-4f99bf
-  type: trojan
-  server: 149.28.130.108
-  port: 443
-  password: 0ab6c98dae3b48e8b9c4a776b6c9c19a
-  sni: searchcreativejobsandshowcaseyourartistictalents.com
 - name: FREE-SG-au-46941e
   type: vmess
   server: 149.88.23.202
   port: 18000
-  alterId: 0
-  cipher: auto
   uuid: f8c8dc3d-0d37-46b0-8b34-a7232882fcfe
+  cipher: auto
+  alterId: 0
 - name: FREE-SG-au-a1c4d8
   type: vmess
   server: 149.88.23.207
   port: 18000
-  alterId: 0
-  cipher: auto
   uuid: f8c8dc3d-0d37-46b0-8b34-a7232882fcfe
+  cipher: auto
+  alterId: 0
 - name: FREE-SG-au-8dae64
   type: vmess
   server: ww11.levikogjgfdd.ir
   port: 18000
-  alterId: 0
-  cipher: auto
   uuid: f8c8dc3d-0d37-46b0-8b34-a7232882fcfe
+  cipher: auto
+  alterId: 0
+- name: FREE-JP-au-61c45e
+  type: ss
+  server: 149.22.87.241
+  port: 443
+  password: shadowsocks
+  cipher: aes-128-gcm
 - name: FREE-IT-au-686ed0
   type: ss
   server: 202.50.253.27
@@ -148,23 +148,23 @@ proxies:
   type: vmess
   server: 169.197.142.22
   port: 18000
-  alterId: 0
-  cipher: auto
   uuid: f8c8dc3d-0d37-46b0-8b34-a7232882fcfe
+  cipher: auto
+  alterId: 0
 - name: FREE-US-au-a28299
   type: vmess
   server: 84.17.41.2
   port: 18000
-  alterId: 0
-  cipher: auto
   uuid: f8c8dc3d-0d37-46b0-8b34-a7232882fcfe
+  cipher: auto
+  alterId: 0
 - name: FREE-CA-au-44f485
   type: vmess
   server: 134.195.196.211
   port: 18000
-  alterId: 0
-  cipher: auto
   uuid: f8c8dc3d-0d37-46b0-8b34-a7232882fcfe
+  cipher: auto
+  alterId: 0
 - name: FREE-JP-au-78cb21
   type: ss
   server: 84.247.155.196
@@ -216,17 +216,10 @@ proxies:
   reality-opts:
     public-key: F6C33iIbfmt1mUsuLTarIC8ygdHKMqsaGvrSQltyxUo
     short-id: 429499c03d4cc8a0
-  client-fingerprint: random
   tls: true
+  client-fingerprint: random
   uuid: a2de9567-9646-45a9-a410-7303a43bdb6c
   servername: www.cloudflare.com
-- name: FREE-US-au-793a62
-  type: vmess
-  server: 38.91.107.49
-  port: 18000
-  alterId: 0
-  cipher: auto
-  uuid: f8c8dc3d-0d37-46b0-8b34-a7232882fcfe
 - name: FREE-KR-au-88d4b1
   type: ss
   server: 211.178.105.134
@@ -287,12 +280,17 @@ proxies:
   port: 443
   password: 0ab6c98dae3b48e8b9c4a776b6c9c19a
   sni: connectwithemployerstohireyouridealteam.com
-- name: FREE-US-au-c00eac
-  type: trojan
-  server: 66.163.114.45
-  port: 443
-  password: 0ab6c98dae3b48e8b9c4a776b6c9c19a
-  sni: cdn.findconnectwithemployersandbuildprofessionalnetwork.com
+- name: FREE-SG-au-572f40
+  type: vless
+  server: 45.132.75.213
+  port: 2053
+  reality-opts:
+    public-key: TpWeZocgNOygOhMo0l7oJawPu7STkn9D-SOa0UppcyY
+    short-id: cd7e85995ae2afc9
+  tls: true
+  client-fingerprint: firefox
+  uuid: f46182d1-e13b-47d3-97e2-fa5426a93e7c
+  servername: www.cloudflare.com
 - name: FREE-SG-au-1eb418
   type: vless
   server: 511.150333.xyz
@@ -300,8 +298,8 @@ proxies:
   reality-opts:
     public-key: HZwHZBP3x4Yo4UQiHcypRJIU_UdZY5OAapQM8RUqVAU
     short-id: bab49aa4c2a88d27
-  client-fingerprint: chrome
   tls: true
+  client-fingerprint: chrome
   uuid: 41b1c169-5905-4d98-b6a6-56896c25737c
   servername: www.cloudflare.com
 - name: FREE-SG-au-a9d553
@@ -311,8 +309,8 @@ proxies:
   reality-opts:
     public-key: HZwHZBP3x4Yo4UQiHcypRJIU_UdZY5OAapQM8RUqVAU
     short-id: 3ab8d93dd9b1a5be
-  client-fingerprint: chrome
   tls: true
+  client-fingerprint: chrome
   uuid: 41b1c169-5905-4d98-b6a6-56896c25737c
   servername: www.cloudflare.com
 - name: FREE-SG-au-42a757
@@ -322,8 +320,8 @@ proxies:
   reality-opts:
     public-key: HZwHZBP3x4Yo4UQiHcypRJIU_UdZY5OAapQM8RUqVAU
     short-id: ab39fc68ab3dee81
-  client-fingerprint: chrome
   tls: true
+  client-fingerprint: chrome
   uuid: 41b1c169-5905-4d98-b6a6-56896c25737c
   servername: www.cloudflare.com
 - name: FREE-SG-au-01e664
@@ -333,8 +331,8 @@ proxies:
   reality-opts:
     public-key: IRaSB0ImgMO7fsrIbh9i3Pz-bgo5F1jKeC51Fpfs9AA
     short-id: 4e0418d648f86141
-  client-fingerprint: random
   tls: true
+  client-fingerprint: random
   uuid: 67952583-8572-42e1-943d-0602794f885b
   servername: www.cloudflare.com
 - name: FREE-SG-au-8c4448
@@ -344,8 +342,8 @@ proxies:
   reality-opts:
     public-key: HZwHZBP3x4Yo4UQiHcypRJIU_UdZY5OAapQM8RUqVAU
     short-id: 2df2bd9d8366cef1
-  client-fingerprint: chrome
   tls: true
+  client-fingerprint: chrome
   uuid: 41b1c169-5905-4d98-b6a6-56896c25737c
   servername: www.cloudflare.com
 - name: FREE-SG-au-d1a9cf
@@ -355,8 +353,8 @@ proxies:
   reality-opts:
     public-key: HZwHZBP3x4Yo4UQiHcypRJIU_UdZY5OAapQM8RUqVAU
     short-id: 2df2bd9d8366cef1
-  client-fingerprint: chrome
   tls: true
+  client-fingerprint: chrome
   uuid: 41b1c169-5905-4d98-b6a6-56896c25737c
   servername: www.cloudflare.com
 - name: FREE-DE-au-973c49
@@ -366,9 +364,9 @@ proxies:
   reality-opts:
     public-key: e2RLf57Li_-MDZGE9ss1BWPgP54mqRb5PfXhW2jcVVg
     short-id: c39cc7310a
-  client-fingerprint: chrome
   flow: xtls-rprx-vision
   tls: true
+  client-fingerprint: chrome
   uuid: d65cc14c-f53f-4fe2-b262-97856601319c
   servername: yahoo.com
 - name: FREE-DE-au-1a45c8
@@ -378,32 +376,32 @@ proxies:
   reality-opts:
     public-key: e2RLf57Li_-MDZGE9ss1BWPgP54mqRb5PfXhW2jcVVg
     short-id: c39cc7310a
-  client-fingerprint: random
   flow: xtls-rprx-vision
   tls: true
+  client-fingerprint: random
   uuid: d65cc14c-f53f-4fe2-b262-97856601319c
   servername: yahoo.com
 - name: FREE-CA-au-ada29c
   type: vmess
   server: 23.162.200.198
   port: 18000
-  alterId: 0
-  cipher: auto
   uuid: f8c8dc3d-0d37-46b0-8b34-a7232882fcfe
+  cipher: auto
+  alterId: 0
 - name: FREE-US-au-50e82b
   type: vmess
   server: 67.220.85.46
   port: 18000
-  alterId: 0
-  cipher: auto
   uuid: f8c8dc3d-0d37-46b0-8b34-a7232882fcfe
+  cipher: auto
+  alterId: 0
 - name: FREE-US-au-d78f3b
   type: vmess
   server: 38.110.1.246
   port: 18000
-  alterId: 0
-  cipher: auto
   uuid: f8c8dc3d-0d37-46b0-8b34-a7232882fcfe
+  cipher: auto
+  alterId: 0
 - name: FREE-SG-au-3168f5
   type: ss
   server: 68.183.235.122
@@ -452,12 +450,6 @@ proxies:
   port: 443
   password: oZIoA69Q8yhcQV8ka3Pa3A
   cipher: chacha20-ietf-poly1305
-- name: FREE-US-au-d82b83
-  type: trojan
-  server: 167.88.61.175
-  port: 443
-  password: 0ab6c98dae3b48e8b9c4a776b6c9c19a
-  sni: blog.browseseniorrolesandenhanceyourcareertoday.com
 - name: FREE-US-au-2a2679
   type: vless
   server: 15.204.97.214
@@ -465,9 +457,9 @@ proxies:
   reality-opts:
     public-key: 1y5h2FGWKXTJ9xLPCqPo6Mw7RxoZzh6fGkEQKNxpZ3s
     short-id: '01'
-  client-fingerprint: chrome
   flow: xtls-rprx-vision
   tls: true
+  client-fingerprint: chrome
   uuid: 48ff2b70-e180-582f-8866-d9a2edeed5f5
   servername: fuck.rkn
 - name: FREE-US-au-1b2d76
@@ -477,9 +469,9 @@ proxies:
   reality-opts:
     public-key: 1y5h2FGWKXTJ9xLPCqPo6Mw7RxoZzh6fGkEQKNxpZ3s
     short-id: '01'
-  client-fingerprint: chrome
   flow: xtls-rprx-vision
   tls: true
+  client-fingerprint: chrome
   uuid: 48ff2b70-e180-582f-8866-d9a2edeed5f5
   servername: fuck.rkn
 - name: FREE-US-au-52b9b9
@@ -487,6 +479,18 @@ proxies:
   server: 45.138.100.248
   port: 10443
   uuid: ae908ff5-f749-402c-af25-e6e9aef4d6bb
+- name: FREE-CY-au-3885c9
+  type: vless
+  server: 5.253.42.164
+  port: 40443
+  reality-opts:
+    public-key: g77ZJbm18JEotapmVRjaXi133MzkbhkU2lxhVeXx8zw
+    short-id: 68a8
+  flow: xtls-rprx-vision
+  tls: true
+  client-fingerprint: chrome
+  uuid: e99ba96d-dec8-42eb-be53-19e71eef7cab
+  servername: deepl.com
 - name: FREE-SG-au-df3d13
   type: vless
   server: 510.150333.xyz
@@ -494,8 +498,8 @@ proxies:
   reality-opts:
     public-key: IRaSB0ImgMO7fsrIbh9i3Pz-bgo5F1jKeC51Fpfs9AA
     short-id: d9a6b52e98121db2
-  client-fingerprint: chrome
   tls: true
+  client-fingerprint: chrome
   uuid: 67952583-8572-42e1-943d-0602794f885b
   servername: www.cloudflare.com
 - name: FREE-DE-au-38aa75
@@ -505,9 +509,9 @@ proxies:
   reality-opts:
     public-key: e2RLf57Li_-MDZGE9ss1BWPgP54mqRb5PfXhW2jcVVg
     short-id: c39cc7310a
-  client-fingerprint: chrome
   flow: xtls-rprx-vision
   tls: true
+  client-fingerprint: chrome
   uuid: d65cc14c-f53f-4fe2-b262-97856601319c
   servername: yahoo.com
 - name: FREE-SG-au-6659be
@@ -517,8 +521,8 @@ proxies:
   reality-opts:
     public-key: IRaSB0ImgMO7fsrIbh9i3Pz-bgo5F1jKeC51Fpfs9AA
     short-id: f3602a3a1cf928b7
-  client-fingerprint: random
   tls: true
+  client-fingerprint: random
   uuid: 67952583-8572-42e1-943d-0602794f885b
   servername: www.cloudflare.com
 - name: FREE-DE-au-b19cdb
@@ -528,9 +532,9 @@ proxies:
   reality-opts:
     public-key: e2RLf57Li_-MDZGE9ss1BWPgP54mqRb5PfXhW2jcVVg
     short-id: c39cc7310a
-  client-fingerprint: chrome
   flow: xtls-rprx-vision
   tls: true
+  client-fingerprint: chrome
   uuid: d65cc14c-f53f-4fe2-b262-97856601319c
   servername: yahoo.com
 - name: FREE-DE-au-c9df1c
@@ -540,9 +544,9 @@ proxies:
   reality-opts:
     public-key: e2RLf57Li_-MDZGE9ss1BWPgP54mqRb5PfXhW2jcVVg
     short-id: c39cc7310a
-  client-fingerprint: ios
   flow: xtls-rprx-vision
   tls: true
+  client-fingerprint: ios
   uuid: d65cc14c-f53f-4fe2-b262-97856601319c
   servername: yahoo.com
 - name: FREE-DE-au-359901
@@ -552,9 +556,9 @@ proxies:
   reality-opts:
     public-key: e2RLf57Li_-MDZGE9ss1BWPgP54mqRb5PfXhW2jcVVg
     short-id: c39cc7310a
-  client-fingerprint: firefox
   flow: xtls-rprx-vision
   tls: true
+  client-fingerprint: firefox
   uuid: d65cc14c-f53f-4fe2-b262-97856601319c
   servername: yahoo.com
 - name: FREE-US-au-1a563e
@@ -564,9 +568,9 @@ proxies:
   reality-opts:
     public-key: ALT8hIGeZEhi0sQFbXP_ntBg8Xo-v7i0YCLrqTnBxRk
     short-id: 0990d22f
-  client-fingerprint: chrome
   flow: xtls-rprx-vision
   tls: true
+  client-fingerprint: chrome
   uuid: 00144519-7e0d-476b-8d28-435576af9262
   servername: www.cloudflare.com
 - name: FREE-US-au-590392
@@ -576,9 +580,9 @@ proxies:
   reality-opts:
     public-key: ZJRnFU-1s1JOnO8E9uZ7b00l1fPEh63fGRbdBANFRno
     short-id: ''
-  client-fingerprint: firefox
   flow: xtls-rprx-vision
   tls: true
+  client-fingerprint: firefox
   uuid: 14c80e0e-f7ce-4991-94fc-99a1db4a9b1e
   servername: aws.amazon.com
 - name: FREE-CA-au-268825
@@ -588,8 +592,8 @@ proxies:
   reality-opts:
     public-key: k4l6TxwkBbx9DhZAFpByq5rfCWFSgyOex3f_eFe9CWU
     short-id: 83f8317a948bb769
-  client-fingerprint: firefox
   tls: true
+  client-fingerprint: firefox
   uuid: dc620cd6-a9d8-4a0f-8f18-006b895db77e
   servername: www.cloudflare.com
 - name: FREE-IL-au-3aa6b3
@@ -599,9 +603,9 @@ proxies:
   reality-opts:
     public-key: 8eXftARun6KH38UZhuqIfPR1VF2DLS9RMBZEnF5k6To
     short-id: a3a578ab
-  client-fingerprint: chrome
   flow: xtls-rprx-vision
   tls: true
+  client-fingerprint: chrome
   uuid: 1f8cf47a-b66a-4916-979f-26edfcf44eea
   servername: www.apple.com
 - name: FREE-DE-au-76ce3f
@@ -611,9 +615,9 @@ proxies:
   reality-opts:
     public-key: e2RLf57Li_-MDZGE9ss1BWPgP54mqRb5PfXhW2jcVVg
     short-id: c39cc7310a
-  client-fingerprint: chrome
   flow: xtls-rprx-vision
   tls: true
+  client-fingerprint: chrome
   uuid: d65cc14c-f53f-4fe2-b262-97856601319c
   servername: yahoo.com
 - name: FREE-DE-au-aa84c9
@@ -623,9 +627,9 @@ proxies:
   reality-opts:
     public-key: e2RLf57Li_-MDZGE9ss1BWPgP54mqRb5PfXhW2jcVVg
     short-id: c39cc7310a
-  client-fingerprint: ios
   flow: xtls-rprx-vision
   tls: true
+  client-fingerprint: ios
   uuid: d65cc14c-f53f-4fe2-b262-97856601319c
   servername: yahoo.com
 - name: FREE-SG-au-bd8bb2
@@ -658,6 +662,12 @@ proxies:
   port: 8080
   password: k1dBOmOB4oqi7Ump37a1bQ
   cipher: chacha20-ietf-poly1305
+- name: FREE-GB-au-bb7bb5
+  type: ss
+  server: 82.38.31.176
+  port: 8080
+  password: k1dBOmOB4oqi7Ump37a1bQ
+  cipher: chacha20-ietf-poly1305
 - name: FREE-GB-au-876523
   type: ss
   server: 98.98.207.163
@@ -670,12 +680,6 @@ proxies:
   port: 8080
   password: 14fFPrbezE3HDZzsMOr6
   cipher: rc4-md5
-- name: FREE-US-au-a27e6a
-  type: trojan
-  server: 167.88.61.198
-  port: 443
-  password: 0ab6c98dae3b48e8b9c4a776b6c9c19a
-  sni: cdn.browseseniorrolesandenhanceyourcareertoday.com
 - name: FREE-US-au-915d05
   type: trojan
   server: 167.88.61.20
@@ -688,12 +692,6 @@ proxies:
   port: 443
   password: 0ab6c98dae3b48e8b9c4a776b6c9c19a
   sni: browseseniorrolesandenhanceyourcareertoday.com
-- name: FREE-CA-au-baa780
-  type: trojan
-  server: 216.152.147.48
-  port: 443
-  password: 0ab6c98dae3b48e8b9c4a776b6c9c19a
-  sni: courses.connectingpeoplewithgreatjobs.com
 - name: FREE-US-au-a6d03f
   type: vless
   server: 15.204.97.219
@@ -701,9 +699,9 @@ proxies:
   reality-opts:
     public-key: 1y5h2FGWKXTJ9xLPCqPo6Mw7RxoZzh6fGkEQKNxpZ3s
     short-id: '01'
-  client-fingerprint: chrome
   flow: xtls-rprx-vision
   tls: true
+  client-fingerprint: chrome
   uuid: 48ff2b70-e180-582f-8866-d9a2edeed5f5
   servername: fuck.rkn
 - name: FREE-SG-au-45adc9
@@ -713,9 +711,21 @@ proxies:
   reality-opts:
     public-key: IRaSB0ImgMO7fsrIbh9i3Pz-bgo5F1jKeC51Fpfs9AA
     short-id: a51c3ccb2320024a
-  client-fingerprint: chrome
   tls: true
+  client-fingerprint: chrome
   uuid: 67952583-8572-42e1-943d-0602794f885b
+  servername: www.cloudflare.com
+- name: FREE-US-au-b88cbb
+  type: vless
+  server: 195.123.240.65
+  port: 443
+  reality-opts:
+    public-key: StPbcmBuzpuYUfa4oZ5SI3Bq1OSF_-oU1vp2AcyvQVE
+    short-id: 19296c9f1bf9c7b1
+  flow: xtls-rprx-vision
+  tls: true
+  client-fingerprint: chrome
+  uuid: ce18d0eb-5c71-41f9-96e5-1632e22456e4
   servername: www.cloudflare.com
 - name: FREE-DE-au-09ce5a
   type: vless
@@ -724,11 +734,23 @@ proxies:
   reality-opts:
     public-key: e2RLf57Li_-MDZGE9ss1BWPgP54mqRb5PfXhW2jcVVg
     short-id: c39cc7310a
-  client-fingerprint: chrome
   flow: xtls-rprx-vision
   tls: true
+  client-fingerprint: chrome
   uuid: d65cc14c-f53f-4fe2-b262-97856601319c
   servername: yahoo.com
+- name: FREE-US-au-c8d90e
+  type: vless
+  server: 195.211.98.43
+  port: 443
+  reality-opts:
+    public-key: xPnpkXu5qfwIArlHKvJsqKJnGdGbJK1tT2GzWMyLohA
+    short-id: 9c56fddf237e8eaf
+  flow: xtls-rprx-vision
+  tls: true
+  client-fingerprint: chrome
+  uuid: 1b4b11d5-4c2d-4533-9a55-636757cdee94
+  servername: www.cloudflare.com
 - name: FREE-CA-au-099b7e
   type: vless
   server: 209.200.246.148
@@ -736,9 +758,9 @@ proxies:
   reality-opts:
     public-key: uTmb-ytXsx8p0fkBz7A76SHpWk7_oVutIA4LGTE8BQk
     short-id: f98843107912e782
-  client-fingerprint: firefox
   flow: xtls-rprx-vision
   tls: true
+  client-fingerprint: firefox
   uuid: ca52e2b6-fb9f-4dac-b6dc-49da9923f251
   servername: www.cloudflare.com
 - name: FREE-IN-au-3fda79
@@ -748,17 +770,17 @@ proxies:
   reality-opts:
     public-key: 3LbVuwKpQv55GngyRhvGl9KyAHIDAgvJx_VRM5mUD2Q
     short-id: 6bdc8320
-  client-fingerprint: firefox
   tls: true
+  client-fingerprint: firefox
   uuid: 6bdc8320-7eae-46fc-be08-f5f54e65dfc8
   servername: www.cloudflare.com
-- name: FREE-US-au-714fc4
+- name: FREE-KR-au-97644b
   type: vmess
-  server: 67.220.95.3
-  port: 18000
-  alterId: 0
+  server: 140.238.2.250
+  port: 443
+  uuid: 41a7089a-040b-4538-8b8d-010902405bde
   cipher: auto
-  uuid: f8c8dc3d-0d37-46b0-8b34-a7232882fcfe
+  alterId: 0
 - name: FREE-US-au-10380c
   type: ss
   server: 138.199.43.159
@@ -795,17 +817,6 @@ proxies:
   port: 8080
   password: 14fFPrbezE3HDZzsMOr6
   cipher: rc4-md5
-- name: FREE-US-au-48a795
-  type: trojan
-  server: resources.findlocaljobnetworkandbuildcommunityconnections.com
-  port: 443
-  password: f0eb8c92ce8946aaba856569cff1a16b
-- name: FREE-US-au-a9aa40
-  type: trojan
-  server: 66.163.114.245
-  port: 443
-  password: 0ab6c98dae3b48e8b9c4a776b6c9c19a
-  sni: findconnectwithemployersandbuildprofessionalnetwork.com
 - name: FREE-US-au-702d08
   type: trojan
   server: 66.163.114.166
@@ -818,17 +829,6 @@ proxies:
   port: 443
   password: 0ab6c98dae3b48e8b9c4a776b6c9c19a
   sni: api.unlockyourfuturefindyourperfectcareer.com
-- name: FREE-US-au-8e4f1a
-  type: trojan
-  server: 66.163.114.106
-  port: 443
-  password: 0ab6c98dae3b48e8b9c4a776b6c9c19a
-  sni: www.findconnectwithemployersandbuildprofessionalnetwork.com
-- name: FREE-US-au-7e11b4
-  type: trojan
-  server: www.findlocaljobnetworkandbuildcommunityconnections.com
-  port: 443
-  password: 242a3d8eee5e4ed1a6bfa4141d549a25
 - name: FREE-US-au-0a1d69
   type: trojan
   server: 216.152.156.49
@@ -841,24 +841,6 @@ proxies:
   port: 443
   password: 0ab6c98dae3b48e8b9c4a776b6c9c19a
   sni: resources.findconnectwithemployersandbuildprofessionalnetwork.com
-- name: FREE-US-au-c3f311
-  type: trojan
-  server: 216.152.155.59
-  port: 443
-  password: 0ab6c98dae3b48e8b9c4a776b6c9c19a
-  sni: api.nextjobopportunityandclaimyouridealrole.com
-- name: FREE-US-au-d30e2e
-  type: trojan
-  server: 170.101.101.67
-  port: 443
-  password: 0ab6c98dae3b48e8b9c4a776b6c9c19a
-  sni: courses.explorecreativejobsandenhanceyourcareerportfolio.com
-- name: FREE-US-au-652b48
-  type: trojan
-  server: 170.101.101.19
-  port: 443
-  password: 0ab6c98dae3b48e8b9c4a776b6c9c19a
-  sni: learn.explorecreativejobsandenhanceyourcareerportfolio.com
 - name: FREE-MX-au-0c2cbe
   type: trojan
   server: mx001.zestapp778.com
@@ -878,9 +860,9 @@ proxies:
   reality-opts:
     public-key: SmgYcFIvvFXW3xh4gvGhIJuQsaZvWkAylcjB6TEddEs
     short-id: 896f52ba2cfca903
-  client-fingerprint: safari
   flow: xtls-rprx-vision
   tls: true
+  client-fingerprint: safari
   uuid: 975fc322-6e38-434b-a53c-d39fed49b9a9
   servername: www.cloudflare.com
 - name: FREE-US-au-86c1c1
@@ -890,9 +872,9 @@ proxies:
   reality-opts:
     public-key: zpXR6Y36C8qUCIVk2p_j8C9KGeBk5xisLw66j3WFOls
     short-id: 9f1fc5a631ef3126
-  client-fingerprint: chrome
   flow: xtls-rprx-vision
   tls: true
+  client-fingerprint: chrome
   uuid: 719b9354-45e2-4718-8709-d965b64554db
   servername: www.cloudflare.com
 - name: FREE-CH-au-046e7a
@@ -902,8 +884,8 @@ proxies:
   reality-opts:
     public-key: A49ue7zXSusJZdErPAewg3jqGdUFIO1a9xOunEKJfC0
     short-id: ad86e2d52ff40ebd
-  client-fingerprint: firefox
   tls: true
+  client-fingerprint: firefox
   uuid: c0dd6d59-1573-43af-8b70-1470b2632a6d
   servername: www.apple.com
 - name: FREE-NL-au-9cacfe
@@ -913,9 +895,9 @@ proxies:
   reality-opts:
     public-key: PryGoq51ilG0eLUPl9i0xCvmk1xpwkyFSr_tG4GNLlU
     short-id: 1d86d17709852910
-  client-fingerprint: firefox
   flow: xtls-rprx-vision
   tls: true
+  client-fingerprint: firefox
   uuid: 44ae52b9-76fc-444d-8e43-186b4384b80a
   servername: www.apple.com
 - name: FREE-NL-au-168be0
@@ -925,9 +907,9 @@ proxies:
   reality-opts:
     public-key: PryGoq51ilG0eLUPl9i0xCvmk1xpwkyFSr_tG4GNLlU
     short-id: 1d86d17709852910
-  client-fingerprint: random
   flow: xtls-rprx-vision
   tls: true
+  client-fingerprint: random
   uuid: 44ae52b9-76fc-444d-8e43-186b4384b80a
   servername: www.apple.com
 - name: FREE-DE-au-04004d
@@ -937,9 +919,9 @@ proxies:
   reality-opts:
     public-key: SbVKOEMjK0sIlbwg4akyBg5mL5KZwwB-ed4eEE7YnRc
     short-id: ''
-  client-fingerprint: chrome
   flow: xtls-rprx-vision
   tls: true
+  client-fingerprint: chrome
   uuid: b9bfa54d-bc44-4592-a6d6-89a9665d286f
   servername: mother-earth.fyi
 - name: FREE-DE-au-fa73dc
@@ -949,9 +931,9 @@ proxies:
   reality-opts:
     public-key: SbVKOEMjK0sIlbwg4akyBg5mL5KZwwB-ed4eEE7YnRc
     short-id: ''
-  client-fingerprint: chrome
   flow: xtls-rprx-vision
   tls: true
+  client-fingerprint: chrome
   uuid: b9bfa54d-bc44-4592-a6d6-89a9665d286f
   servername: mother-earth.fyi
 - name: FREE-FR-au-dd2e33
@@ -961,8 +943,8 @@ proxies:
   reality-opts:
     public-key: g63cT3uI0Y5iUtj3m__RYz7nmR1eIK4AYikdnZCl63w
     short-id: bfe58beb41f1d09f
-  client-fingerprint: firefox
   tls: true
+  client-fingerprint: firefox
   uuid: bf16ee0c-8b3c-41e4-ab3a-8b48033c404e
   servername: www.apple.com
 - name: FREE-ES-au-c13362
@@ -972,8 +954,8 @@ proxies:
   reality-opts:
     public-key: 7Y6Xb5Ql_03K25x8yKUSOKI2JTOMyv2nyCcFza90uxk
     short-id: 29e8dcd2b37aaa7f
-  client-fingerprint: chrome
   tls: true
+  client-fingerprint: chrome
   uuid: ead0dd61-d398-40ad-80d6-a0e1e516d7d3
   servername: www.apple.com
 - name: FREE-GB-au-f244bd
@@ -983,17 +965,10 @@ proxies:
   reality-opts:
     public-key: xPEBx4wUmwAAv4ikUALNBf5wH6TRhyeQ0Q2pcNELsV0
     short-id: d051f678212f9d54
-  client-fingerprint: random
   tls: true
+  client-fingerprint: random
   uuid: 8e790f25-1d71-4601-9fb0-d503931dcfca
   servername: www.apple.com
-- name: FREE-US-au-cb75bf
-  type: vmess
-  server: 67.220.95.3
-  port: 18000
-  alterId: 0
-  cipher: none
-  uuid: f8c8dc3d-0d37-46b0-8b34-a7232882fcfe
 - name: FREE-US-au-355650
   type: hysteria2
   server: 155.248.209.237
@@ -1036,54 +1011,18 @@ proxies:
   port: 443
   password: 0ab6c98dae3b48e8b9c4a776b6c9c19a
   sni: cdn.unlockyourfuturefindyourperfectcareer.com
-- name: FREE-US-au-498de6
-  type: trojan
-  server: 66.163.112.242
-  port: 443
-  password: 0ab6c98dae3b48e8b9c4a776b6c9c19a
-  sni: resources.unlockyourfuturefindyourperfectcareer.com
-- name: FREE-US-au-42e8a7
-  type: trojan
-  server: 66.163.112.31
-  port: 443
-  password: 0ab6c98dae3b48e8b9c4a776b6c9c19a
-  sni: unlockyourfuturefindyourperfectcareer.com
-- name: FREE-US-au-5dcba6
-  type: trojan
-  server: 66.163.114.132
-  port: 443
-  password: 0ab6c98dae3b48e8b9c4a776b6c9c19a
-  sni: courses.findconnectwithemployersandbuildprofessionalnetwork.com
 - name: FREE-US-au-f6fd97
   type: trojan
   server: 167.88.61.85
   port: 443
   password: 0ab6c98dae3b48e8b9c4a776b6c9c19a
   sni: resources.browseseniorrolesandenhanceyourcareertoday.com
-- name: FREE-US-au-745f50
-  type: trojan
-  server: 216.152.155.23
-  port: 443
-  password: 0ab6c98dae3b48e8b9c4a776b6c9c19a
-  sni: courses.nextjobopportunityandclaimyouridealrole.com
 - name: FREE-US-au-415caf
   type: trojan
   server: 66.163.114.114
   port: 443
   password: 0ab6c98dae3b48e8b9c4a776b6c9c19a
   sni: learn.findconnectwithemployersandbuildprofessionalnetwork.com
-- name: FREE-US-au-66f093
-  type: trojan
-  server: 169.197.140.169
-  port: 443
-  password: 0ab6c98dae3b48e8b9c4a776b6c9c19a
-  sni: api.discoverfreshgraduatejobsstartyourprofessionaljourney.com
-- name: FREE-US-au-873300
-  type: trojan
-  server: 169.197.140.245
-  port: 443
-  password: 0ab6c98dae3b48e8b9c4a776b6c9c19a
-  sni: www.discoverfreshgraduatejobsstartyourprofessionaljourney.com
 - name: FREE-US-au-404022
   type: trojan
   server: 169.197.140.218
@@ -1097,8 +1036,8 @@ proxies:
   reality-opts:
     public-key: hieuCHb3HYdDYHmTDyWw2SGqyfo36AVuA-wSiZMdU1M
     short-id: 9922313fffed1c63
-  client-fingerprint: chrome
   tls: true
+  client-fingerprint: chrome
   uuid: b4caaf57-ad77-4948-a6f5-51b3513799bf
   servername: www.apple.com
 - name: FREE-SG-au-715a81
@@ -1108,9 +1047,9 @@ proxies:
   reality-opts:
     public-key: cwWhNuekusD1iPZZ--7G891dU9PCacxyCYwsZxOApHA
     short-id: b2efed6d157e7bb0
-  client-fingerprint: chrome
   flow: xtls-rprx-vision
   tls: true
+  client-fingerprint: chrome
   uuid: ca678d26-5435-4d13-b378-06c4c3b070ff
   servername: gateway.icloud.com
 - name: FREE-BY-au-581e63
@@ -1125,9 +1064,9 @@ proxies:
   reality-opts:
     public-key: vnjp7zIK2H3CGdjSis_79KXqS6IG-opmpbETPUD-EC8
     short-id: 15affa0af66dfc79
-  client-fingerprint: chrome
   flow: xtls-rprx-vision
   tls: true
+  client-fingerprint: chrome
   uuid: bc058e69-0444-4c7b-98da-bd67f0b143da
   servername: deepl.com
 - name: FREE-NL-au-5fa5a4
@@ -1137,9 +1076,9 @@ proxies:
   reality-opts:
     public-key: 1y5h2FGWKXTJ9xLPCqPo6Mw7RxoZzh6fGkEQKNxpZ3s
     short-id: '01'
-  client-fingerprint: chrome
   flow: xtls-rprx-vision
   tls: true
+  client-fingerprint: chrome
   uuid: 48ff2b70-e180-582f-8866-d9a2edeed5f5
   servername: fuck.rkn
 - name: FREE-NL-au-21c110
@@ -1149,15 +1088,15 @@ proxies:
   reality-opts:
     public-key: 1y5h2FGWKXTJ9xLPCqPo6Mw7RxoZzh6fGkEQKNxpZ3s
     short-id: '01'
-  client-fingerprint: chrome
   flow: xtls-rprx-vision
   tls: true
+  client-fingerprint: chrome
   uuid: 48ff2b70-e180-582f-8866-d9a2edeed5f5
   servername: fuck.rkn
 - name: FREE-US-au-804c8f
   type: vmess
   server: 84.17.41.2
   port: 18000
-  alterId: 0
-  cipher: none
   uuid: f8c8dc3d-0d37-46b0-8b34-a7232882fcfe
+  cipher: none
+  alterId: 0
