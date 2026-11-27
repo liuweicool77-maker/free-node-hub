@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-27T07:33:09Z",
+  "generated_at": "2026-11-27T13:29:02Z",
   "tool": "FreeNodeHub/1.0",
   "sources": [
     {
@@ -27,8 +27,8 @@
     "sanitized": 420,
     "duplicates_removed": 0,
     "after_cap": 420,
-    "probed_alive": 147,
-    "published": 147
+    "probed_alive": 146,
+    "published": 146
   },
   "rejected_reasons": {
     "tls_ip_without_sni": 37,
@@ -38,11 +38,11 @@
   },
   "by_region": {
     "JP": 3,
-    "SG": 13,
-    "US": 71,
+    "SG": 14,
+    "US": 68,
     "CA": 8,
     "IT": 5,
-    "GB": 19,
+    "GB": 20,
     "DE": 12,
     "ZA": 2,
     "KR": 3,
@@ -54,29 +54,29 @@
     "BY": 1
   },
   "by_protocol": {
-    "ss": 69,
-    "vmess": 14,
-    "vless": 35,
+    "ss": 70,
+    "vmess": 15,
+    "vless": 32,
     "trojan": 29
   },
   "probe": {
     "enabled": true,
     "tested": 420,
-    "alive": 147,
+    "alive": 146,
     "loaded_ratio": 1.0,
-    "median_delay_ms": 67,
+    "median_delay_ms": 117,
     "min_delay_ms": 12,
-    "max_delay_ms": 4712
+    "max_delay_ms": 1184
   },
   "gate": {
-    "previous_total": 148,
-    "threshold": 74,
+    "previous_total": 147,
+    "threshold": 73,
     "decision": "publish",
-    "reason": "节点数 147 ≥ 门槛 74"
+    "reason": "节点数 146 ≥ 门槛 73"
   },
   "validation": {
     "ok": true,
-    "message": "time=\"2026-11-27T07:33:10.738654220Z\" level=info msg=\"Start initial configuration in progress\"\ntime=\"2026-11-27T07:33:10.758637735Z\" level=info msg=\"Geodata Loader mode: memconservative\"\ntime=\"2026-11-27T07:33:10.758652597Z\" level=info msg=\"Geosite Matcher implementation: succinct\"\ntime=\"2026-11-27T07:33:10.758761592Z\" level=info msg=\"Initial configuration complete, total time: 20ms\"\nconfiguration file /tmp/fnh-val-ckvc84wk/validate.yaml test is successful"
+    "message": "time=\"2026-11-27T13:29:03.749903042Z\" level=info msg=\"Start initial configuration in progress\"\ntime=\"2026-11-27T13:29:03.766774037Z\" level=info msg=\"Geodata Loader mode: memconservative\"\ntime=\"2026-11-27T13:29:03.766808680Z\" level=info msg=\"Geosite Matcher implementation: succinct\"\ntime=\"2026-11-27T13:29:03.766961270Z\" level=info msg=\"Initial configuration complete, total time: 17ms\"\nconfiguration file /tmp/fnh-val-bhjdvqtw/validate.yaml test is successful"
   },
   "sources_excluded_by_license": [
     {
