@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-27T19:09:53Z",
+  "generated_at": "2026-11-28T01:28:17Z",
   "tool": "FreeNodeHub/1.0",
   "sources": [
     {
@@ -27,8 +27,8 @@
     "sanitized": 420,
     "duplicates_removed": 0,
     "after_cap": 420,
-    "probed_alive": 137,
-    "published": 137
+    "probed_alive": 151,
+    "published": 151
   },
   "rejected_reasons": {
     "tls_ip_without_sni": 37,
@@ -38,43 +38,45 @@
   },
   "by_region": {
     "JP": 3,
-    "SG": 13,
-    "US": 63,
-    "CA": 8,
+    "SG": 14,
+    "US": 72,
+    "CA": 9,
     "IT": 5,
-    "GB": 19,
+    "GB": 20,
     "DE": 12,
     "ZA": 2,
     "KR": 3,
     "UA": 1,
     "IL": 1,
     "NL": 6,
-    "CH": 1
+    "IN": 1,
+    "CH": 1,
+    "BY": 1
   },
   "by_protocol": {
-    "ss": 68,
-    "vmess": 10,
-    "vless": 30,
+    "ss": 70,
+    "vmess": 15,
+    "vless": 37,
     "trojan": 29
   },
   "probe": {
     "enabled": true,
     "tested": 420,
-    "alive": 137,
+    "alive": 151,
     "loaded_ratio": 1.0,
-    "median_delay_ms": 123,
-    "min_delay_ms": 24,
-    "max_delay_ms": 4052
+    "median_delay_ms": 87,
+    "min_delay_ms": 4,
+    "max_delay_ms": 950
   },
   "gate": {
-    "previous_total": 146,
-    "threshold": 73,
+    "previous_total": 137,
+    "threshold": 68,
     "decision": "publish",
-    "reason": "节点数 137 ≥ 门槛 73"
+    "reason": "节点数 151 ≥ 门槛 68"
   },
   "validation": {
     "ok": true,
-    "message": "time=\"2026-11-27T19:09:55.865891638Z\" level=info msg=\"Start initial configuration in progress\"\ntime=\"2026-11-27T19:09:55.887306745Z\" level=info msg=\"Geodata Loader mode: memconservative\"\ntime=\"2026-11-27T19:09:55.887335398Z\" level=info msg=\"Geosite Matcher implementation: succinct\"\ntime=\"2026-11-27T19:09:55.887461077Z\" level=info msg=\"Initial configuration complete, total time: 21ms\"\nconfiguration file /tmp/fnh-val-ckk7bcie/validate.yaml test is successful"
+    "message": "time=\"2026-11-28T01:28:19.666427002Z\" level=info msg=\"Start initial configuration in progress\"\ntime=\"2026-11-28T01:28:19.684373431Z\" level=info msg=\"Geodata Loader mode: memconservative\"\ntime=\"2026-11-28T01:28:19.684398620Z\" level=info msg=\"Geosite Matcher implementation: succinct\"\ntime=\"2026-11-28T01:28:19.684536737Z\" level=info msg=\"Initial configuration complete, total time: 18ms\"\nconfiguration file /tmp/fnh-val-u85bmv2_/validate.yaml test is successful"
   },
   "sources_excluded_by_license": [
     {
