@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-28T07:27:42Z",
+  "generated_at": "2026-11-28T13:12:00Z",
   "tool": "FreeNodeHub/1.0",
   "sources": [
     {
@@ -27,8 +27,8 @@
     "sanitized": 420,
     "duplicates_removed": 0,
     "after_cap": 420,
-    "probed_alive": 146,
-    "published": 146
+    "probed_alive": 148,
+    "published": 148
   },
   "rejected_reasons": {
     "tls_ip_without_sni": 37,
@@ -39,7 +39,7 @@
   "by_region": {
     "JP": 3,
     "SG": 13,
-    "US": 68,
+    "US": 70,
     "CA": 9,
     "IT": 5,
     "GB": 20,
@@ -55,28 +55,28 @@
   },
   "by_protocol": {
     "ss": 70,
-    "vmess": 14,
-    "vless": 33,
+    "vmess": 15,
+    "vless": 34,
     "trojan": 29
   },
   "probe": {
     "enabled": true,
     "tested": 420,
-    "alive": 146,
+    "alive": 148,
     "loaded_ratio": 1.0,
-    "median_delay_ms": 115,
-    "min_delay_ms": 12,
-    "max_delay_ms": 406
+    "median_delay_ms": 89,
+    "min_delay_ms": 7,
+    "max_delay_ms": 488
   },
   "gate": {
-    "previous_total": 151,
-    "threshold": 75,
+    "previous_total": 146,
+    "threshold": 73,
     "decision": "publish",
-    "reason": "节点数 146 ≥ 门槛 75"
+    "reason": "节点数 148 ≥ 门槛 73"
   },
   "validation": {
     "ok": true,
-    "message": "time=\"2026-11-28T07:27:48.466953380Z\" level=info msg=\"Start initial configuration in progress\"\ntime=\"2026-11-28T07:27:48.482577188Z\" level=info msg=\"Geodata Loader mode: memconservative\"\ntime=\"2026-11-28T07:27:48.482602946Z\" level=info msg=\"Geosite Matcher implementation: succinct\"\ntime=\"2026-11-28T07:27:48.482724507Z\" level=info msg=\"Initial configuration complete, total time: 15ms\"\nconfiguration file /tmp/fnh-val-qhzrgnpk/validate.yaml test is successful"
+    "message": "time=\"2026-11-28T13:12:02.283785706Z\" level=info msg=\"Start initial configuration in progress\"\ntime=\"2026-11-28T13:12:02.301331855Z\" level=info msg=\"Geodata Loader mode: memconservative\"\ntime=\"2026-11-28T13:12:02.301350686Z\" level=info msg=\"Geosite Matcher implementation: succinct\"\ntime=\"2026-11-28T13:12:02.301432513Z\" level=info msg=\"Initial configuration complete, total time: 17ms\"\nconfiguration file /tmp/fnh-val-rzbwkqpz/validate.yaml test is successful"
   },
   "sources_excluded_by_license": [
     {
